@@ -1,3 +1,4 @@
+const { set } = require('express/lib/response');
 const { Model, DataTypes, UUIDV4 } = require('sequelize');
 const sequelize = require('../config');
 
@@ -14,25 +15,27 @@ Information.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-    // Contact Name + number?
-        // contactName: {
-        //     type: DataTypes.STRING,
-
-        // },
-        // contactNumber: {
-        //     type: DataTypes.INTEGER,
-        //     validate: {
-        //         len: [7],
-        //         isNumeric: true, 
-        //     },
-        // },
+        contact: {
+            contactName: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            contactNumber: {
+                type: DataTypes.INTEGER,
+                validate: {
+                    len: [7],
+                    isNumeric: true, 
+                },
+            },
+            set(val) {
+                this.setDataValue("contact", JSON.stringify(val ?? ""));
+            },
+        },
         medical: {
             type: DataTypes.STRING,
-
         },
         list: {
             type: DataTypes.STRING,
-
         },
         groupId: {
             type: DataTypes.UUID,

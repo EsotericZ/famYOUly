@@ -4,9 +4,28 @@ const {
 } = require('../models');
 
 module.exports = {
-    createInformation: (req, res) => {
-        
-    },
+    createInformation: async (req, res) => {
+        const {
+			childId,
+			contact,
+			medical,
+			list,
+			groupId,
+		} = req.body;
+		try {
+			const information = await Information.create({
+				childId,
+				contact,
+				medical,
+				list,
+				groupId,
+			});
+			res.json(information);
+		} catch (e) {
+			res.json(e);
+		}
+	},
+
 
 	renderInformation: (req, res) => {
 		if (!req.session.loggedIn) {
