@@ -13,28 +13,100 @@
   </div>
 </nav>
 
+
 <h3>Welcome {{user.firstName}}</h3>
 <h3>You're Part of the {{user.familyName}} FamYOUly</h3>
 
-<div class="card" style="width: 18rem;">
-  <div class="card-header">
-    To Do's
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5 m-1">
+            <div class="card col-12">
+                <div class="card-header col-12">
+                Upcoming Events
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">2/14/22 at 2 PM Ellie Soccer Game @ Central Elementary School</li>
+                    <li class="list-group-item">2/20/22 at 9 AM Jordan Dr. Apt @ Children Family Med - Central </li>
+                    <li class="list-group-item">2/28/22 at 6 PM Birthday Party @ Beyonce's House </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-5 m-1">
+            <button type="button" class="col-7 btn btn-secondary btn-lg m-2">Add to Schedule</button>
+            <button type="button" class="col-7 btn btn-secondary btn-lg m-2">Submit a request</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5 m-1">
+            <div class="card">
+                <div class="card-header">
+                    To Do's
+                </div>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> 
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Item One
+                                </label>
+                    </li>
+                    <li class="list-group-item"> 
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Item Two
+                                </label>
+                    </li>
+                    <li class="list-group-item"> 
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Item Three
+                                </label>           
+                    </li>
+                    <li class="list-group-item"> 
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Item Three
+                                </label>           
+                    </li>                    
+                </ul>
+            </div>
+        </div> 
+
+        <div class="col-lg-3">
+            <div class="card">
+                <img src="public\images\Placeholder_Image.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Kid Name</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Nick name:</li>
+                    <li class="list-group-item">Pronouns:</li>
+                    <li class="list-group-item">Age:</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="card">
+                <img src="public\images\Placeholder_Image.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Kid Name</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Nick name:</li>
+                    <li class="list-group-item">Pronouns:</li>
+                    <li class="list-group-item">Age:</li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
 </div>
 
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
-  <div class="col">
-    <div class="card">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Kid Name</h5>
-        <p class="card-text">Age: </p>
-      </div>
-    </div>
-  </div>
+
