@@ -4,15 +4,18 @@ const {
 
 module.exports = {
 	createUser: async (req, res) => {
-		const { username, email, password } = req.body;
-		if (!username || !email || !password ) {
+		const { firstName, lastName, email, password, role } = req.body;
+		if (!firstName || !lastName || !email || !password || !role) {
 			return res.status(400).json({ error: 'You must provide a username, email, and password'});
 		}
 		try {
 			const user = await User.create({
-				username,
+				firstName,
+				lastName,
 				email,
 				password,
+				role,
+				groupId,
 			});
 			res.json(user);
 		} catch (e) {
@@ -62,12 +65,15 @@ module.exports = {
 	},
 
 	signupHandler: async (req, res) => {
-		const { email, username, password } = req.body;
+		const { firstName, lastName, email, password, role, groupId } = req.body;
 		try {
 			const createdUser = await User.create({
+				firstName,
+				lastName,
 				email,
-				username,
 				password,
+				role,
+				groupId,
 			});
 			const user = createdUser.get({ plain: true });
 			req.session.save(() => {

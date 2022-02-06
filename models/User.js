@@ -10,7 +10,11 @@ User.init(
 			defaultValue: UUIDV4,
 			primaryKey: true,
 		},
-		username: {
+		firstName: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		lastName: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
@@ -28,7 +32,18 @@ User.init(
 			validate: {
 				len: [6]
 			}
-		}
+		},
+		role : {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		familyName: {
+			type: DataTypes.STRING,
+			references: {
+				model: 'family',
+				key: 'familyName',
+			}
+		},
 	},
 	{
 		sequelize,
