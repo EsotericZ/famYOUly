@@ -99,4 +99,17 @@ module.exports = {
 			res.send({ status: true });
 		});
 	},
+
+	renderHome: (req, res) => {
+		if (!req.session.loggedIn) {
+			return res.redirect('/login');
+		}
+		try {
+			res.render('homepage', {
+				user: req.session.user,
+			});
+		} catch (e) {
+			res.json(e);
+		}
+	},
 }
