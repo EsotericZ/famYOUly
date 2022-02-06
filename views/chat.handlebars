@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/homepage">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/dashboard">Schedule</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" id="logout">Chat</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" id="logout">Information</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+    <ul id="messages"></ul>
+    <form action="/" method="POST" id="chatForm">
+      <input id="txt" autocomplete="off" autofocus="on" placeholder="type your message here..." /><button>Send</button>
+    </form>
+
+
+
+{{!-- <div class="posts">
+  {{#each allPosts as |post| }}
+  <div class="card">
+    <div class="card-header flex-row justify-space=between">
+      <h2>{{post.title}}</h2>
+      <h5>{{User.username}}</h5>
+    </div>
+    <div class="card-body">
+      {{post.body}}
+    </div> 
+    <div>
+      <a href="/newcomment">
+        <button type="button" class="btn btn-dark">Submit</button>
+      </a>
+    </div>        
+  </div>
+  {{/each}}
+</div> --}}
