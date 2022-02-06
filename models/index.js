@@ -1,5 +1,6 @@
 const Family = require('./Family');
 const User = require('./User');
+const Information = require('./Information');
 
 Family.hasMany(User, {
 	foreignKey: 'familyName',
@@ -13,4 +14,5 @@ User.belongsTo(Family, {
 module.exports = {
     Family,
     User,
+    Information,
 };
