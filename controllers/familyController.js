@@ -15,6 +15,7 @@ module.exports = {
 				email,
 				password,
 				role,
+				approval: true,
 				familyName,
 			});
 			const user = createdUser.get({ plain: true });
@@ -36,6 +37,12 @@ module.exports = {
 	},
 
 	myFamily: async (req, res) => {
+		if (!req.session.loggedIn) {
+			return res.redirect('/login');
+		}
+		if (req.session.user.approval == 0) {
+			return res.redirect('/waitingapproval');
+		}
 		try {
 			const userData = await User.findAll({
 				where: {
@@ -44,8 +51,6 @@ module.exports = {
 			});
 			res.render('myfamily', {
 				fullFam: userData.map(famMember => famMember.get({ plain: true })),
-				// user: req.session.user,
-				// fullFam,
 			});
 		} catch (e) {
 			res.json(e);
