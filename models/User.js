@@ -47,6 +47,12 @@ User.init(
 		approval: {
 			type: DataTypes.BOOLEAN,
 		},
+		level: {
+			type: DataTypes.INTEGER,
+		},
+		visible: {
+			type: DataTypes.BOOLEAN,
+		},
 	},
 	{
 		sequelize,

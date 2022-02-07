@@ -17,6 +17,8 @@ module.exports = {
 				role,
 				approval: true,
 				familyName,
+				level: 1,
+				visible: true,
 			});
 			const user = createdUser.get({ plain: true });
 			req.session.save(() => {
@@ -51,6 +53,7 @@ module.exports = {
 			});
 			res.render('myfamily', {
 				fullFam: userData.map(famMember => famMember.get({ plain: true })),
+				user: req.session.user,
 			});
 		} catch (e) {
 			res.json(e);
