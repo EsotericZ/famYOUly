@@ -17,7 +17,10 @@ module.exports = {
 				role,
 				familyName,
 			});
+			const user = createdUser.get({ plain: true });
 			req.session.save(() => {
+				req.session.loggedIn = true;
+				req.session.user = user;
 				res.redirect('/homepage');
 			});
 		} catch (e) {
