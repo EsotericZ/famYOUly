@@ -16,12 +16,33 @@
   </div>
 </nav>
 
-<ul class="list-group">
+<h4>The {{ user.familyName }} FamYOUly</h4>
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Relationship</th>
+    <th>Contact</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
     {{#each fullFam as |user|}}
-        <li>{{ user.firstName }}</li>
-        <li>{{ user.lastName }}</li>
-        <li>{{ user.role }}</li>
-        <li>Approved? {{ user.approval }}</li>
-        <br>
+        <tr>
+          <td>{{ user.firstName }} {{ user.lastName }}</td>
+          <td>{{ user.role }}</td>
+          <td>{{ user.email }}</td>
+          {{#if user.approval}}
+            <td>Approved</td>
+          {{else}}
+            <td>Pending</td>
+          {{/if}}
+          {{#eq user.level 1}}
+            <td></td>
+          {{else}}
+            <td>Edit</td>
+          {{/eq}}
+        </tr>
     {{/each}}
-</ul>
+</table>
+
+<script src="./js/hb_helper.js"></script>
