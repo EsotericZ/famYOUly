@@ -17,6 +17,6 @@ $(document).ready(function() {
 			password: passwordField.val(),
 			role: roleField.val(),
 		});
-		window.location.href = '/homepage';
+		window.location.href = '/waitingapproval';
 	});
 });

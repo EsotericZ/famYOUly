@@ -44,6 +44,9 @@ User.init(
 				key: 'familyName',
 			}
 		},
+		approval: {
+			type: DataTypes.BOOLEAN,
+		},
 	},
 	{
 		sequelize,
