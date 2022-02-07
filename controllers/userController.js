@@ -65,21 +65,21 @@ module.exports = {
 	},
 
 	signupHandler: async (req, res) => {
-		const { firstName, lastName, email, password, role, groupId } = req.body;
+		const { familyName, firstName, lastName, email, password, role } = req.body;
 		try {
 			const createdUser = await User.create({
+				familyName,
 				firstName,
 				lastName,
 				email,
 				password,
 				role,
-				groupId,
 			});
 			const user = createdUser.get({ plain: true });
 			req.session.save(() => {
-				req.session.loggedIn = true;
-				req.session.user = user;
-				res.redirect('/homepage');
+				// req.session.loggedIn = true;
+				// req.session.user = user;
+				res.redirect('/');
 			});
 		} catch (e) {
 			res.json(e);
@@ -97,7 +97,7 @@ module.exports = {
 		if (req.session.loggedIn) {
 			return res.redirect('/homepage');
 		}
-		res.render('signUp');
+		res.render('signup');
 	},
 
 	logout: (req, res) => {
