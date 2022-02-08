@@ -1,10 +1,11 @@
 const router = require('express').Router();
 const {
-	renderInformation,
+	createInformation,
+    renderInformation,
 } = require('../../../controllers/informationController');
 
 router.route('/info')
-    .get(renderInformation);
-
+    .get(renderInformation)
+    .post(createInformation);
 
 module.exports = router;

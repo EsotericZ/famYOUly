@@ -15,22 +15,22 @@ Information.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        contact: {
-            contactName: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
-            contactNumber: {
-                type: DataTypes.INTEGER,
-                validate: {
-                    len: [7],
-                    isNumeric: true, 
-                },
-            },
-            set(val) {
-                this.setDataValue("contact", JSON.stringify(val ?? ""));
-            },
-        },
+        // contact: {
+        //     contactName: {
+        //         type: DataTypes.STRING,
+        //         allowNull: false,
+        //     },
+        //     contactNumber: {
+        //         type: DataTypes.INTEGER,
+        //         validate: {
+        //             len: [7],
+        //             isNumeric: true, 
+        //         },
+        //     },
+            // set(val) {
+            //     this.setDataValue("contact", JSON.stringify(val ?? ""));
+            // },
+        // },
         medical: {
             type: DataTypes.STRING,
         },
