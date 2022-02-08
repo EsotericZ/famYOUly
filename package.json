@@ -12,7 +12,8 @@
     "socket.io": "^4.4.1"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/index.js"
   },
   "name": "famyouly",
   "description": "Project 02 - Family app for raising a kid",
