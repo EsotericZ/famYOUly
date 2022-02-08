@@ -39,10 +39,46 @@
           {{#eq user.level 1}}
             <td></td>
           {{else}}
-            <td>Edit</td>
+            <td>
+              <!-- Button trigger modal -->
+              <div data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Edit
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">{{ user.id }}</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div>First Name <input type="text" placeholder="{{ user.firstName }}"></input></div>
+                      <div>Last Name <input type="text" placeholder="{{ user.lastName }}"></input></div>
+                      <div>Relationship <input type="text" placeholder="{{ user.role }}"></input></div>
+                      <div>Contact <input type="text" placeholder="{{ user.email }}"></input></div>
+                      <div>Access Level<input list="level-list" placeholder="{{ user.level }}"></input></div>
+                      <datalist id="level-list">
+                        <option value="1">
+                        <option value="2">
+                        <option value="3">
+                      </datalist>
+                      <div>Visible<input type="checkbox" placeholder="{{ user.visible }}"></input></div>
+                      {{#unless user.approval}}
+                        <br>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Approve</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Deny</button>
+                      {{/unless}}
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary">Delete User</button>
+                      <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
           {{/eq}}
         </tr>
     {{/each}}
 </table>
-
-<script src="./js/hb_helper.js"></script>
