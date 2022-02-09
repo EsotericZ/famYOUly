@@ -78,7 +78,8 @@
                       </div>
                       <div class="input-group mb-3">
                           <label class="input-group-text col-5"" for="inputGroupSelect01">Visibility</label>                        
-                          <input class="form-check-input mx-4" type="checkbox" value="{{ user.visible }}" aria-label="Checkbox for following text input" id="newVisible">
+                          {{!-- <input class="form-check-input mx-4" type="checkbox" value="{{ user.visible }}" aria-label="Checkbox for following text input" id="newVisible"> --}}
+                          <input type="checkbox" value="{{ user.visible }}" aria-label="Checkbox for following text input" id="newVisible">
                       </div>                      
                       {{#unless user.approval}}
                         <br>
