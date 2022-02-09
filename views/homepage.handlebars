@@ -90,20 +90,29 @@
                 <div class="card-header">
                     To Do's
                 </div>
-
+                <form>
+                <div class="mb-3">
+                    <label for="todoField" class="form-label">Please Enter a todo</label>
+                    <input type="text" class="form-control" id="todoField" aria-describedby="emailHelp">
+                </div>
+                <button type="submit" class="btn btn-primary" id="addTodoBtn">Submit</button>
+                </form>
                 <ul class="list-group list-group-flush">
+                        {{#each userTodos as |todo| }}
+                        {{#if todo.completed}}
                     <li class="list-group-item"> 
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">
-                                    Item One
+                                    {{todo.task}}
                                 </label>
                     </li>
+                        {{else}}
                     <li class="list-group-item"> 
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">
-                                    Item Two
+                                    {{todo.task}}
                                 </label>
-                    </li>
+                    {{!-- </li>
                     <li class="list-group-item"> 
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">
@@ -115,7 +124,9 @@
                                 <label class="form-check-label" for="flexCheckDefault">
                                     Item Three
                                 </label>           
-                    </li>                    
+                    </li>                     --}}
+                    {{/if}}
+                    {{/each}}
                 </ul>
             </div>
         </div> 
