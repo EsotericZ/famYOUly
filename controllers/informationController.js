@@ -7,20 +7,21 @@ module.exports = {
     createInformation: async (req, res) => {
         const {
 			childId,
-			contact,
+			// contact,
 			medical,
 			list,
 			groupId,
 		} = req.body;
 		try {
-			const information = await Information.create({
+			const informationData = await Information.create({
 				childId,
-				contact,
+				// contact,
 				medical,
 				list,
 				groupId,
 			});
-			res.json(information);
+			const information = informationData.get({plain: true});
+			res.render('information', { information });
 		} catch (e) {
 			res.json(e);
 		}
