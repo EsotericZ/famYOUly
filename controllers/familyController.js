@@ -4,7 +4,7 @@ const {
 
 module.exports = {
 	createFamily: async (req, res) => {
-		const { familyName, firstName, lastName, email, password, role } = req.body;
+		const { familyName, firstName, lastName, email, password, role, phoneNumber } = req.body;
 		try {
 			const createdFamily = await Family.create({
 				familyName,
@@ -19,6 +19,7 @@ module.exports = {
 				familyName,
 				level: 1,
 				visible: true,
+				phoneNumber,
 			});
 			const user = createdUser.get({ plain: true });
 			req.session.save(() => {

@@ -53,6 +53,15 @@ User.init(
 		visible: {
 			type: DataTypes.BOOLEAN,
 		},
+		phoneNumber: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			unique: true,
+			validate: {
+				isNumeric: true,
+				len: 10,
+			}
+		},
 	},
 	{
 		sequelize,
