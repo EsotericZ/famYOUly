@@ -15,7 +15,10 @@ module.exports = {
 				email,
 				password,
 				role,
+				approval: true,
 				familyName,
+				level: 1,
+				visible: true,
 			});
 			const user = createdUser.get({ plain: true });
 			req.session.save(() => {
@@ -33,5 +36,27 @@ module.exports = {
 			return res.redirect('/homepage');
 		}
 		res.render('createfamily');
+	},
+
+	myFamily: async (req, res) => {
+		if (!req.session.loggedIn) {
+			return res.redirect('/login');
+		}
+		if (req.session.user.approval == 0) {
+			return res.redirect('/waitingapproval');
+		}
+		try {
+			const userData = await User.findAll({
+				where: {
+					familyName: req.session.user.familyName,
+				}
+			});
+			res.render('myfamily', {
+				fullFam: userData.map(famMember => famMember.get({ plain: true })),
+				user: req.session.user,
+			});
+		} catch (e) {
+			res.json(e);
+		}
 	},
 }

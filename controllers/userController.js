@@ -1,48 +1,9 @@
 const {
-	User
+	User,
+	Child,
 } = require('../models');
 
 module.exports = {
-	createUser: async (req, res) => {
-		const { firstName, lastName, email, password, role } = req.body;
-		if (!firstName || !lastName || !email || !password || !role) {
-			return res.status(400).json({ error: 'You must provide a username, email, and password'});
-		}
-		try {
-			const user = await User.create({
-				firstName,
-				lastName,
-				email,
-				password,
-				role,
-				groupId,
-			});
-			res.json(user);
-		} catch (e) {
-			res.json(e);
-		}
-	},
-
-	getUserById: async (req, res) => {
-		req.session.save(() => {
-			if (req.session.visitCount) {
-				req.session.visitCount++;
-			} else {
-				req.session.visitCount = 1;
-			}
-		});
-		try {
-			const userData = await User.findByPk(req.params.userId);
-			const user = userData.get({ plain: true });
-			res.render('singleUser', {
-				user,
-				visitCount: req.session.visitCount,
-			});
-		} catch (e) {
-			res.json(e);
-		}
-	},
-
 	login: async (req, res) => {
 		try {
 			const userData = await User.findOne({ 
@@ -74,12 +35,15 @@ module.exports = {
 				email,
 				password,
 				role,
+				approval: false,
+				level: 3,
+				visible: false,
 			});
 			const user = createdUser.get({ plain: true });
 			req.session.save(() => {
-				// req.session.loggedIn = true;
-				// req.session.user = user;
-				res.redirect('/');
+				req.session.loggedIn = true;
+				req.session.user = user;
+				res.redirect('/waitingapproval');
 			});
 		} catch (e) {
 			res.json(e);
@@ -95,7 +59,7 @@ module.exports = {
 
 	signupView: (req, res) => {
 		if (req.session.loggedIn) {
-			return res.redirect('/homepage');
+			return res.redirect('/waitingapproval');
 		}
 		res.render('signup');
 	},
@@ -106,12 +70,34 @@ module.exports = {
 		});
 	},
 
-	renderHome: (req, res) => {
+	renderHome: async (req, res) => {
+		if (!req.session.loggedIn) {
+			return res.redirect('/login');
+		}
+		if (req.session.user.approval == 0) {
+			return res.redirect('/waitingapproval');
+		}
+		try {
+			const childData = await Child.findAll({
+				where: {
+					familyName: req.session.user.familyName,
+				}
+			});
+			res.render('homepage', {
+				allKids: childData.map(kid => kid.get({ plain: true })),
+				user: req.session.user,
+			});
+		} catch (e) {
+			res.json(e);
+		}
+	},
+
+	renderWaiting: (req, res) => {
 		if (!req.session.loggedIn) {
 			return res.redirect('/login');
 		}
 		try {
-			res.render('homepage', {
+			res.render('waitingapproval', {
 				user: req.session.user,
 			});
 		} catch (e) {
