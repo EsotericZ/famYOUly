@@ -5,7 +5,7 @@ const Information = require('./Information');
 const Medical = require('./Medical');
 const Contact = require('./Contact');
 const List = require('./List');
-const Information = require('./Information');
+// const Information = require('./Information');
 const Todo  = require('./Todo');
 
 Family.hasMany(Child, {
@@ -54,11 +54,11 @@ Child.hasMany(List, {
 
 
 Todo.belongsTo(User, {
-	foreignKey: 'familyName'
+	foreignKey: 'userId'
 });
 
 User.hasMany(Todo, {
-	foreignKey: 'familyName',
+	foreignKey: 'userId',
 	onDelete: 'CASCADE',
 });
 
