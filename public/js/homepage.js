@@ -9,15 +9,14 @@ $(document).ready(function() {
 	
     saveChild.on('click', async function(event) {
 		event.preventDefault();
-    alert(kidFamilyName.val())
-		// await $.post('/api/children/createchild', {
-    //         firstName = kidFirstName.val(),
-    //         lastName = kidLastName.val(),
-    //         nickname = kidNickname.val(),
-    //         pronouns = kidPronouns.val(),
-    //         birthday = kidBirthday.val(),
-    //         familyName = kidFamilyName.val(),
-		// });
+		await $.post('/api/children/createchild', {
+            firstName: kidFirstName.val(),
+            lastName: kidLastName.val(),
+            nickname: kidNickname.val(),
+            pronouns: kidPronouns.val(),
+            birthday: kidBirthday.val(),
+            familyName: kidFamilyName.val(),
+		});
         window.location.reload();
 	});
 });

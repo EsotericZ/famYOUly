@@ -151,6 +151,25 @@
                 </ul>
             </div>
         </div>
+
+        <!-- ADDED KIDS -->
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Nickname</th>
+                <th>Pronouns</th>
+                <th>Birthday</th>
+            </tr>
+            {{#each allKids as |kid|}}
+                <tr>
+                    <td>{{ kid.firstName }} {{ kid.lastName }}</td>
+                    <td>{{ kid.nickname }}</td>
+                    <td>{{ kid.pronouns }}</td>
+                    <td>{{ kid.birthday }}</td>
+                </tr>
+            {{/each}}
+        </table>
+        
         
     </div>
 </div>
