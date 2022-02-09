@@ -6,11 +6,14 @@
     "express-session": "^1.17.2",
     "handlebars": "^4.7.7",
     "handlebars-helpers": "^0.10.0",
+    "http": "^0.0.1-security",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.15.0"
+    "sequelize": "^6.15.0",
+    "socket.io": "^4.4.1"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/index.js"
   },
   "name": "famyouly",
   "description": "Project 02 - Family app for raising a kid",

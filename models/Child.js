@@ -1,9 +1,9 @@
 const { Model, DataTypes, UUIDV4 } = require('sequelize');
 const sequelize = require('../config');
 
-class User extends Model {}
+class Child extends Model {}
 
-User.init(
+Child.init(
 	{
 		id: {
 			type: DataTypes.UUID,
@@ -18,48 +18,34 @@ User.init(
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		email: {
+		nickname: {
+			type: DataTypes.STRING,
+		},
+		pronouns: {
 			type: DataTypes.STRING,
 			allowNull: false,
-			unique: true,
+		},
+		birthday : {
+			type: DataTypes.DATEONLY,
+			allowNull: false,
 			validate: {
-				isEmail: true,
+				isDate: true,
 			}
 		},
-		password: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			validate: {
-				len: [6]
-			}
-		},
-		role : {
-			type: DataTypes.STRING,
-			allowNull: false,
-		},
-		familyName: {
-			type: DataTypes.STRING,
+        familyName: {
+            type: DataTypes.STRING,
 			references: {
 				model: 'family',
 				key: 'familyName',
 			}
-		},
-		approval: {
-			type: DataTypes.BOOLEAN,
-		},
-		level: {
-			type: DataTypes.INTEGER,
-		},
-		visible: {
-			type: DataTypes.BOOLEAN,
 		},
 	},
 	{
 		sequelize,
 		timestamps: false,
 		freezeTableName: true,
-		modelName: 'user',
+		modelName: 'child',
 	}
 );
 
-module.exports = User;
+module.exports = Child;

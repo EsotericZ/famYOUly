@@ -5,11 +5,11 @@ $(document).ready(function() {
 	const emailField = $('#emailField');
 	const passwordField = $('#passwordField');
 	const roleField = $('#roleField');
-	const signupBtn = $('#signupBtn');
+	const familyBtn = $('#familyBtn');
 	
-    signupBtn.on('click', async function(event) {
+    familyBtn.on('click', async function(event) {
 		event.preventDefault();
-		await $.post('/api/users/signup', {
+		await $.post('/api/families/createfamily', {
 			familyName: familynameField.val(),
 			firstName: firstnameField.val(),
 			lastName: lastnameField.val(),
@@ -17,6 +17,6 @@ $(document).ready(function() {
 			password: passwordField.val(),
 			role: roleField.val(),
 		});
-		window.location.href = '/waitingapproval';
+		window.location.href = '/';
 	});
 });
