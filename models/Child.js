@@ -26,8 +26,11 @@ Child.init(
 			allowNull: false,
 		},
 		birthday : {
-			type: DataTypes.STRING,
+			type: DataTypes.DATEONLY,
 			allowNull: false,
+			validate: {
+				isDate: true,
+			}
 		},
         familyName: {
             type: DataTypes.STRING,

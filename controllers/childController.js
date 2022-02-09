@@ -15,12 +15,6 @@ module.exports = {
 				familyName,
 			});
             res.json(createdChild);
-			// const user = createdChild.get({ plain: true });
-			// req.session.save(() => {
-			// 	req.session.loggedIn = true;
-			// 	req.session.user = user;
-			// 	res.redirect('/waitingapproval');
-			// });
 		} catch (e) {
 			res.json(e);
 		}

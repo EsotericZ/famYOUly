@@ -1,5 +1,6 @@
 const {
-	User
+	User,
+	Child,
 } = require('../models');
 
 module.exports = {
@@ -69,7 +70,7 @@ module.exports = {
 		});
 	},
 
-	renderHome: (req, res) => {
+	renderHome: async (req, res) => {
 		if (!req.session.loggedIn) {
 			return res.redirect('/login');
 		}
@@ -77,7 +78,13 @@ module.exports = {
 			return res.redirect('/waitingapproval');
 		}
 		try {
+			const childData = await Child.findAll({
+				where: {
+					familyName: req.session.user.familyName,
+				}
+			});
 			res.render('homepage', {
+				allKids: childData.map(kid => kid.get({ plain: true })),
 				user: req.session.user,
 			});
 		} catch (e) {
