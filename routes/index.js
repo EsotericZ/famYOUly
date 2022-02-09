@@ -16,8 +16,7 @@ router.get('/homepage', renderHome);
 router.get('/createfamily', createFamilyView);
 router.get('/myfamily', myFamily);
 router.get('/waitingapproval', renderWaiting);
-router.get('/homepage', getAllTodos);
-
+// router.get('/todos', getAllTodos);
 
 router.use('/api', apiRoutes);
 

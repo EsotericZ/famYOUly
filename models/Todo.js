@@ -22,6 +22,13 @@ Todo.init(
 				model: 'user',
 				key: 'id',
 			}
+		},
+		familyName: {
+			type: DataTypes.STRING,
+			references: {
+				model: 'family',
+				key: 'familyName',
+			}
 		}
 	},
 	{

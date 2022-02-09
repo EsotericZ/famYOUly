@@ -10,7 +10,7 @@ router.use('/children', childRoutes);
 router.use('/families', familyRoutes);
 router.use('/users', userRoutes);
 router.use('/info', informationRoutes);
-router.use('/homepage', todoRoutes);
+router.use('/todos', todoRoutes);
 
 
 module.exports = router;
