@@ -1,11 +1,10 @@
 const Child = require('./Child');
 const Family = require('./Family');
 const User = require('./User');
-const Information = require('./Information');
+// const Information = require('./Information');
 const Medical = require('./Medical');
 const Contact = require('./Contact');
 const List = require('./List');
-// const Information = require('./Information');
 const Todo  = require('./Todo');
 
 Family.hasMany(Child, {
@@ -83,6 +82,5 @@ module.exports = {
 	Medical,
 	Contact,
 	List,
-    Information,
 	Todo,
 };
