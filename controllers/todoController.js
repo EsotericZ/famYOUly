@@ -7,12 +7,12 @@ module.exports = {
 		try {
 			const userTodosData = await Todo.findAll({
 				where: {
-					userId: req.session.user.id,
+					familyName: req.session.user.familyName,
 				}
 			});
 			res.render('todo', {
 				userTodos: userTodosData.map(userTodo => userTodo.get({ plain: true })),
-				user: req.session.user,
+				// user: req.session.user,
 			});
 		} catch (e) {
 			res.json(e);

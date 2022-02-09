@@ -12,7 +12,7 @@ const { getAllTodos } = require('../controllers/todoController');
 router.get('/', loginView);
 router.get('/login', loginView);
 router.get('/signup', signupView);
-router.get('/homepage', renderHome);
+router.get('/homepage', [renderHome, getAllTodos]);
 router.get('/createfamily', createFamilyView);
 router.get('/myfamily', myFamily);
 router.get('/waitingapproval', renderWaiting);
