@@ -1,13 +1,14 @@
 const {
 	Information,
-    User
+    User,
+	Contact,
 } = require('../models');
 
 module.exports = {
     createInformation: async (req, res) => {
         const {
 			childId,
-			// contact,
+			contact,
 			medical,
 			list,
 			groupId,
@@ -15,7 +16,7 @@ module.exports = {
 		try {
 			const informationData = await Information.create({
 				childId,
-				// contact,
+				contact,
 				medical,
 				list,
 				groupId,
