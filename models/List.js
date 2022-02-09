@@ -21,9 +21,6 @@ List.init(
         items: {
             type: DataTypes.STRING,
         },
-        notes: {
-            type: DataTypes.STRING,
-        },
     },
     {
         sequelize,

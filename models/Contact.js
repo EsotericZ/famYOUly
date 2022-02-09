@@ -24,7 +24,7 @@ Contact.init(
                 len: [10],
             },
         },
-        occupation: {
+        relation: {
             type: DataTypes.STRING,
         },
         // childId: {

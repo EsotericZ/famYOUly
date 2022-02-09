@@ -6,24 +6,31 @@ const {
 
 module.exports = {
     createContact: async (req, res) => {
-        const {
-            firstName,
-            lastName,
-            number,
-            occupation,
-        } = req.body;
+        const { firstName, lastName, number, relation } = req.body;
         try {
             const newContact = await Contact.create({
                 firstName,
                 lastName,
                 number,
-                occupation,
+                relation,
             });
-            const contactInfo = newContact.get({ plain: true });
-            res.render('information', { contactInfo });
+            res.json(newContact);
+            console.log(newContact);
+            // res.render('information', { contactInfo });
         } catch (e) {
             res.json(e);
         }
-    }
+    },
 
+    getAllContacts: async (req, res) => {
+        try {
+            const contactData = await Contact.findAll({});
+            const contacts = contactData.get({ plain: true });
+            res.render('information', {
+                contacts,
+            });
+        } catch (e) {
+            res.json(e);
+        }
+    },
 };
