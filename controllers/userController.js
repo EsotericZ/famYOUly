@@ -26,7 +26,7 @@ module.exports = {
 	},
 
 	signupHandler: async (req, res) => {
-		const { familyName, firstName, lastName, email, password, role } = req.body;
+		const { familyName, firstName, lastName, email, password, role, phoneNumber } = req.body;
 		try {
 			const createdUser = await User.create({
 				familyName,
@@ -38,6 +38,7 @@ module.exports = {
 				approval: false,
 				level: 3,
 				visible: false,
+				phoneNumber,
 			});
 			const user = createdUser.get({ plain: true });
 			req.session.save(() => {

@@ -11,6 +11,7 @@ const userData = [
         approval: 1,
         level: 1,
         visible: 1,
+        phoneNumber: 5551112211,
     },
     {
         firstName: 'Catelyn',
@@ -22,6 +23,7 @@ const userData = [
         approval: 1,
         level: 1,
         visible: 1,
+        phoneNumber: 5551113311,
     },
     {
         firstName: 'Robb',
@@ -32,7 +34,8 @@ const userData = [
         familyName: 'Stark',
         approval: 0,
         level: 2,
-        visible: 0,
+        visible: 1,
+        phoneNumber: 5551114411,
     },
     {
         firstName: 'Jon',
@@ -44,6 +47,7 @@ const userData = [
         approval: 1,
         level: 3,
         visible: 0,
+        phoneNumber: 5551115511,
     },
     {
         firstName: 'Tywin',
@@ -55,6 +59,7 @@ const userData = [
         approval: 1,
         level: 1,
         visible: 1,
+        phoneNumber: 5552221111,
     },
     {
         firstName: 'Cersei',
@@ -66,6 +71,7 @@ const userData = [
         approval: 1,
         level: 1,
         visible: 1,
+        phoneNumber: 5552223311,
     },
 ];
 
