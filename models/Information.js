@@ -11,22 +11,22 @@ Information.init(
             allowNull: false,
             primaryKey: true,
         },
-        childId: {
-            type: DataTypes.UUID,
-            defaultValue: UUIDV4,
-            references: {
-                model: 'child',
-                key: 'id',
-            },
-        },
-        contact: {
-            type: DataTypes.UUID,
-            defaultValue: UUIDV4,
-            references: {
-                model: 'contact',
-                key: 'id',
-            },
-        },
+        // childId: {
+        //     type: DataTypes.UUID,
+        //     defaultValue: UUIDV4,
+        //     references: {
+        //         model: 'child',
+        //         key: 'id',
+        //     },
+        // },
+        // contact: {
+        //     type: DataTypes.UUID,
+        //     defaultValue: UUIDV4,
+        //     references: {
+        //         model: 'contact',
+        //         key: 'id',
+        //     },
+        // },
         // set(val) {
         //         this.setDataValue("contact", JSON.stringify(val ?? ""));
         //     },
