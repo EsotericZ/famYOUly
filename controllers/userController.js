@@ -51,6 +51,31 @@ module.exports = {
 		}
 	},
 
+	updateUser: async (req, res) => {
+		const { firstName, lastName, role, phoneNumber } = req.body;
+		try {
+			const createdUser = await User.update({
+				firstName,
+				lastName,
+				role,
+				approval: false,
+				level: 3,
+				visible: false,
+				phoneNumber,},
+				{where: {
+				    id: req.params.user.id}
+			});
+			// const user = createdUser.get({ plain: true });
+			// req.session.save(() => {
+			// 	req.session.loggedIn = true;
+			// 	req.session.user = user;
+			// 	res.redirect('/waitingapproval');
+			// });
+		} catch (e) {
+			res.json(e);
+		}
+	},
+
 	loginView: (req, res) => {
 		if (req.session.loggedIn) {
 			return res.redirect('/homepage');

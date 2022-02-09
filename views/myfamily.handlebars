@@ -53,44 +53,46 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <div class="container-fluid">
-                          <div class="input-group mb-3">
-                            <span class="input-group-text col-5">First and last name</span>
-                            <input type="text" aria-label="First name" class="form-control" placeholder="{{ user.firstName }}">
-                            <input type="text" aria-label="Last name" class="form-control" placeholder="{{ user.lastName }}">
-                          </div>
-                          <div class="input-group mb-3">
-                            <span class="input-group-text col-5" id="inputGroup-sizing-default">Relationship</span>
-                            <input type="text" class="form-control" aria-label="relationship" aria-describedby="inputGroup-sizing-default" placeholder="{{ user.role }}">
-                          </div>
-                          <div class="input-group mb-3">
-                            <span class="input-group-text col-5" id="inputGroup-sizing-default">Contact</span>
-                            <input type="text" class="form-control" aria-label="contact" aria-describedby="inputGroup-sizing-default" placeholder="{{ user.email }}">
-                          </div>                      
-                          <div class="input-group mb-3">
-                            <label class="input-group-text col-5" for="inputGroupSelect01">Access Level</label>
-                            <select class="form-select" id="inputGroupSelect01" list ="level-list">
-                              <option id="level-list">{{ user.level }}</option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                            </select>
-                          </div>
-                          <div class="input-group mb-3">
-                              <label class="input-group-text col-5" for="inputGroupSelect01">Visibility</label>                        
-                              <input class="form-check-input mx-4" type="checkbox" placeholder="{{ user.visible }}" aria-label="Checkbox for following text input">
-                          </div>                      
-                          {{#unless user.approval}}
-                            <br>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Approve</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Deny</button>
-                          {{/unless}}
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary">Delete User</button>
-                          <button type="button" class="btn btn-primary">Save</button>
-                        </div>
+                        <div ="container-fluid">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text col-5"">First and last name</span>
+                        <input type="text" aria-label="First name" class="form-control" value="{{ user.firstName }}" id="{{ user.firstName }}">
+                        <input type="text" aria-label="Last name" class="form-control" value="{{ user.lastName }}" id="newLastName">
                       </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text col-5"" id="inputGroup-sizing-default">Relationship</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.role }}" id="newRole">
+                      </div>
+                      <div class="input-group mb-3">
+                        <span class="input-group-text col-5"" id="inputGroup-sizing-default">Contact</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.phoneNumber }}" id="newPhoneNumber">
+                      </div>                      
+                      <div class="input-group mb-3">
+                        <label class="input-group-text col-5"" for="inputGroupSelect01">Access Level</label>
+                        <select class="form-select" id="newLevel" list ="level-list">
+                          <option id="newLevel">{{ user.level }}</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>
+                      </div>
+                      <div class="input-group mb-3">
+                          <label class="input-group-text col-5"" for="inputGroupSelect01">Visibility</label>                        
+                          <input class="form-check-input mx-4" type="checkbox" value="{{ user.visible }}" aria-label="Checkbox for following text input" id="newVisible">
+                      </div>                      
+                      {{#unless user.approval}}
+                        <br>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Approve</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Deny</button>
+                      {{/unless}}
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary">Delete User</button>
+                      <button type="button" class="btn btn-primary updateBtn">Save</button>
+                      {{!-- <button type="button" class="btn btn-primary updateBtn {{ user.fistName }}">Save</button> --}}
+                      {{!-- <button type="button" class="btn btn-primary updateBtn" id="updateBtn">Save</button> --}}
+                    </div>
                   </div>
                 </div>
               </div>

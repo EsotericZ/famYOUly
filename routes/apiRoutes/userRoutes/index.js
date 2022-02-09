@@ -5,6 +5,7 @@ const {
 	login,
 	signupHandler,
 	logout,
+	updateUser,
 } = require('../../../controllers/userController');
 
 // router.route('/')
@@ -13,6 +14,7 @@ const {
 router.post('/signup', signupHandler);
 router.post('/login', login);
 router.post('/logout', logout);
+router.post('/updateuser', updateUser);
 
 // router.route('/:userId')
 // 	.get(getUserById);
