@@ -1,6 +1,8 @@
 const { Model, DataTypes, UUIDV4 } = require('sequelize');
 const sequelize = require('../config');
+
 class Todo extends Model {}
+
 Todo.init(
 	{
 		id: {
@@ -38,4 +40,5 @@ Todo.init(
 		modelName: 'todo'
 	}
 );
+
 module.exports = Todo;
