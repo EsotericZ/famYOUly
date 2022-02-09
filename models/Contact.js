@@ -27,14 +27,14 @@ Contact.init(
         relation: {
             type: DataTypes.STRING,
         },
-        childId: {
-            type: DataTypes.UUID,
-            defaultValue: UUIDV4,
-            references: {
-                model: 'child',
-                key: 'id',
-            },
-        },
+        // childId: {
+        //     type: DataTypes.UUID,
+        //     defaultValue: UUIDV4,
+        //     references: {
+        //         model: 'child',
+        //         key: 'id',
+        //     },
+        // },
     },
     {
         sequelize,

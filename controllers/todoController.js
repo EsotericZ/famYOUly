@@ -2,12 +2,12 @@ const { Todo } = require('../models');
 module.exports = {
 	getAllTodos: async (req, res) => {
 		if (!req.session.loggedIn) {
-			return res.redirect('/login');
+			return res.redirect('/homepage');
 		}
 		try {
 			const userTodosData = await Todo.findAll({
 				where: {
-					userId: req.session.user.id,
+					userId: req.session.user.userId,
 				}
 			});
 			res.render('todos', {
@@ -23,7 +23,7 @@ module.exports = {
 		try {
 			const newTodo = await Todo.create({
 				task,
-				userId: req.session.user.id,
+				userId: req.session.user.userId,
 			});
 			res.json({ newTodo });
 		} catch (e) {
