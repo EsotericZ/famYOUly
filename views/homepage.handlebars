@@ -114,19 +114,19 @@
                 </form>
                 <ul class="list-group list-group-flush">
                         {{#each userTodos as |todo| }}
-                        {{#if todo.completed}}
+                        {{!-- {{#if todo.completed}} --}}
                     <li class="list-group-item"> 
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     {{todo.task}}
                                 </label>
                     </li>
-                        {{else}}
-                    <li class="list-group-item"> 
+                        {{!-- {{else}} --}}
+                    {{!-- <li class="list-group-item"> 
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     {{todo.task}}
-                                </label>
+                                </label> --}}
                     {{!-- </li>
                     <li class="list-group-item"> 
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -140,7 +140,7 @@
                                     Item Three
                                 </label>           
                     </li>                     --}}
-                    {{/if}}
+                    {{!-- {{/if}} --}}
                     {{/each}}
                 </ul>
             </div>
