@@ -14,10 +14,10 @@ Medical.init(
                 key: 'id',
             },
         },
-        id: {
-            type: DataTypes.UUID,
-            defaultValue: UUIDV4,
-        },
+        // id: {
+        //     type: DataTypes.UUID,
+        //     defaultValue: UUIDV4,
+        // },
         healthInsurance: {
             type: DataTypes.STRING,
         },
