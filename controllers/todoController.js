@@ -10,7 +10,7 @@ module.exports = {
 					userId: req.session.user.id,
 				}
 			});
-			res.render('todos', {
+			res.render('todo', {
 				userTodos: userTodosData.map(userTodo => userTodo.get({ plain: true })),
 				user: req.session.user,
 			});
@@ -24,6 +24,7 @@ module.exports = {
 			const newTodo = await Todo.create({
 				task,
 				userId: req.session.user.id,
+				familyName: req.session.user.familyName,
 			});
 			res.json({ newTodo });
 		} catch (e) {
