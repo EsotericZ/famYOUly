@@ -1,6 +1,7 @@
 const {
 	User,
 	Child,
+	Todo,
 } = require('../models');
 
 module.exports = {
@@ -109,8 +110,14 @@ module.exports = {
 					familyName: req.session.user.familyName,
 				}
 			});
+			const userTodosData = await Todo.findAll({
+				where: {
+					familyName: req.session.user.familyName,
+				}
+			});
 			res.render('homepage', {
 				allKids: childData.map(kid => kid.get({ plain: true })),
+				userTodos: userTodosData.map(userTodo => userTodo.get({ plain: true })),
 				user: req.session.user,
 			});
 		} catch (e) {
