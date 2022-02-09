@@ -6,6 +6,8 @@ const { createInformation, renderInformation } = require('../controllers/informa
 
 const { createFamilyView, myFamily } = require('../controllers/familyController');
 
+const { getAllTodos } = require('../controllers/todoController');
+
 
 router.get('/', loginView);
 router.get('/login', loginView);
@@ -14,6 +16,8 @@ router.get('/homepage', renderHome);
 router.get('/createfamily', createFamilyView);
 router.get('/myfamily', myFamily);
 router.get('/waitingapproval', renderWaiting);
+router.get('/todos', getAllTodos);
+
 
 router.use('/api', apiRoutes);
 
