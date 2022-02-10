@@ -59,7 +59,7 @@
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text col-5">Full Name</span>
-                      <input type="text" aria-label="First name" class="form-control" value="{{ user.firstName }}" id="{{ user.firstName }}">
+                      <input type="text" aria-label="First name" class="form-control" value="{{ user.firstName }}" id="newfirstName">
                       <input type="text" aria-label="Last name" class="form-control" value="{{ user.lastName }}" id="newLastName">
                     </div>
                     <div class="input-group mb-3">
@@ -91,10 +91,29 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary">Delete User</button>
+                  <button class="btn btn-danger" data-bs-target="#{{ user.firstName }}{{ user.lastName }}" data-bs-toggle="modal">Delete User</button>
                   <button type="button" class="btn btn-primary updateBtn" data-bs-dismiss="modal">Save</button>
-                  {{!-- <button type="button" class="btn btn-primary updateBtn {{ user.fistName }}">Save</button> --}}
-                  {{!-- <button type="button" class="btn btn-primary updateBtn" id="updateBtn">Save</button> --}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="{{ user.firstName }}{{ user.lastName }}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalToggleLabel2">Delete FamYOUly Memeber</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Are you sure you want to delete {{ user.firstName }} {{ user.lastName}}? 
+                  The user will be removed from your family and unable to login and see any information moving forward.
+                </div>
+                <div class="input-group mb-3">
+                  <input type="hidden" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.id }}" id="newRole">
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-danger deleteBtn" data-bs-dismiss="modal">Delete</button>
+                  <button class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
                 </div>
               </div>
             </div>
