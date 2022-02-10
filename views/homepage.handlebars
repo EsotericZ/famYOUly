@@ -101,29 +101,62 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-5 mt-4">
+            
             <div class="card">
                 <div class="card-header">
                     To Do's
                 </div>
-                <form>
+                {{!-- <form>
                 <div class="mb-3">
                     <label for="todoField" class="form-label">Please Enter a todo</label>
                     <input type="text" class="form-control" id="todoField" aria-describedby="emailHelp">
                 </div>
                 <button type="submit" class="btn btn-primary" id="addTodoBtn">Submit</button>
-                </form>
+                </form> --}}
                 <ul class="list-group list-group-flush">
                     {{#each userTodos as |todo| }}
                         <li class="list-group-item"> 
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">
-                                    {{ todo.task }} {{ todo.familyName }}
+                                    {{ todo.task }} 
                                 </label>
                         </li>
                     {{/each}}
                 </ul>
             </div>
         </div> 
+
+
+<!-- Button trigger modal -->
+          <button type="button" data-bs-toggle="modal" data-bs-target="#todomodal">
+            Add To Do
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="todomodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Add To Do</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div ="container-fluid">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="" id="newRole">
+                    </div>
+                    {{!-- <div class="input-group mb-3">
+                      <input type="text" aria-label="First name" class="form-control" value="{{ user.firstName }}" id="newtodo">
+                    </div> --}}
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  {{!-- <button class="btn btn-danger" data-bs-target="#{{ user.firstName }}{{ user.lastName }}" data-bs-toggle="modal">Cancel</button> --}}
+                  <button type="button" class="btn btn-primary updateBtn" data-bs-dismiss="modal">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
             {{#each allKids as |kid|}}
     
