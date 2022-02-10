@@ -26,81 +26,81 @@
     <th>Status</th>
     <th></th>
   </tr>
-    {{#each fullFam as |user|}}
-        <tr>
-          <td>{{ user.firstName }} {{ user.lastName }}</td>
-          <td>{{ user.role }}</td>
-          <td>{{ user.phoneNumber }}</td>
-          {{#if user.approval}}
-            <td>Approved</td>
-          {{else}}
-            <td>Pending</td>
-          {{/if}}
-          {{#eq user.level 1}}
-            <td></td>
-          {{else}}
-            <td>
-              <!-- Button trigger modal -->
-              <div data-bs-toggle="modal" data-bs-target="#{{ user.firstName }}">
-                Edit
-              </div>
-              <!-- Modal -->
-              <div class="modal fade" id="{{ user.firstName }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="staticBackdropLabel">{{ user.id }}</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  {{#each fullFam as |user|}}
+    <tr>
+      <td>{{ user.firstName }} {{ user.lastName }}</td>
+      <td>{{ user.role }}</td>
+      <td>{{ user.phoneNumber }}</td>
+      {{#if user.approval}}
+        <td>Approved</td>
+      {{else}}
+        <td>Pending</td>
+      {{/if}}
+      {{#eq user.level 1}}
+        <td></td>
+      {{else}}
+        <td>
+          <!-- Button trigger modal -->
+          <div data-bs-toggle="modal" data-bs-target="#{{ user.firstName }}">
+            Edit
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="{{ user.firstName }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Edit FamYOUly Member</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div ="container-fluid">
+                    <div class="input-group mb-3">
+                      <input type="hidden" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.id }}" id="newRole">
                     </div>
-                    <div class="modal-body">
-                        <div ="container-fluid">
-                      <div class="input-group mb-3">
-                        <span class="input-group-text col-5"">First and last name</span>
-                        <input type="text" aria-label="First name" class="form-control" value="{{ user.firstName }}" id="{{ user.firstName }}">
-                        <input type="text" aria-label="Last name" class="form-control" value="{{ user.lastName }}" id="newLastName">
-                      </div>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text col-5"" id="inputGroup-sizing-default">Relationship</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.role }}" id="newRole">
-                      </div>
-                      <div class="input-group mb-3">
-                        <span class="input-group-text col-5"" id="inputGroup-sizing-default">Contact</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.phoneNumber }}" id="newPhoneNumber">
-                      </div>                      
-                      <div class="input-group mb-3">
-                        <label class="input-group-text col-5"" for="inputGroupSelect01">Access Level</label>
-                        <select class="form-select" id="newLevel" list ="level-list">
-                          <option id="newLevel">{{ user.level }}</option>
-                          <option value="1">1</option>
-                          <option value="2">2</option>
-                          <option value="3">3</option>
-                        </select>
-                      </div>
-                      <div class="input-group mb-3">
-                          <label class="input-group-text col-5"" for="inputGroupSelect01">Visibility</label>                        
-                          {{!-- <input class="form-check-input mx-4" type="checkbox" value="{{ user.visible }}" aria-label="Checkbox for following text input" id="newVisible"> --}}
-                          <input type="checkbox" value="{{ user.visible }}" aria-label="Checkbox for following text input" id="newVisible">
-                      </div>                      
-                      {{#unless user.approval}}
-                        <br>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Approve</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Deny</button>
-                      {{/unless}}
+                    <div class="input-group mb-3">
+                      <span class="input-group-text col-5">Full Name</span>
+                      <input type="text" aria-label="First name" class="form-control" value="{{ user.firstName }}" id="{{ user.firstName }}">
+                      <input type="text" aria-label="Last name" class="form-control" value="{{ user.lastName }}" id="newLastName">
                     </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text col-5" id="inputGroup-sizing-default">Relationship</span>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.role }}" id="newRole">
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary">Delete User</button>
-                      <button type="button" class="btn btn-primary updateBtn">Save</button>
-                      {{!-- <button type="button" class="btn btn-primary updateBtn {{ user.fistName }}">Save</button> --}}
-                      {{!-- <button type="button" class="btn btn-primary updateBtn" id="updateBtn">Save</button> --}}
+                    <div class="input-group mb-3">
+                      <span class="input-group-text col-5" id="inputGroup-sizing-default">Contact</span>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.phoneNumber }}" id="newPhoneNumber">
+                    </div>                      
+                    <div class="input-group mb-3">
+                      <label class="input-group-text col-5" for="inputGroupSelect01">Access Level</label>
+                      <select class="form-select" id="newLevel" list ="level-list">
+                        <option id="newLevel">{{ user.level }}</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                      </select>
                     </div>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text col-5" for="inputGroupSelect01">Visibility</label>                        
+                        <input type="checkbox" aria-label="Checkbox for following text input" id="newVisible" {{#if user.visible }} value="on" checked {{else}} value="off" unchecked {{/if}}>
+                    </div>                      
+                    {{#unless user.approval}}
+                      <br>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Approve</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Deny</button>
+                    {{/unless}}
                   </div>
                 </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary">Delete User</button>
+                  <button type="button" class="btn btn-primary updateBtn" data-bs-dismiss="modal">Save</button>
+                  {{!-- <button type="button" class="btn btn-primary updateBtn {{ user.fistName }}">Save</button> --}}
+                  {{!-- <button type="button" class="btn btn-primary updateBtn" id="updateBtn">Save</button> --}}
+                </div>
               </div>
-            </td>
-          {{/eq}}
-        </tr>
-    {{/each}}
+            </div>
+          </div>
+        </td>
+      {{/eq}}
+    </tr>
+  {{/each}}
 </table>
-
-
