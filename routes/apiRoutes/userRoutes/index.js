@@ -6,6 +6,7 @@ const {
 	signupHandler,
 	logout,
 	updateUser,
+	deleteUser,
 } = require('../../../controllers/userController');
 
 // router.route('/')
@@ -15,6 +16,8 @@ router.post('/signup', signupHandler);
 router.post('/login', login);
 router.post('/logout', logout);
 router.post('/updateuser', updateUser);
+
+router.post('/deleteuser', deleteUser);
 
 // router.route('/:userId')
 // 	.get(getUserById);

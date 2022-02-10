@@ -72,6 +72,20 @@ module.exports = {
 		}
 	},
 
+	deleteUser: async (req, res) => {
+		const { id } = req.body;
+		try {
+			const deleteUser = await User.destroy({
+				where: {
+				    id
+				}
+			});
+			res.redirect('/myfamily');
+		} catch (e) {
+			res.json(e);
+		}
+	},
+
 	loginView: (req, res) => {
 		if (req.session.loggedIn) {
 			return res.redirect('/homepage');

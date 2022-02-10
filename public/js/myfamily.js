@@ -6,17 +6,19 @@ $(document).ready(function() {
 	// const newLevel = $('#newLevel');
 	// const newVisible = $('#newVisible');
 	const updateBtn = $('.updateBtn');
+	const deleteBtn = $('.deleteBtn');
 	
     updateBtn.on('click', async function(event) {
-		console.log(event.target)
-		console.log('id', event.target.parentNode.parentNode.children[1].children[0].children[0].children[0].value);
-        console.log('first', event.target.parentNode.parentNode.children[1].children[0].children[1].children[1].value);
-		console.log('last', event.target.parentNode.parentNode.children[1].children[0].children[1].children[2].value);
-		console.log('role', event.target.parentNode.parentNode.children[1].children[0].children[2].children[1].value);
-		console.log('phone', event.target.parentNode.parentNode.children[1].children[0].children[3].children[1].value);
-		console.log('level', event.target.parentNode.parentNode.children[1].children[0].children[4].children[1].value);
-		console.log('visible', event.target.parentNode.parentNode.children[1].children[0].children[5].children[1]);
-		console.log('visible', event.target.parentNode.parentNode.children[1].children[0].children[5].children[1].value);
+		// console.log(event.target)
+		// console.log('id', event.target.parentNode.parentNode.children[1].children[0].children[0].children[0].value);
+		// console.log('id', event.target.parentNode.parentNode.children[1].children[0].children[0].children[0]);
+        // console.log('first', event.target.parentNode.parentNode.children[1].children[0].children[1].children[1].value);
+		// console.log('last', event.target.parentNode.parentNode.children[1].children[0].children[1].children[2].value);
+		// console.log('role', event.target.parentNode.parentNode.children[1].children[0].children[2].children[1].value);
+		// console.log('phone', event.target.parentNode.parentNode.children[1].children[0].children[3].children[1].value);
+		// console.log('level', event.target.parentNode.parentNode.children[1].children[0].children[4].children[1].value);
+		// console.log('visible', event.target.parentNode.parentNode.children[1].children[0].children[5].children[1]);
+		// console.log('visible', event.target.parentNode.parentNode.children[1].children[0].children[5].children[1].value);
 		event.preventDefault();
 		await $.post('/api/users/updateuser', {
 			id: event.target.parentNode.parentNode.children[1].children[0].children[0].children[0].value,
@@ -40,5 +42,15 @@ $(document).ready(function() {
         // how to grab specifc form input based on button
         // *this* can be impliment
         // pull values from the parent node
+	});
+
+	deleteBtn.on('click', async function(event) {
+		// console.log(event.target)
+		// console.log('id', event.target.parentNode.parentNode.children[2].children[0].value);
+		event.preventDefault();
+		await $.post('/api/users/deleteuser', {
+			id: event.target.parentNode.parentNode.children[2].children[0].value,
+		});
+			window.location.reload();
 	});
 });
