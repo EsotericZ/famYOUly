@@ -53,25 +53,20 @@ module.exports = {
 	},
 
 	updateUser: async (req, res) => {
-		const { firstName, lastName, role, phoneNumber } = req.body;
+		const { id, firstName, lastName, role, level, phoneNumber } = req.body;
 		try {
-			const createdUser = await User.update({
+			const updatedUser = await User.update({
 				firstName,
 				lastName,
 				role,
-				approval: false,
-				level: 3,
-				visible: false,
-				phoneNumber,},
+				level,
+				phoneNumber,
+			},
 				{where: {
-				    id: req.params.user.id}
+				    id
+				}
 			});
-			// const user = createdUser.get({ plain: true });
-			// req.session.save(() => {
-			// 	req.session.loggedIn = true;
-			// 	req.session.user = user;
-			// 	res.redirect('/waitingapproval');
-			// });
+			res.redirect('/myfamily');
 		} catch (e) {
 			res.json(e);
 		}
