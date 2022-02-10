@@ -5,6 +5,7 @@ module.exports = {
 		try {
 			const newTodo = await Todo.create({
 				task,
+				firstName: req.session.user.firstName,
 				userId: req.session.user.id,
 				familyName: req.session.user.familyName,
 			});
