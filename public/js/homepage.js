@@ -35,12 +35,10 @@ $(document).ready(function() {
 
   todoBox.on('click', async function(event) {
     event.preventDefault();
-    console.log(event.target)
-    console.log('id', event.target.parentNode.children[0].value)
-
-    console.log('task', event.target.parentNode.children[1].value)
+    // console.log(event.target)
+    // console.log('id', event.target.parentNode.children[0].value)
+    // console.log('task', event.target.parentNode.children[1].value)
+  await $.post('/api/todos/complete', {
+    id: event.target.parentNode.children[0].value,
   });
-  // await $.post('/api/todos/complete', {
-    
-  // })
 });

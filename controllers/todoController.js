@@ -19,10 +19,13 @@ module.exports = {
 		const { id } = req.body;
 		try {
 			const finished = await Todo.update({
-				id,
 				completed: 1,
 				completedUser: req.session.user.id,
-			})
+			},
+		{where: {
+			id
+		}
+	});
 		} catch (e) {
 			res.json(e);
 		}
