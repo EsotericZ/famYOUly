@@ -115,7 +115,7 @@
                     {{#each userTodos as |todo| }}
                         <li class="list-group-item"> 
                             <input type="hidden" class="form-control"  value="{{ todo.id }}">
-                            <input class="form-check-input todoBox" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input todoBox" type="checkbox" value="{{ todo.task }}" id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">
                                     {{ todo.task }} 
                                 </label>
