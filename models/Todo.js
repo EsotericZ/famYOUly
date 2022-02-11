@@ -31,7 +31,10 @@ Todo.init(
 				model: 'family',
 				key: 'familyName',
 			}
-		}
+		},
+		completedUser: {
+			type: DataTypes.STRING,
+		},
 	},
 	{
 		sequelize,
