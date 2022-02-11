@@ -9,7 +9,7 @@ module.exports = {
 				userId: req.session.user.id,
 				familyName: req.session.user.familyName,
 			});
-			res.json({ newTodo });
+			res.redirect('/homepage');
 		} catch (e) {
 			res.json(e);
 		}

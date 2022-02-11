@@ -6,6 +6,8 @@ $(document).ready(function() {
     const kidBirthday = $('#kidBirthday');
     const kidFamilyName = $('#kidFamilyName');
     const saveChild = $('#saveChild');
+    const addTodoBtn = $('#addTodoBtn');
+    const newTodo = $('#newTodo');
 	
     saveChild.on('click', async function(event) {
 		event.preventDefault();
@@ -19,4 +21,12 @@ $(document).ready(function() {
 		});
         window.location.reload();
 	});
+
+    addTodoBtn.on('click', async function(event) {
+    event.preventDefault();
+    await $.post('/api/todos', {
+			      task: newTodo.val(),
+		});
+		    window.location.reload();
+  });
 });
