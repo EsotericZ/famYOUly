@@ -25,9 +25,31 @@ module.exports = {
 		{where: {
 			id
 		}
-	});
+		});
 		} catch (e) {
 			res.json(e);
 		}
-	}
+	},
+	renderTodo: async (req, res) => {
+		res.render('todo');
+	},
+
+	getAllTodos: async (req, res) => {
+		if (!req.session.loggedIn) {
+			return res.redirect('/homepage');
+		}
+		try {
+			const userTodosData = await Todo.findAll({
+				where: {
+					userId: req.session.user.id,
+				}
+			});
+			res.render('todos', {
+				userTodos: userTodosData.map(userTodo => userTodo.get({ plain: true })),
+				user: req.session.user,
+			});
+		} catch (e) {
+			res.json(e);
+		}
+	},
 }

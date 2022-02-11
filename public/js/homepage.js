@@ -42,3 +42,4 @@ $(document).ready(function() {
     id: event.target.parentNode.children[0].value,
   });
 });
+});

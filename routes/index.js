@@ -5,6 +5,7 @@ const { loginView, signupView, renderHome, renderWaiting } = require('../control
 const { createInformation, renderInformation } = require('../controllers/informationController');
 
 const { createFamilyView, myFamily } = require('../controllers/familyController');
+const { getAllTodos } = require('../controllers/todoController');
 
 router.get('/', loginView);
 router.get('/login', loginView);
@@ -13,6 +14,8 @@ router.get('/homepage', renderHome);
 router.get('/createfamily', createFamilyView);
 router.get('/myfamily', myFamily);
 router.get('/waitingapproval', renderWaiting);
+router.get('/todo', getAllTodos);
+
 
 router.use('/api', apiRoutes);
 
