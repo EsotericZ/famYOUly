@@ -27,12 +27,19 @@ Contact.init(
         relation: {
             type: DataTypes.STRING,
         },
-        // childId: {
-        //     type: DataTypes.UUID,
-        //     defaultValue: UUIDV4,
+        childId: {
+            type: DataTypes.UUID,
+            defaultValue: UUIDV4,
+            references: {
+                model: 'child',
+                key: 'id',
+            },
+        },
+        // familyName: {
+        //     type: DataTypes.STRING,
         //     references: {
-        //         model: 'child',
-        //         key: 'id',
+        //         model: 'family',
+        //         key: 'familyName',
         //     },
         // },
     },
