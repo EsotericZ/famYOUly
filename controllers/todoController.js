@@ -39,15 +39,18 @@ module.exports = {
 
 	getAllTodos: async (req, res) => {
 		if (!req.session.loggedIn) {
-			return res.redirect('/homepage');
+			return res.redirect('/login');
+		}
+		if (req.session.user.approval == 0) {
+			return res.redirect('/waitingapproval');
 		}
 		try {
 			const userTodosData = await Todo.findAll({
 				where: {
-					userId: req.session.user.id,
+					familyName: req.session.user.familyName,
 				}
 			});
-			res.render('todos', {
+			res.render('todo', {
 				userTodos: userTodosData.map(userTodo => userTodo.get({ plain: true })),
 				user: req.session.user,
 			});
