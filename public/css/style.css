@@ -26,5 +26,17 @@ table {
 
 .btn  {
     margin: 5px;
-    max-width: 150px;
+}
+
+#todoTable {
+    padding: 10px;
+    margin: auto;
+    border-style:solid;
+    text-align: center;
+    display: table;
+    max-width: 1000px;    
+}
+
+h1 {
+    text-align: center;
 }
