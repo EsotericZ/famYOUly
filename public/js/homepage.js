@@ -9,6 +9,7 @@ $(document).ready(function() {
   const addTodoBtn = $('#addTodoBtn');
   const newTodo = $('#newTodo');
   const todoBox = $('.todoBox');
+  const moreInfoBtn = $('#moreInfoBtn');
 
   saveChild.on('click', async function(event) {
     event.preventDefault();
@@ -39,4 +40,12 @@ $(document).ready(function() {
     });
       window.location.reload();
   });
-});
+
+
+// moreInfoBtn.on('click', async function(event) {
+//   event.preventDefault();
+//   console.log(event);
+//   await $.post('/api/info', {
+//     childId
+//   })
+// });
