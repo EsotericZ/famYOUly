@@ -1,3 +1,5 @@
+// const { completedTodo } = require("../../controllers/todoController");
+
 $(document).ready(function() {
     const kidFirstName = $('#kidFirstName');
     const kidLastName = $('#kidLastName');
@@ -8,6 +10,7 @@ $(document).ready(function() {
     const saveChild = $('#saveChild');
     const addTodoBtn = $('#addTodoBtn');
     const newTodo = $('#newTodo');
+    const todoBox = $('.todoBox');
 	
     saveChild.on('click', async function(event) {
 		event.preventDefault();
@@ -29,4 +32,16 @@ $(document).ready(function() {
 		});
 		    window.location.reload();
   });
+
+  todoBox.on('click', async function(event) {
+    event.preventDefault();
+    console.log(event.target)
+    console.log('id', event.target.parentNode.children[0].value)
+
+    console.log('task', event.target.parentNode.children[2].children[0])
+    console.log('task', event.target.parentNode.children[2].children[0].label)
+  });
+  // await $.post('/api/todos/complete', {
+    
+  // })
 });
