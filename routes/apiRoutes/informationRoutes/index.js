@@ -1,33 +1,28 @@
 const router = require('express').Router();
-// const {
-// 	createInformation,
-//     renderInformation,
-// } = require('../../../controllers/informationController');
 const {
+	addMedicalInfo,
     createContact,
-    getAllContacts,
-} = require('../../../controllers/contactController');
-const {
-    addMedicalInfo,
-} = require('../../../controllers/medicalController');
-const {
     createList,
-} = require('../../../controllers/listController');
+} = require('../../../controllers/informationController');
+
+router.post('/medical', addMedicalInfo);
+router.post('/contact', createContact);
+router.post('/list', createList);
 
 // router.route('/')
 //     .get(renderInformation);
 
-// contact
-router.post('/contact', createContact);
-router.get('/contact', getAllContacts);
+// // contact
+// router.post('/contact', createContact);
+// router.get('/contact', getContactsByChildId);
 
-// medical
-router.post('/medical', addMedicalInfo);
-// get medical info
-// router.get('/medical', )
+// // medical
+// router.post('/medical', addMedicalInfo);
+// // get medical info
+// // router.get('/medical', )
 
-// list
-router.post('/list', createList);
+// // list
+// router.post('/list', createList);
 // get list info
 // router.get('/list', )
 
