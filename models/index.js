@@ -19,66 +19,54 @@ Family.hasMany(User, {
 	foreignKey: 'familyName',
 	onDelete: 'CASCADE',
 });
-
 User.belongsTo(Family, {
 	foreignKey: 'familyName'
-});
-
-Contact.belongsTo(Child, {
-	foreignKey: 'childId',
-});
-
-Medical.belongsTo(Child, {
-	foreignKey: 'childId',
-});
-
-List.belongsTo(Child, {
-	foreignKey: 'childId',
 });
 
 Child.hasMany(Contact, {
 	foreignKey: 'childId',
 	onDelete: 'CASCADE',
 });
+Contact.belongsTo(Child, {
+	foreignKey: 'childId',
+});
 
 Child.hasMany(Medical, {
 	foreignKey: 'childId',
 	onDelete: 'CASCADE',
+});
+Medical.belongsTo(Child, {
+	foreignKey: 'childId',
 });
 
 Child.hasMany(List, {
 	foreignKey: 'childId',
 	onDelete: 'CASCADE',
 });
-
-// Information.hasMany(Child, {
-// 	foreignKey: 'childId',
-// });
-
-
-Todo.belongsTo(User, {
-	foreignKey: 'userId',
-});
-
-Todo.belongsTo(Family, {
-	foreignKey: 'familyName',
+List.belongsTo(Child, {
+	foreignKey: 'childId',
 });
 
 User.hasMany(Todo, {
 	foreignKey: 'userId',
 	onDelete: 'CASCADE',
 });
+Todo.belongsTo(User, {
+	foreignKey: 'userId',
+});
 
 Family.hasMany(Todo, {
 	foreignKey: 'familyName',
 	onDelete: 'CASCADE',
+});
+Todo.belongsTo(Family, {
+	foreignKey: 'familyName',
 });
 
 module.exports = {
     Child,
     Family,
     User,
-    // Information,
 	Medical,
 	Contact,
 	List,

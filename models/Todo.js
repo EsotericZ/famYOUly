@@ -33,7 +33,11 @@ Todo.init(
 			}
 		},
 		completedUser: {
-			type: DataTypes.STRING,
+			type: DataTypes.UUID,
+			references: {
+				model: 'user',
+				key: 'id',
+			}
 		},
 	},
 	{

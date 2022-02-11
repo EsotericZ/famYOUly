@@ -1,4 +1,4 @@
-const { Todo } = require('../models');
+const { Todo, User } = require('../models');
 
 module.exports = {
 	createTodo: async (req, res) => {
@@ -45,6 +45,12 @@ module.exports = {
 		}
 		try {
 			const userTodosData = await Todo.findAll({
+				include: [
+					{
+						model: User,
+						attributes: ['firstName', 'lastName'],
+					},
+				],
 				where: {
 					familyName: req.session.user.familyName,
 				}

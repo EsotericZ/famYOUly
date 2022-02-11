@@ -1,4 +1,49 @@
 <h1 class="text-center my-3">Information</h1>
+
+<div class="row p-4">
+    {{!-- {{#each children as |child|}} --}}
+    <div class="col-sm-6">
+        <div class="card my-5">
+            <div class="card-body my-3">
+                <h3 class="card-title">Child Name {{child.firstName}}</h3>
+                {{!-- medical --}}
+                <a class="btn btn-primary my-5" data-bs-toggle="collapse" href="#medicalInfo" role="button"
+                    aria-expanded="false" aria-controls="medicalInfo">
+                    Medical Info
+                    {{!-- {{> medical}} --}}
+                </a>
+                {{!-- contact --}}
+                <a class="btn btn-primary my-5" data-bs-toggle="collapse" href="#contactInfo" role="button"
+                    aria-expanded="false" aria-controls="contactInfo">
+                    Contact Info
+                    {{!-- {{> contact}} --}}
+                </a>
+                {{!-- list --}}
+                <a class="btn btn-primary my-5" data-bs-toggle="collapse" href="#listInfo" role="button"
+                    aria-expanded="false" aria-controls="listInfo">
+                    Don't Forget List
+                    {{!-- {{> list}} --}}
+                </a>
+            </div>
+        </div>
+        <div class="collapse" id="medicalInfo">
+            <div class="card card-body">
+                {{> medical}}
+            </div>
+        </div>
+        <div class="collapse" id="contactInfo">
+            <div class="card card-body">
+                Example contact placeholder text
+                {{> contact}}
+            </div>
+        </div>
+        <div class="collapse" id="listInfo">
+            <div class="card card-body">
+                Example list placeholder text
+                {{> list}}
+            </div>
+        </div>
+
 <div class="row">
   {{!-- {{#each children as |child|}} --}}
   <div class="col-sm-6">
@@ -24,6 +69,7 @@
           {{!-- {{> list}} --}}
         </a>
       </div>
+
     </div>
     <div class="collapse" id="medicalInfo">
       <div class="card card-body">
