@@ -26,6 +26,8 @@ table {
 
 .btn  {
     margin: 5px;
+    /* width: 120px;
+    height: 63px; */
 }
 
 #todoTable {
@@ -34,7 +36,7 @@ table {
     border-style:solid;
     text-align: center;
     display: table;
-    max-width: 1000px;    
+    max-width: 80%;    
 }
 
 h1 {
@@ -49,4 +51,8 @@ h1 {
 
 .h3 {
     font-size: 35px;
+}
+
+h3 {
+    margin-left: 19%;
 }
