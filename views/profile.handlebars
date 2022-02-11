@@ -22,4 +22,74 @@
   </div>
 </nav>
 
-{{ user.firstName }}
+<h1>User Profile</h1>
+
+<table class="table">
+  <tr>
+    <td>Name</td>
+    <td>{{ user.firstName }} {{ user.lastName }}</td>
+  </tr>
+  <tr>
+    <td>Relationship</td>
+    <td>{{ user.role }}</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>{{ user.email }}</td>
+  </tr>
+  <tr>
+    <td>Phone Number</td>
+    <td>{{ phoneNumber user.phoneNumber }}</td>
+  </tr>
+  <tr>
+    <td>Family Name</td>
+    <td>{{ user.familyName }}</td>
+  </tr>
+</table>
+
+  <!-- Button trigger modal -->
+<button type="button" data-bs-toggle="modal" data-bs-target="#editProfile">
+Edit
+</button>
+  <!-- Modal -->
+<div class="modal fade" id="editProfile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Edit Profile</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div ="container-fluid">
+          <div class="input-group mb-3">
+            <input type="hidden" class="form-control" value="{{ user.id }}" id="newId">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text col-5">Full Name</span>
+            <input type="text" aria-label="First name" class="form-control" value="{{ user.firstName }}" id="newFirstName">
+            <input type="text" aria-label="Last name" class="form-control" value="{{ user.lastName }}" id="newLastName">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text col-5" id="inputGroup-sizing-default">Relationship</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.role }}" readonly> 
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text col-5" id="inputGroup-sizing-default">Email</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.email }}" id="newEmail">
+          </div>                      
+          <div class="input-group mb-3">
+            <span class="input-group-text col-5" id="inputGroup-sizing-default">Phone Number</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ phoneNumber user.phoneNumber }}" id="newPhoneNumber">
+          </div>                      
+          <div class="input-group mb-3">
+            <span class="input-group-text col-5" id="inputGroup-sizing-default">Family</span>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.familyName }}" readonly>
+          </div>                      
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary profileBtn" data-bs-dismiss="modal">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
