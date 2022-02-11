@@ -15,7 +15,7 @@ router.get('/waitingapproval', renderWaiting);
 router.get('/profile', renderProfile);
 router.get('/todo', getAllTodos);
 
-router.get('/information', getInformation);
+router.get('/info', getInformation);
 
 
 router.use('/api', apiRoutes);
