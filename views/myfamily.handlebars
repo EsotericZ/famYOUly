@@ -28,7 +28,7 @@
 <div class="'container">
 <div class="col-8 justify-content-center">
 <table class="table">
-  <tr>
+  <tr class="table-active">
     <th>Name</th>
     <th>Relationship</th>
     <th>Contact</th>
@@ -39,7 +39,7 @@
     <tr>
       <td>{{ user.firstName }} {{ user.lastName }}</td>
       <td>{{ user.role }}</td>
-      <td>{{ user.phoneNumber }}</td>
+      <td>{{ phoneNumber user.phoneNumber }}</td>
       {{#if user.approval}}
         <td>Approved</td>
       {{else}}
@@ -77,7 +77,7 @@
                     </div>
                     <div class="input-group mb-3">
                       <span class="input-group-text col-5" id="inputGroup-sizing-default">Contact</span>
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" dataname="{{ user.id }}" value="{{ user.phoneNumber }}" id="newPhoneNumber">
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" dataname="{{ user.id }}" value="{{ phoneNumber user.phoneNumber }}" id="newPhoneNumber">
                     </div>                      
                     <div class="input-group mb-3">
                       <label class="input-group-text col-5" for="inputGroupSelect01">Access Level</label>
@@ -93,9 +93,8 @@
                         <input type="checkbox" class="mx-4 my-3" aria-label="Checkbox for following text input" id="newVisible" {{#if user.visible }} value="on" checked {{else}} value="off" unchecked {{/if}}>
                     </div>                      
                     {{#unless user.approval}}
-                      <br>
-                      <button type="button" class="btn btn-secondary approveBtn" data-bs-dismiss="modal">Approve</button>
-                      <button type="button" class="btn btn-secondary denyBtn" data-bs-dismiss="modal">Deny</button>
+                      <button type="button" class="btn btn-success approveBtn" data-bs-dismiss="modal">Approve</button>
+                      <button type="button" class="btn btn-danger denyBtn" data-bs-dismiss="modal">Deny</button>
                     {{/unless}}
                   </div>
                 </div>
