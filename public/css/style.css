@@ -23,3 +23,8 @@ table {
     margin-left: 25%;
     margin-right: auto;
 }
+
+.btn  {
+    margin: 5px;
+    max-width: 150px;
+}
