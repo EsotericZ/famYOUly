@@ -24,12 +24,34 @@
 
 <h1>To Do History</h1>
 
-<ul class="list-group">
+<table class="table">
+  <tr>
+    <th>Task</th>
+    <th>Created By</th>
+    <th>Created On</th>
+    <th>Status</th>
+    <th>Completed By</th>
+    <th>Completed On</th>
+  </tr>
   {{#each userTodos as |todo| }}
     {{#if todo.completed}}
-      <li class="list-group-item list-group-item-primary">{{ todo.task }}</li>
+      <tr class="table-success">
+        <td>{{ todo.task }}</td>
+        <td>{{ todo.userId }}</td>
+        <td>{{ todo.createdAt }}</td>
+        <td>Completed</td>
+        <td>{{ todo.completedUser }}</td>
+        <td>{{ todo.updatedAt }}</td>
+      </tr>
     {{else}}
-      <li class="list-group-item list-group-item-danger">{{ todo.task }}</li>
+      <tr>
+        <td>{{ todo.task }}</td>
+        <td>{{ todo.userId }}</td>
+        <td>{{ todo.createdAt }}</td>
+        <td>Open</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
     {{/if}}
   {{/each}}
-</ul>
+</table>
