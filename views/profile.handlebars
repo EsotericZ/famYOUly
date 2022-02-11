@@ -22,14 +22,4 @@
   </div>
 </nav>
 
-<h1>To Do History</h1>
-
-<ul class="list-group">
-  {{#each userTodos as |todo| }}
-    {{#if todo.completed}}
-      <li class="list-group-item list-group-item-primary">{{ todo.task }}</li>
-    {{else}}
-      <li class="list-group-item list-group-item-danger">{{ todo.task }}</li>
-    {{/if}}
-  {{/each}}
-</ul>
+{{ user.firstName }}

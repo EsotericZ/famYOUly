@@ -150,6 +150,22 @@ module.exports = {
 		}
 	},
 
+	renderProfile: async (req, res) => {
+		if (!req.session.loggedIn) {
+			return res.redirect('/login');
+		}
+		if (req.session.user.approval == 0) {
+			return res.redirect('/waitingapproval');
+		}
+		try {
+			res.render('profile', {
+				user: req.session.user,
+			});
+		} catch (e) {
+			res.json(e);
+		}
+	},
+
 	renderWaiting: (req, res) => {
 		if (!req.session.loggedIn) {
 			return res.redirect('/login');
