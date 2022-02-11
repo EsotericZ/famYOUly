@@ -33,6 +33,7 @@ module.exports = {
 			res.json(e);
 		}
 	},
+	
 	renderTodo: async (req, res) => {
 		res.render('todo');
 	},

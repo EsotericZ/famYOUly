@@ -8,9 +8,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/myfamily">My FamYOUly</a>
         </li>
-        <li class="nav-item">
+        {{!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/todo">Todo History</a>
-        </li>
+        </li> --}}
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/profile">My Profile</a>
         </li>
@@ -27,162 +27,167 @@
 <h3>Your Role is: {{ user.role }}</h3> --}}
 
 <div class="container">
-    <div class="row">
-        <div class="col-lg-5 m-1">
-            <div class="card col-12">
+  <div class="row">
+    <div class="col-lg-5 m-1">
+      <div class="card col-12">
 
-                <div class="card-header col-12">
-                Upcoming Events
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">2/14/22 at 2 PM Ellie Soccer Game @ Central Elementary School</li>
-                    <li class="list-group-item">2/20/22 at 9 AM Jordan Dr. Apt @ Children Family Med - Central </li>
-                    <li class="list-group-item">2/28/22 at 6 PM Birthday Party @ Beyonce's House </li>
-                </ul>
-            </div>
+        <div class="card-header col-12">
+          Upcoming Events
         </div>
-
-        <div class="col-lg-3 m-1">
-            <button type="button" class="col-7 btn btn-secondary btn-lg m-2">Add Event</button>
-            <button type="button" class="col-7 btn btn-secondary btn-lg m-2">Submit Request</button>
-        </div>
-        <div class="col-lg-3 m-1">
-            {{!-- <button type="button" class="col-7 btn btn-secondary btn-lg m-2">Add a To Do</button> --}}
-            <button type="button" data-bs-toggle="modal" data-bs-target="#todomodal" class="col-7 btn btn-secondary btn-lg m-2">Add a To Do</button>
-
-                <!-- Add A Child Button, click to trigger modal -->
-            <button type="button" class="btn btn-secondary btn-lg m-2" data-bs-toggle="modal" data-bs-target="#addChild">
-                Add Child
-            </button>
-                <!--Add A Child Modal -->
-            <div class="modal fade" id="addChild" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Child Information</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-
-                        <div class="modal-body">
-                            <div class="container-fluid">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text col-5">First and Last name</span>
-                                    <input type="text" aria-label="First name" class="form-control"id="kidFirstName">
-                                    <input type="text" aria-label="Last name" class="form-control" id="kidLastName">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text col-5">Nickname</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="kidNickname">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text col-5" list="pronoun-list" id="kidPronouns">Pronouns</span>
-                                    <select class="form-select" id="pronoun-list" aria-label="Default select example">
-                                        <option selected></option>
-                                        <option value="He/Him">He/Him</option>
-                                        <option value="She/Her">She/Her</option>
-                                        <option value="They/Them">They/Them</option>
-                                    </select>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text col-5">Birthday</span>
-                                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="kidBirthday">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text col-5">Family Name</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.familyName }}" id="kidFamilyName"readonly>
-                                </div>
-                            </div>                      
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-primary" id="saveChild">Save</button>
-                                </div>
-                         </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">2/14/22 at 2 PM Ellie Soccer Game @ Central Elementary School</li>
+          <li class="list-group-item">2/20/22 at 9 AM Jordan Dr. Apt @ Children Family Med - Central </li>
+          <li class="list-group-item">2/28/22 at 6 PM Birthday Party @ Beyonce's House </li>
+        </ul>
+      </div>
     </div>
-</div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-lg-6 mt-4">
-            <div class="card">
-                <div class="card-header">
-                    To Do's
-                </div>
-                <ul class="list-group list-group-flush">
-                    {{!-- {{#unless userTodos }}
-                        <li class="list-group-item"> 
-                            There are currently no to-dos
-                        </li>
-                    {{/unless}} --}}
-                    {{#each userTodos as |todo| }}
-                        {{#unless todo.completed }}
-                        <li class="list-group-item"> 
-                            <input type="hidden" class="form-control"  value="{{ todo.id }}">
-                            <input class="form-check-input todoBox" type="checkbox" value="{{ todo.task }}" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    {{ todo.task }} 
-                                </label>
-                        </li>
-                        {{/unless}}
-                    {{/each}}
-                </ul>
-            </div>
-        </div> 
-
-   
-
-        <div class="col-lg-6">
-            <div class="container">
-                <div class="row">
-                    {{#each allKids as |kid|}}
-                    <div class="col-6 my-2">
-                        <div class="card">
-                            <img src="/images/Placeholder_Image.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ kid.firstName }} {{ kid.lastName }} <svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                        class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
-                                    </svg></h5>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Nick name: {{ kid.nickname }} </li>
-                                <li class="list-group-item">Pronouns: {{ kid.pronouns }}</li>
-                                <li class="list-group-item">Birthday: {{ kid.birthday }}</li>
-                            </ul>
-                        </div>
-                    </div>
-                    {{/each}}
-                </div>
-            </div>
-        </div>
+    <div class="col-lg-3 m-1">
+      <button type="button" class="col-7 btn btn-secondary btn-lg m-2">Add Event</button>
+      <button type="button" class="col-7 btn btn-secondary btn-lg m-2">Submit Request</button>
     </div>
-</div>
-
-
-          <!-- Modal -->
-          <div class="modal fade" id="todomodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Add To Do</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <div ="container-fluid">
-                    <div class="input-group mb-3">
-                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="" id="newTodo">
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" id="addTodoBtn" data-bs-dismiss="modal">Save</button>
+    <div class="col-lg-3 m-1">
+      {{!-- <button type="button" class="col-7 btn btn-secondary btn-lg m-2">Add a To Do</button> --}}
+      <button type="button" data-bs-toggle="modal" data-bs-target="#todomodal"
+        class="col-7 btn btn-secondary btn-lg m-2">
+        Add a To Do
+      </button>
+      <!-- Add a ToDo Modal -->
+      <div class="modal fade" id="todomodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Add To Do</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div="container-fluid">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" value="" id="newTodo">
                 </div>
               </div>
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="addTodoBtn" data-bs-dismiss="modal">Save</button>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Add A Child Button, click to trigger modal -->
+      <button type="button" class="btn btn-secondary btn-lg m-2" data-bs-toggle="modal" data-bs-target="#addChild">
+        Add Child
+      </button>
+      <!--Add A Child Modal -->
+      <div class="modal fade" id="addChild" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Child Information</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+              <div class="container-fluid">
+                <div class="input-group mb-3">
+                  <span class="input-group-text col-5">First and Last name</span>
+                  <input type="text" aria-label="First name" class="form-control" id="kidFirstName">
+                  <input type="text" aria-label="Last name" class="form-control" id="kidLastName">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text col-5">Nickname</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" id="kidNickname">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text col-5" list="pronoun-list" id="kidPronouns">Pronouns</span>
+                  <select class="form-select" id="pronoun-list" aria-label="Default select example">
+                    <option selected></option>
+                    <option value="He/Him">He/Him</option>
+                    <option value="She/Her">She/Her</option>
+                    <option value="They/Them">They/Them</option>
+                  </select>
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text col-5">Birthday</span>
+                  <input type="date" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" id="kidBirthday">
+                </div>
+                <div class="input-group mb-3">
+                  <span class="input-group-text col-5">Family Name</span>
+                  <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default" value="{{ user.familyName }}" id="kidFamilyName"
+                    readonly>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="saveChild">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 mt-4">
+      <div class="card">
+        <div class="card-header">
+          To Do's
+        </div>
+        <ul class="list-group list-group-flush">
+          {{!-- {{#unless userTodos }}
+          <li class="list-group-item">
+            There are currently no to-dos
+          </li>
+          {{/unless}} --}}
+          {{#each userTodos as |todo| }}
+          {{#unless todo.completed }}
+          <li class="list-group-item">
+            <input type="hidden" class="form-control" value="{{ todo.id }}">
+            <input class="form-check-input todoBox" type="checkbox" value="{{ todo.task }}" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              {{ todo.task }}
+            </label>
+          </li>
+          {{/unless}}
+          {{/each}}
+        </ul>
+      </div>
+      <a href="/todo">To Do's History</a>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="container">
+        <div class="row">
+          {{#each allKids as |kid|}}
+          <div class="col-6 my-2">
+            <div class="card">
+              <img src="/images/Placeholder_Image.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ kid.firstName }} {{ kid.lastName }} <svg xmlns="http://www.w3.org/2000/svg"
+                    width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                  </svg></h5>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Nick name: {{ kid.nickname }} </li>
+                <li class="list-group-item">Pronouns: {{ kid.pronouns }}</li>
+                <li class="list-group-item">Birthday: {{ kid.birthday }}</li>
+              </ul>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
