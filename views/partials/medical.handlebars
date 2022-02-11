@@ -1,27 +1,26 @@
-{{!-- <ul>
-    {{#each children as |child|}}
-    {{ child.firstName }}
+<div class="card-body">
+    {{!-- Medications --}}
+    <h4 class="card-title">Medications:</h4>
     {{#if medications}}
-    <li>Medications:
-        <p>{{ medical.healthInsurance }}</p>
-        <p>{{ medical.medications }}</p>
-        <p>{{ medical.allergies }}</p>
-    </li>
+        <li>
+            <p>{{ medical.medications }}</p>
+            <p class="card-text">Example text</p>
+        </li>
     {{/if}}
-    {{/each}}
-</ul> --}}
-{{!-- 
-<ul class="list-group">
-    {{#each children as |child|}}
-        {{#if medications, healthInsurance, allergies}}
-            <li class="list-group-item">{{ medical.medications }}</li>
-            <li class="list-group-item">{{ medical.healthInsurance }}</li>
-            <li class="list-group-item">{{ medical.allergies }}</li>
-        {{/if}}
-    {{/each}}
-    {{!-- <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-    <li class="list-group-item">A fourth item</li>
-    <li class="list-group-item">And a fifth one</li> --}}
-</ul> --}}
+    {{!-- Allergies --}}
+    <h4 class="card-title">Allergies:</h4>
+    {{#if allergies}}
+        <li>
+            <p>{{ medical.allergies }}</p>
+            <p class="card-text">Example text</p>
+        </li>
+    {{/if}}
+    {{!-- Health Insurance --}}
+    <h4 class="card-title">Health Insurance:</h4>
+    {{#if healthInsurance}}
+        <li>
+            <p class="card-text">{{ medical.healthInsurance }}</p>
+            <p class="card-text">Example text</p>
+        </li>
+    {{/if}}
+</div>
