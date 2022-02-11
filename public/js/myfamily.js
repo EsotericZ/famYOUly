@@ -6,6 +6,8 @@ $(document).ready(function() {
 	// const newLevel = $('#newLevel');
 	// const newVisible = $('#newVisible');
 	const updateBtn = $('.updateBtn');
+	const approveBtn = $('.approveBtn');
+	const denyBtn = $('.denyBtn');
 	const deleteBtn = $('.deleteBtn');
 	
     updateBtn.on('click', async function(event) {
@@ -50,6 +52,26 @@ $(document).ready(function() {
 		event.preventDefault();
 		await $.post('/api/users/deleteuser', {
 			id: event.target.parentNode.parentNode.children[2].children[0].value,
+		});
+			window.location.reload();
+	});
+	
+	approveBtn.on('click', async function(event) {
+		// console.log(event.target)
+		// console.log('id', event.target.parentNode.children[0].children[0].value);
+		event.preventDefault();
+		await $.post('/api/users/approveuser', {
+			id: event.target.parentNode.children[0].children[0].value,
+		});
+			window.location.reload();
+	});
+		
+	denyBtn.on('click', async function(event) {
+		// console.log(event.target)
+		// console.log('id', event.target.parentNode.children[0].children[0].value);
+		event.preventDefault();
+		await $.post('/api/users/deleteuser', {
+			id: event.target.parentNode.children[0].children[0].value,
 		});
 			window.location.reload();
 	});
