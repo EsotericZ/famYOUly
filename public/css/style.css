@@ -23,3 +23,30 @@ table {
     margin-left: 25%;
     margin-right: auto;
 }
+
+.btn  {
+    margin: 5px;
+}
+
+#todoTable {
+    padding: 10px;
+    margin: auto;
+    border-style:solid;
+    text-align: center;
+    display: table;
+    max-width: 1000px;    
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-signin {
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.h3 {
+    font-size: 35px;
+}
