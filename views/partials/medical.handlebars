@@ -1,0 +1,27 @@
+{{!-- <ul>
+    {{#each children as |child|}}
+    {{ child.firstName }}
+    {{#if medications}}
+    <li>Medications:
+        <p>{{ medical.healthInsurance }}</p>
+        <p>{{ medical.medications }}</p>
+        <p>{{ medical.allergies }}</p>
+    </li>
+    {{/if}}
+    {{/each}}
+</ul> --}}
+{{!-- 
+<ul class="list-group">
+    {{#each children as |child|}}
+        {{#if medications, healthInsurance, allergies}}
+            <li class="list-group-item">{{ medical.medications }}</li>
+            <li class="list-group-item">{{ medical.healthInsurance }}</li>
+            <li class="list-group-item">{{ medical.allergies }}</li>
+        {{/if}}
+    {{/each}}
+    {{!-- <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li> --}}
+</ul> --}}

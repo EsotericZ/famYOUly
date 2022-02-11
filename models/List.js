@@ -18,7 +18,7 @@ List.init(
             type: DataTypes.UUID,
             defaultValue: UUIDV4,
         },
-        items: {
+        item: {
             type: DataTypes.STRING,
         },
     },

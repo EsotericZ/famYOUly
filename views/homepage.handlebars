@@ -110,12 +110,13 @@
                     To Do's
                 </div>
                 <ul class="list-group list-group-flush">
-                    {{#unless userTodos}}
+                    {{!-- {{#unless userTodos }}
                         <li class="list-group-item"> 
                             There are currently no to-dos
                         </li>
-                    {{/unless}}
+                    {{/unless}} --}}
                     {{#each userTodos as |todo| }}
+                        {{#unless todo.completed }}
                         <li class="list-group-item"> 
                             <input type="hidden" class="form-control"  value="{{ todo.id }}">
                             <input class="form-check-input todoBox" type="checkbox" value="{{ todo.task }}" id="flexCheckDefault">
@@ -123,6 +124,7 @@
                                     {{ todo.task }} 
                                 </label>
                         </li>
+                        {{/unless}}
                     {{/each}}
                 </ul>
             </div>

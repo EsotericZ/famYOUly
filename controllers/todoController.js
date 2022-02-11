@@ -21,11 +21,12 @@ module.exports = {
 			const finished = await Todo.update({
 				completed: 1,
 				completedUser: req.session.user.id,
-			},
-		{where: {
-			id
-		}
-		});
+				},
+				{where: {
+					id
+				}
+			});
+			res.redirect('/homepage');
 		} catch (e) {
 			res.json(e);
 		}
