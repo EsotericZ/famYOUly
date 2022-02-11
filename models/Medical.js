@@ -7,17 +7,16 @@ Medical.init(
     {
         childId: {
             type: DataTypes.UUID,
-            defaultValue: UUIDV4,
-            primaryKey: true,
             references: {
                 model: 'child',
                 key: 'id',
             },
         },
-        // id: {
-        //     type: DataTypes.UUID,
-        //     defaultValue: UUIDV4,
-        // },
+        id: {
+            type: DataTypes.UUID,
+            defaultValue: UUIDV4,
+            primaryKey: true,
+        },
         healthInsurance: {
             type: DataTypes.STRING,
         },
@@ -27,6 +26,13 @@ Medical.init(
         allergies: {
             type: DataTypes.STRING,
         },
+        // familyName: {
+        //     type: DataTypes.STRING,
+        //     references: {
+        //         model: 'family',
+        //         key: 'familyName',
+        //     },
+        // },
     },
     {
         sequelize,
