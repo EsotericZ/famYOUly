@@ -40,3 +40,13 @@ table {
 h1 {
     text-align: center;
 }
+
+.form-signin {
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.h3 {
+    font-size: 35px;
+}
