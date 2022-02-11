@@ -81,12 +81,12 @@
                     </div>
                     <div class="input-group mb-3">
                         <label class="input-group-text col-5" for="inputGroupSelect01">Visibility</label>                        
-                        <input type="checkbox" aria-label="Checkbox for following text input" id="newVisible" {{#if user.visible }} value="on" checked {{else}} value="off" unchecked {{/if}}>
+                        <input type="checkbox" class="mx-4 my-3" aria-label="Checkbox for following text input" id="newVisible" {{#if user.visible }} value="on" checked {{else}} value="off" unchecked {{/if}}>
                     </div>                      
                     {{#unless user.approval}}
                       <br>
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Approve</button>
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Deny</button>
+                      <button type="button" class="btn btn-secondary approveBtn" data-bs-dismiss="modal">Approve</button>
+                      <button type="button" class="btn btn-secondary denyBtn" data-bs-dismiss="modal">Deny</button>
                     {{/unless}}
                   </div>
                 </div>

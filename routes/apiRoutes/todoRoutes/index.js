@@ -1,6 +1,10 @@
 const router = require('express').Router();
-const { createTodo } = require('../../../controllers/todoController');
-// /api/todos
-router.post('/', createTodo);
-module.exports = router;
+const { 
+    createTodo, 
+    completedTodo 
+} = require('../../../controllers/todoController');
 
+router.post('/', createTodo);
+router.post('/complete', completedTodo);
+
+module.exports = router;

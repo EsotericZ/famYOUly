@@ -72,6 +72,22 @@ module.exports = {
 		}
 	},
 
+	approveUser: async (req, res) => {
+		const { id } = req.body;
+		try {
+			const updatedUser = await User.update({
+				approval: 1,
+			},
+				{where: {
+				    id
+				}
+			});
+			res.redirect('/myfamily');
+		} catch (e) {
+			res.json(e);
+		}
+	},
+
 	deleteUser: async (req, res) => {
 		const { id } = req.body;
 		try {
