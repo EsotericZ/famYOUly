@@ -38,8 +38,7 @@ $(document).ready(function() {
     console.log(event.target)
     console.log('id', event.target.parentNode.children[0].value)
 
-    console.log('task', event.target.parentNode.children[2].children[0])
-    console.log('task', event.target.parentNode.children[2].children[0].label)
+    console.log('task', event.target.parentNode.children[1].value)
   });
   // await $.post('/api/todos/complete', {
     
