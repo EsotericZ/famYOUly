@@ -7,3 +7,19 @@
     --white: white;
 
 }
+
+h4 {
+    font-size: 25px;
+    text-align: center;
+    margin: 5px;
+}
+
+table {
+    padding: 30px;
+    margin: 15px;
+    border-style:solid;
+    text-align: center;
+    display: table;
+    margin-left: 25%;
+    margin-right: auto;
+}
