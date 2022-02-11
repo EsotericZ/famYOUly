@@ -12,6 +12,8 @@ router.get('/createfamily', createFamilyView);
 router.get('/myfamily', myFamily);
 router.get('/waitingapproval', renderWaiting);
 
+router.get('/information', getInformation);
+
 
 router.use('/api', apiRoutes);
 
