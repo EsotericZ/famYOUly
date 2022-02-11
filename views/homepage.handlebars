@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
@@ -16,11 +16,11 @@
                 </li>
             </ul>
         </div>
-</nav>
 
-<h3>Welcome, {{ user.firstName }}!</h3>
+
+{{!-- <h3>Welcome, {{ user.firstName }}!</h3>
 <h3>You're a Part of the {{ user.familyName }} FamYOUly</h3>
-<h3>Your Role is: {{ user.role }}</h3>
+<h3>Your Role is: {{ user.role }}</h3> --}}
 
 <div class="container">
     <div class="row">
@@ -28,7 +28,7 @@
             <div class="card col-12">
 
                 <div class="card-header col-12">
-                    Upcoming Events
+                Upcoming Events
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">2/14/22 at 2 PM Ellie Soccer Game @ Central Elementary School</li>
@@ -44,17 +44,37 @@
         </div>
         <div class="col-lg-3 m-1">
             {{!-- <button type="button" class="col-7 btn btn-secondary btn-lg m-2">Add a To Do</button> --}}
-            <button type="button" data-bs-toggle="modal" data-bs-target="#todomodal"
-                class="col-7 btn btn-secondary btn-lg m-2">Add a To Do</button>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#todomodal" class="col-7 btn btn-secondary btn-lg m-2">
+                Add a To Do
+            </button>
+            <!-- Add a ToDo Modal -->
+            <div class="modal fade" id="todomodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Add To Do</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div ="container-fluid">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="" id="newTodo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="addTodoBtn" data-bs-dismiss="modal">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Add A Child Button, click to trigger modal -->
-            <button type="button" class="btn btn-secondary btn-lg m-2" data-bs-toggle="modal"
-                data-bs-target="#addChild">
+                <!-- Add A Child Button, click to trigger modal -->
+            <button type="button" class="btn btn-secondary btn-lg m-2" data-bs-toggle="modal" data-bs-target="#addChild">
                 Add Child
             </button>
-            <!--Add A Child Modal -->
-            <div class="modal fade" id="addChild" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <!--Add A Child Modal -->
+            <div class="modal fade" id="addChild" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -66,17 +86,15 @@
                             <div class="container-fluid">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text col-5">First and Last name</span>
-                                    <input type="text" aria-label="First name" class="form-control" id="kidFirstName">
+                                    <input type="text" aria-label="First name" class="form-control"id="kidFirstName">
                                     <input type="text" aria-label="Last name" class="form-control" id="kidLastName">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text col-5">Nickname</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default" id="kidNickname">
+                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="kidNickname">
                                 </div>
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text col-5" list="pronoun-list"
-                                        id="kidPronouns">Pronouns</span>
+                                    <span class="input-group-text col-5" list="pronoun-list" id="kidPronouns">Pronouns</span>
                                     <select class="form-select" id="pronoun-list" aria-label="Default select example">
                                         <option selected></option>
                                         <option value="He/Him">He/Him</option>
@@ -86,23 +104,19 @@
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text col-5">Birthday</span>
-                                    <input type="date" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default" id="kidBirthday">
+                                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="kidBirthday">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text col-5">Family Name</span>
-                                    <input type="text" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default" value="{{ user.familyName }}"
-                                        id="kidFamilyName" readonly>
+                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.familyName }}" id="kidFamilyName"readonly>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-primary" id="saveChild">Save</button>
-                            </div>
-                        </div>
+                            </div>                      
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-primary" id="saveChild">Save</button>
+                                </div>
+                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -118,25 +132,26 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     {{!-- {{#unless userTodos }}
-                    <li class="list-group-item">
-                        There are currently no to-dos
-                    </li>
+                        <li class="list-group-item"> 
+                            There are currently no to-dos
+                        </li>
                     {{/unless}} --}}
                     {{#each userTodos as |todo| }}
-                    {{#unless todo.completed }}
-                    <li class="list-group-item">
-                        <input type="hidden" class="form-control" value="{{ todo.id }}">
-                        <input class="form-check-input todoBox" type="checkbox" value="{{ todo.task }}"
-                            id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            {{ todo.task }}
-                        </label>
-                    </li>
-                    {{/unless}}
+                        {{#unless todo.completed }}
+                        <li class="list-group-item"> 
+                            <input type="hidden" class="form-control"  value="{{ todo.id }}">
+                            <input class="form-check-input todoBox" type="checkbox" value="{{ todo.task }}" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    {{ todo.task }} 
+                                </label>
+                        </li>
+                        {{/unless}}
                     {{/each}}
                 </ul>
             </div>
-        </div>
+            <a href="/todo">History</a>
+        </div> 
+
         <div class="col-lg-6">
             <div class="container">
                 <div class="row">
@@ -163,7 +178,6 @@
                 </div>
             </div>
         </div>
-
 
     </div>
 </div>
@@ -220,4 +234,7 @@
 
 
 </div>
+
+    </div>
+
 </div>
