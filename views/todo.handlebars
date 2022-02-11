@@ -37,16 +37,16 @@
     {{#if todo.completed}}
       <tr class="table-success">
         <td>{{ todo.task }}</td>
-        <td>{{ todo.userId }}</td>
+        <td>{{ user.firstName}} {{ user.lastName }}</td>
         <td>{{ todo.createdAt }}</td>
         <td>Completed</td>
-        <td>{{ todo.completedUser }}</td>
+        <td>{{ todo.completedUser }} {{ user.firstName }} {{ user.lastName }}</td>
         <td>{{ todo.updatedAt }}</td>
       </tr>
     {{else}}
       <tr>
         <td>{{ todo.task }}</td>
-        <td>{{ todo.userId }}</td>
+        <td>{{ user.firstName }} {{ user.lastName }}</td>
         <td>{{ todo.createdAt }}</td>
         <td>Open</td>
         <td>-</td>
