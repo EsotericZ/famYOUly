@@ -59,12 +59,12 @@ module.exports = {
     },
 
     getInformation: async (req, res) => {
-        if (!req.session.loggedIn) {
-			return res.redirect('/login');
-		}
-		if (req.session.user.approval == 0) {
-			return res.redirect('/waitingapproval');
-		}
+        // if (!req.session.loggedIn) {
+		// 	return res.redirect('/login');
+		// }
+		// if (req.session.user.approval == 0) {
+		// 	return res.redirect('/waitingapproval');
+		// }
         try {
             const allMedical = await Medical.findAll({
                 // where: {
