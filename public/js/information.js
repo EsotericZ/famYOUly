@@ -7,7 +7,7 @@ $(document).ready(function () {
     await $.get(`/api/info/${req.session.childId}`)
         .then((data) => {
             console.log(data);
-            child = data
+            // child = data
         })
 
 
