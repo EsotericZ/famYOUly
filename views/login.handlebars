@@ -1,32 +1,31 @@
-  <header class="navbar navbar-dark bg-dark">
-    <div class="container-fluid">
-      <span class="navbar-brand mb-0 h1">FamYOUly</span>
+<header class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1 col-md-3">FamYOUly</span>
+    <div class="row">
+      <div class="col-md-3 my-4">
+        <div class="form-floating">
+          <input type="email" class="form-control" id="emailField" placeholder="name@example.com">
+          <label for="emailField">Email address</label>
+        </div>
+      </div>
+      <div class="col-md-3 my-4">
+        <div class="form-floating">
+          <input type="password" class="form-control" id="passwordField" placeholder="Password">
+          <label for="passwordField">Password</label>
+        </div>
+      </div>
+      <button class="btn btn-primary col-md-1" type="submit" id="signinBtn">Sign in</button>
+      <a href="signUp" class="btn btn-primary col-md-2" tabindex="-1" role="button">Join existing famYOUly</a>
+      <a href="createfamily" class="btn btn-primary col-md-2 d-flex align-items-start" tabindex="-1"
+        role="button">Create new famYOUly</a>
     </div>
-  </header>
+  </div>
+</header>
 
-<main class="form-signin">
-
-  <form>
-    <h3 class="h3 mb-3 fw-normal">Login</h3>
-    <div class="form-floating">
-      <input type="email" class="form-control" id="emailField" placeholder="name@example.com">
-      <label for="emailField">Email Address</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="passwordField" placeholder="Password">
-      <label for="passwordField">Password</label>
-    </div>
-    <button class="w-100 btn btn-lg btn-dark" type="submit" id="signinBtn">Sign in</button>
-    <p>Starting A New FamYOUly? Create One <a href="createfamily">Here</a> </p>
-    <p>Joining An Existing FamYOUly? Sign Up <a href="signUp">Here</a> </p>
-  </form>
-</main>
-
-
-
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
@@ -63,4 +62,4 @@
   </button>
 </div>
 
-<p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+<p class="mt-5 mb-3 text-muted">FamYOUly &copy; 2022</p>

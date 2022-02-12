@@ -85,6 +85,7 @@ module.exports = {
 		}
         const childId = req.params.childId;
         console.log(childId);
+
         try {
             const allMedical = await Medical.findAll({
                 where: {
@@ -101,10 +102,12 @@ module.exports = {
                     childId
                 },
             });
+            const childData = await Child.findByPk(childId);
             res.render('information', {
                 medical: allMedical.map(med => med.get({ plain: true })),
                 contact: allContacts.map(cont => cont.get({ plain: true })),
                 list: allLists.map(li => li.get({ plain: true })),
+                childId: childData.get({ plain: true }),
             });
 
         } catch (e) {
@@ -138,17 +141,17 @@ module.exports = {
 
 
 
-	renderInformation: (req, res) => {
-		if (!req.session.loggedIn) {
-			return res.redirect('/login');
-		}
-		try {
-			res.render('information', {
-				user: req.session.user,
-			});
-		} catch (e) {
-			res.json(e);
-		}
-	}
+// 	renderInformation: (req, res) => {
+// 		if (!req.session.loggedIn) {
+// 			return res.redirect('/login');
+// 		}
+// 		try {
+// 			res.render('information', {
+// 				user: req.session.user,
+// 			});
+// 		} catch (e) {
+// 			res.json(e);
+// 		}
+// 	}
 };
 
