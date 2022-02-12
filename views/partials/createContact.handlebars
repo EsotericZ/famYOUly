@@ -1,20 +1,24 @@
-<h1>Medical Info</h1>
+<h1>Contact Info</h1>
 <h2>{{ childId.firstName }} {{ childId.lastName }}</h2>
 
 <table class="table" id="contactTable">
+<thead>
     <tr>
-        <td>Name</td>
-        <td>{{ contact.firstName }} {{ contact.lastName }}</td>
+        <th scope="col">Name</th>
+        <th scope="col">Number</th>
+        <th scope="col">Relation</th>
     </tr>
     <tr>
-        <td>Number</td>
+
+        <th scope="row">{{ contact.firstName }} {{ contact.lastName }}</th>
         <td>{{contact.number}}</td>
-    </tr>
-    <tr>
-        <td>Relation</td>
         <td>{{contact.relation}}</td>
     </tr>
+    <tr>
+
+
+    </tr>
 </table>
-<button type="button" data-bs-toggle="modal" data-bs-target="#editProfile" id="profileBtn">
-    Edit
+<button type="button" data-bs-toggle="modal" data-bs-target="#addContact" id="addContactBtn">
+    Add New Contact
 </button>
