@@ -115,7 +115,8 @@ module.exports = {
             res.json(e);
         }
     },
-// };
+};
+
 //     createInformation: async (req, res) => {
 //         const {
 // 			childId,
@@ -153,5 +154,5 @@ module.exports = {
 // 			res.json(e);
 // 		}
 // 	}
-};
+// };
 
