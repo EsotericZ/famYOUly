@@ -58,13 +58,26 @@ module.exports = {
         }
     },
 
+    renderInformation: (req, res) => {
+		if (!req.session.loggedIn) {
+			return res.redirect('/login');
+		}
+		try {
+			res.render('information', {
+				user: req.session.user,
+			});
+		} catch (e) {
+			res.json(e);
+		}
+	},
+
     getInformation: async (req, res) => {
-        // if (!req.session.loggedIn) {
-		// 	return res.redirect('/login');
-		// }
-		// if (req.session.user.approval == 0) {
-		// 	return res.redirect('/waitingapproval');
-		// }
+        if (!req.session.loggedIn) {
+			return res.redirect('/login');
+		}
+		if (req.session.user.approval == 0) {
+			return res.redirect('/waitingapproval');
+		}
         const { childId } = req.body;
         try {
             const allMedical = await Medical.findAll({
@@ -117,16 +130,3 @@ module.exports = {
 // 	},
 
 
-// 	renderInformation: (req, res) => {
-// 		if (!req.session.loggedIn) {
-// 			return res.redirect('/login');
-// 		}
-// 		try {
-// 			res.render('information', {
-// 				user: req.session.user,
-// 			});
-// 		} catch (e) {
-// 			res.json(e);
-// 		}
-// 	}
-// }

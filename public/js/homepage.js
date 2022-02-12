@@ -46,7 +46,6 @@ $(document).ready(function() {
   //   console.log(event);
   //   await $.post('/api/info', {
   //     childId: childId.val(),
-  //     firstName: 
   //   });
 
 });
