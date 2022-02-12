@@ -12,5 +12,4 @@ router.use('/users', userRoutes);
 router.use('/info', informationRoutes);
 router.use('/todos', todoRoutes);
 
-
 module.exports = router;
