@@ -1,11 +1,9 @@
-
 :root {
     --darkest: #3c413b;
     --dark:#607c82;
     --medium: #b1b8be;
     --light:#e4e4ec;
     --white: white;
-
 }
 
 h4 {
@@ -14,20 +12,9 @@ h4 {
     margin: 5px;
 }
 
-table {
-    padding: 30px;
-    margin: 15px;
-    border-style:solid;
-    text-align: center;
-    display: table;
-    margin-left: 25%;
-    margin-right: auto;
-}
-
 .btn  {
     margin: 10px;
     padding: 10px;
-
 }
 
 #todoTable {
@@ -59,5 +46,81 @@ h3 {
 
 #profileTable {
     width: 50%;
+    display: table;
+    padding: 30px;
+    margin: 15px;
+    border-style:solid;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: auto;
     display: flex;
+}
+
+
+/* CALENDAR STUFF */
+body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+    font-size: 14px;
+}
+
+#calendar {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hoverEffect {
+    font-size: 29px;
+    position: absolute;
+    margin: 30px 55px;
+    cursor: pointer;
+}
+
+.ui-datepicker-trigger {
+    background: transparent;
+    border: none;
+    margin: 0!important;
+    padding: 0!important;
+}
+
+.datetimepicker .input-group-addon {
+    background-color: #f9f9f9;
+    border-radius: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    cursor: pointer;
+    height: 2.1em;
+    border: 1px solid #ccc;
+}
+
+.fc-state-default.fc-corner-right {
+    border-radius: 0px;
+}
+
+#profileBtn {
+    display: block;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+#table1{
+    padding: 30px;
+    margin: 15px;
+    border-style:solid;
+    text-align: center;
+    display: table;
+    margin-left: 25%;
+    margin-right: auto; 
+}
+
+#profileTable{
+    padding: 30px;
+    margin: 15px;
+    border-style:solid;
+    text-align: center;
+    display: table;
+    margin-left: 25%;
+    margin-right: auto; 
 }

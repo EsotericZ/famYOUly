@@ -112,7 +112,7 @@ module.exports = {
             res.json(e);
         }
     },
-};
+// };
 //     createInformation: async (req, res) => {
 //         const {
 // 			childId,
@@ -136,4 +136,19 @@ module.exports = {
 // 		}
 // 	},
 
+
+
+	renderInformation: (req, res) => {
+		if (!req.session.loggedIn) {
+			return res.redirect('/login');
+		}
+		try {
+			res.render('information', {
+				user: req.session.user,
+			});
+		} catch (e) {
+			res.json(e);
+		}
+	}
+};
 
