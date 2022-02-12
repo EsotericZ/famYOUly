@@ -1,6 +1,4 @@
-
 {{> navbar}}
-
 
 {{!-- <h3>Welcome, {{ user.firstName }}!</h3>
 
@@ -85,6 +83,7 @@
                                     <li class="list-group-item">Pronouns: {{ kid.pronouns }}</li>
                                     <li class="list-group-item">Birthday: {{ kid.birthday }}</li>
                                 </ul>
+                                <a href="/api/info/{{ kid.id }}"><button data-child="{{ kid.id }}" class="btn btn-primary infoBtn" id="moreInfoBtn">Get More Info</button></a>
                             </div>
                         </div>
                     {{/each}}
