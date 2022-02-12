@@ -78,22 +78,22 @@ module.exports = {
 		if (req.session.user.approval == 0) {
 			return res.redirect('/waitingapproval');
 		}
-        const { childId } = req.body;
+        const { childId } = req.params;
         try {
             const allMedical = await Medical.findAll({
-                // where: {
-                //     childId
-                // },
+                where: {
+                    childId
+                },
             });
             const allContacts = await Contact.findAll({
-                // where: {
-                //     childId
-                // },
+                where: {
+                    childId
+                },
             });
             const allLists = await List.findAll({
-                // where: {
-                //     childId
-                // },
+                where: {
+                    childId
+                },
             });
             res.render('information', {
                 medical: allMedical.map(med => med.get({ plain: true })),

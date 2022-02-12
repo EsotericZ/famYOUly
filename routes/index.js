@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const apiRoutes = require('./apiRoutes');
 const { loginView, signupView, renderHome, renderWaiting, renderProfile } = require('../controllers/userController');
-const { getInformation } = require('../controllers/informationController');
+// const { getInformation } = require('../controllers/informationController');
 const { createFamilyView, myFamily } = require('../controllers/familyController');
 const { getAllTodos } = require('../controllers/todoController');
 
@@ -15,7 +15,7 @@ router.get('/waitingapproval', renderWaiting);
 router.get('/profile', renderProfile);
 router.get('/todo', getAllTodos);
 
-router.get('/info', getInformation);
+// router.get('/info', getInformation);
 
 
 router.use('/api', apiRoutes);

@@ -1,3 +1,5 @@
+const res = require("express/lib/response");
+
 $(document).ready(function() {
   const kidFirstName = $('#kidFirstName');
   const kidLastName = $('#kidLastName');
@@ -9,7 +11,7 @@ $(document).ready(function() {
   const addTodoBtn = $('#addTodoBtn');
   const newTodo = $('#newTodo');
   const todoBox = $('.todoBox');
-  const infoBtn = $('#infoBtn');
+  const infoBtn = $('.infoBtn');
 
   saveChild.on('click', async function(event) {
     event.preventDefault();
@@ -41,11 +43,22 @@ $(document).ready(function() {
       window.location.reload();
   });
 
-  // infoBtn.on('click', async function(event) {
-  //   event.preventDefault();
-  //   console.log(event);
-  //   await $.post('/api/info', {
-  //     childId: childId.val(),
-  //   });
+  infoBtn.on('click', async function(event) {
+    event.preventDefault();
+    console.log(event.target.getAttribute('data-child'));
+    const childId = event.target.getAttribute('data-child');
+    sessionStorage.setItem('childId');
+    console.log(sessionStorage.getItem('childId'));
+    let child;
+    await $.get(`/api/info/${childId}`)
+      .then((data) => {
+        console.log(data);
+        child = data
+      })
+    res.render('information', {
+      children: child
+    });
+    // window.location.href = '/info';
+  });
 
 });

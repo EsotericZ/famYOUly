@@ -13,6 +13,9 @@ router.post('/list', createList);
 router.route('/')
     .get(renderInformation);
 
+router.route('/:childId')
+    .get(renderInformation);
+
 // // contact
 // router.post('/contact', createContact);
 // router.get('/contact', getContactsByChildId);

@@ -7,7 +7,7 @@
             <div class="col-6">
                 <div class="card mt-2">
                     <div class="card-body mt-3">
-                        <h3 class="card-title">{{child.firstName}} {{child.lastName}}</h3>
+                        <h3 class="card-title">{{child.firstName}} {{child.lastName}}:</h3>
                         <div>
                             <button class="btn btn-warning align-items-end mt-2">Add Medical Info</button>
                         </div>
@@ -49,34 +49,6 @@
                         {{> list}}
                     </div>
                 </div>
-
-                <div class="col-6">
-                    <div class="card mt-5">
-                        <div class="card-body mt-3">
-                            <h3 class="card-title">Child Name {{child.firstName}}
-                                <button class="btn btn-primary align-items-end"></button>
-                            </h3>
-                            {{!-- medical --}}
-                            <a class="btn btn-primary my-5" data-bs-toggle="collapse" href="#medicalInfo" role="button"
-                                aria-expanded="false" aria-controls="medicalInfo">
-                                Medical Info
-                                {{!-- {{> medical}} --}}
-                            </a>
-                            {{!-- contact --}}
-                            <a class="btn btn-primary my-5" data-bs-toggle="collapse" href="#contactInfo" role="button"
-                                aria-expanded="false" aria-controls="contactInfo">
-                                Contact Info
-                                {{!-- {{> contact}} --}}
-                            </a>
-                            {{!-- list --}}
-                            <a class="btn btn-primary my-5" data-bs-toggle="collapse" href="#listInfo" role="button"
-                                aria-expanded="false" aria-controls="listInfo">
-                                Don't Forget List
-                                {{!-- {{> list}} --}}
-                            </a>
-                        </div>
-                        {{!-- {{/each}} --}}
-                    </div>
                 </div>
             </div>
         </div>
