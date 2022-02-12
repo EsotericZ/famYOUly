@@ -25,9 +25,9 @@ table {
 }
 
 .btn  {
-    margin: 5px;
-    /* width: 120px;
-    height: 63px; */
+    margin: 10px;
+    padding: 10px;
+
 }
 
 #todoTable {
