@@ -28,6 +28,12 @@ Event.init(
 			type: DataTypes.STRING,
             allowNull: false,
 		},
+		notes: {
+			type: DataTypes.STRING,
+		},
+		location: {
+			type: DataTypes.STRING,
+		},
 		eventType: {
 			type: DataTypes.STRING,
 			allowNull: false,

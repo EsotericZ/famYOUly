@@ -1,8 +1,5 @@
 {{> navbar}}
 
-{{!-- <h3>Welcome, {{ user.firstName }}!</h3>
-
-{{!-- <h3>Your Role is: {{ user.role }}</h3> --}}
 <h3>The {{ user.familyName }} FamYOUly</h3>
 <div class="container">
     <div class="row">
@@ -24,9 +21,6 @@
                     <button type="button" data-bs-toggle="modal" data-bs-target="#eventmodal" class=" btn btn-secondary">
                         Add an Event
                     </button>
-                </div>
-                <div>
-                    <button type="button" class=" btn btn-secondary">Submit Request</button>
                 </div>
                 <div class="col-6 center">
                     <button type="button" data-bs-toggle="modal" data-bs-target="#todomodal" class=" btn btn-secondary">
@@ -74,8 +68,7 @@
                                     <h5 class="card-title">{{ kid.firstName }} {{ kid.lastName }} <svg
                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                             class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                                            <path
-                                                d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
                                         </svg></h5>
                                 </div>
                                 <ul class="list-group list-group-flush">
@@ -132,8 +125,8 @@
                     </div>
                 </div>                      
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="saveChild">Save</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="saveChild">Save</button>
                 </div>
             </div>
         </div>
@@ -156,7 +149,60 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="addTodoBtn" data-bs-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-success" id="addTodoBtn" data-bs-dismiss="modal">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Add an Event Modal -->
+<div class="modal fade" id="eventmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add A New Event</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div ="container-fluid">
+                <div class="input-group mb-3">
+                    <input type="hidden" class="form-control" id="newId">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text col-5">Event Name</span>
+                    <input type="text" aria-label="First name" class="form-control" id="eventName">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text col-5">Notes</span>
+                    <input type="text" aria-label="First name" class="form-control" id="eventNotes">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Start Date</span>
+                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="eventStart">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text col-5" id="inputGroup-sizing-default">End Date</span>
+                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="eventEnd">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Location</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="eventLocation">
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-group-text col-5" for="inputGroupSelect01">Event Type</label>
+                    <select class="form-select" id="newEventType" list ="event-list">
+                        <option id="newEventType"></option>
+                        <option value="1">Required</option>
+                        <option value="2">Optional</option>
+                        <option value="3">Request</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="hidden" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ user.familyName }}" id="newFamilyName">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success updateBtn" data-bs-dismiss="modal">Save</button>
             </div>
         </div>
     </div>
