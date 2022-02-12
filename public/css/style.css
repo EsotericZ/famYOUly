@@ -56,6 +56,13 @@ h3 {
 
 #profileTable {
     width: 50%;
+    display: table;
+    padding: 30px;
+    margin: 15px;
+    border-style:solid;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: auto;
     display: flex;
 }
 
@@ -108,3 +115,12 @@ body {
     text-align: center;
 }
 
+#table1{
+    padding: 30px;
+    margin: 15px;
+    border-style:solid;
+    text-align: center;
+    display: table;
+    margin-left: 25%;
+    margin-right: auto; 
+}
