@@ -12,8 +12,8 @@ router.post('/medical', addMedicalInfo);
 router.post('/contact', createContact);
 router.post('/list', createList);
 
-router.route('/')
-    .get(renderInformation);
+// router.route('/')
+//     .get(renderInformation);
 
 router.route('/:childId')
     .get(getInformation);
