@@ -43,22 +43,25 @@ $(document).ready(function() {
       window.location.reload();
   });
 
-  infoBtn.on('click', async function(event) {
-    event.preventDefault();
-    console.log(event.target.getAttribute('data-child'));
-    const childId = event.target.getAttribute('data-child');
-    sessionStorage.setItem('childId');
-    console.log(sessionStorage.getItem('childId'));
-    let child;
-    await $.get(`/api/info/${childId}`)
-      .then((data) => {
-        console.log(data);
-        child = data
-      })
-    res.render('information', {
-      children: child
-    });
+  // infoBtn.on('click', async function(event) {
+  //   event.preventDefault();
+  //   console.log(event.target.getAttribute('data-child'));
+  //   const childId = event.target.getAttribute('data-child');
+  //   await $.post('/api/info/set', {
+  //     childId
+  //   })
+    // sessionStorage.setItem('childId');
+    // console.log(sessionStorage.getItem('childId'));
+    // let child;
+    // await $.get(`/api/info/${childId}`)
+    //   .then((data) => {
+    //     console.log(data);
+    //     child = data
+    //   })
+    // res.render('information', {
+    //   children: child
+    // });
     // window.location.href = '/info';
-  });
+  // });
 
 });

@@ -71,6 +71,11 @@ module.exports = {
 		}
 	},
 
+    setChild: async (req, res) => {
+        const { childId } = req.body;
+        req.session.childId = childId;
+    },
+
     getInformation: async (req, res) => {
         if (!req.session.loggedIn) {
 			return res.redirect('/login');
@@ -78,7 +83,8 @@ module.exports = {
 		if (req.session.user.approval == 0) {
 			return res.redirect('/waitingapproval');
 		}
-        const { childId } = req.params;
+        const childId = req.params.childId;
+        console.log(childId);
         try {
             const allMedical = await Medical.findAll({
                 where: {
@@ -102,6 +108,7 @@ module.exports = {
             });
 
         } catch (e) {
+            console.log(e);
             res.json(e);
         }
     },
