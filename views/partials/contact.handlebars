@@ -1,5 +1,25 @@
 <div class="card-body">
-    {{#each contacts as |contact|}}
+    {{#each contactInfo as |contact|}}
+    {{!-- {{#if medications}}
+    <h5 class="card-title">Medications:</h5>
+    <li>
+        <p>{{ medical.medications }}</p>
+        <p class="card-text">Example text</p>
+    </li>
+    {{/if}} --}}
+    <h5 class="card-title">{{ contact.firstName }} {{ contact.lastName }}</h5>
+    {{!-- {{/if}} --}}
+    {{#if number}}
+    <h5 class="card-title">Number</h5>
+    <li>
+        <p>{{ contact.number }}</p>
+    </li>
+    {{/if}}
+    <h5 class="card-title">Relation: </h5>
+    <li>
+        <p>{{ contact.relation }}</p>
+    </li>
+
     <li>
         <p>Number: {{contact.number}}</p>
         <p>Relation: {{contact.relation}}</p>
