@@ -56,3 +56,8 @@ h1 {
 h3 {
     margin-left: 19%;
 }
+
+#profileTable {
+    width: 50%;
+    display: flex;
+}

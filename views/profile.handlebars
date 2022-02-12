@@ -24,7 +24,7 @@
 
 <h1>User Profile</h1>
 
-<table class="table">
+<table class="table" id="profileTable">
   <tr>
     <td>Name</td>
     <td>{{ user.firstName }} {{ user.lastName }}</td>
@@ -45,12 +45,15 @@
     <td>Family Name</td>
     <td>{{ user.familyName }}</td>
   </tr>
-</table>
-
-  <!-- Button trigger modal -->
-<button type="button" data-bs-toggle="modal" data-bs-target="#editProfile">
+</table>  
+<button type="button" data-bs-toggle="modal" data-bs-target="#editProfile" class="center">
 Edit
 </button>
+
+
+
+  <!-- Button trigger modal -->
+
   <!-- Modal -->
 <div class="modal fade" id="editProfile" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
