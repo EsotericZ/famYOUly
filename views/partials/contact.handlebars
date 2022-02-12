@@ -7,24 +7,30 @@
         <p class="card-text">Example text</p>
     </li>
     {{/if}} --}}
-    <h5 class="card-title">{{ contact.firstName }} {{ contact.lastName }}</h5>
-    {{!-- {{/if}} --}}
-    {{#if number}}
-    <h5 class="card-title">Number</h5>
-    <li>
-        <p>{{ contact.number }}</p>
-    </li>
-    {{/if}}
-    <h5 class="card-title">Relation: </h5>
-    <li>
-        <p>{{ contact.relation }}</p>
-    </li>
 
+    <h5 class="card-title">Name: {{ contact.firstName }} {{ contact.lastName }}</h5>
+    {{!-- {{/if}} --}}
     <li>
         <p>Number: {{contact.number}}</p>
         <p>Relation: {{contact.relation}}</p>
-        <p>Example</p>
     </li>
+    {{!-- <h5 class="card-title">Number: {{ contact.number }}</h5>
+    <h5 class="card-title">Relation: {{ contact.relation }}</h5> --}}
+
+    <table class="table" id="contactTable">
+        <tr>
+            <td>Name</td>
+            <td>{{ contact.firstName }} {{ contact.lastName }}</td>
+        </tr>
+        <tr>
+            <td>Number</td>
+            <td>{{contact.number}}</td>
+        </tr>
+        <tr>
+            <td>Relation</td>
+            <td>{{contact.relation}}</td>
+        </tr>
+    </table>
     {{/each}}
     <div class="mt-3">
         <button class="btn btn-warning align-items-end mt-2">Add Contact Info</button>

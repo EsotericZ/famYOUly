@@ -1,0 +1,20 @@
+<h1>Medical Info</h1>
+<h2>{{ childId.firstName }} {{ childId.lastName }}</h2>
+
+<table class="table" id="contactTable">
+    <tr>
+        <td>Name</td>
+        <td>{{ contact.firstName }} {{ contact.lastName }}</td>
+    </tr>
+    <tr>
+        <td>Number</td>
+        <td>{{contact.number}}</td>
+    </tr>
+    <tr>
+        <td>Relation</td>
+        <td>{{contact.relation}}</td>
+    </tr>
+</table>
+<button type="button" data-bs-toggle="modal" data-bs-target="#editProfile" id="profileBtn">
+    Edit
+</button>
