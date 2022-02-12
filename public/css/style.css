@@ -100,4 +100,11 @@ body {
 .fc-state-default.fc-corner-right {
     border-radius: 0px;
 }
-/* CALENDAR STUFF */
+
+#profileBtn {
+    display: block;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
