@@ -14,16 +14,6 @@ h4 {
     margin: 5px;
 }
 
-table {
-    padding: 30px;
-    margin: 15px;
-    border-style:solid;
-    text-align: center;
-    display: table;
-    margin-left: 25%;
-    margin-right: auto;
-}
-
 .btn  {
     margin: 10px;
     padding: 10px;
@@ -60,6 +50,12 @@ h3 {
 #profileTable {
     width: 50%;
     display: table;
+    padding: 30px;
+    margin: 15px;
+    border-style:solid;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: auto;
 }
 
 #profileBtn {
@@ -67,4 +63,14 @@ h3 {
     width: 50%;
     margin: auto;
     text-align: center;
+}
+
+#table1{
+    padding: 30px;
+    margin: 15px;
+    border-style:solid;
+    text-align: center;
+    display: table;
+    margin-left: 25%;
+    margin-right: auto; 
 }
