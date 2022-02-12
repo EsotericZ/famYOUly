@@ -6,6 +6,7 @@ const Medical = require('./Medical');
 const Contact = require('./Contact');
 const List = require('./List');
 const Todo  = require('./Todo');
+const Event  = require('./Event');
 
 Family.hasMany(Child, {
 	foreignKey: 'familyName',
@@ -63,6 +64,14 @@ Todo.belongsTo(Family, {
 	foreignKey: 'familyName',
 });
 
+Family.hasMany(Event, {
+	foreignKey: 'familyName',
+	onDelete: 'CASCADE',
+});
+Event.belongsTo(Family, {
+	foreignKey: 'familyName',
+});
+
 module.exports = {
     Child,
     Family,
@@ -71,4 +80,5 @@ module.exports = {
 	Contact,
 	List,
 	Todo,
+	Event,
 };
