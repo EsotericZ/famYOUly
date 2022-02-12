@@ -2,25 +2,28 @@
     {{!-- Medications --}}
     <h5 class="card-title">Medications:</h5>
     {{#if medications}}
-        <li>
-            <p>{{ medical.medications }}</p>
-            <p class="card-text">Example text</p>
-        </li>
+    <li>
+        <p>{{ medical.medications }}</p>
+        <p class="card-text">Example text</p>
+    </li>
     {{/if}}
     {{!-- Allergies --}}
     <h5 class="card-title">Allergies:</h5>
     {{#if allergies}}
-        <li>
-            <p>{{ medical.allergies }}</p>
-            <p class="card-text">Example text</p>
-        </li>
+    <li>
+        <p>{{ medical.allergies }}</p>
+        <p class="card-text">Example text</p>
+    </li>
     {{/if}}
     {{!-- Health Insurance --}}
     <h5 class="card-title">Health Insurance:</h5>
     {{#if healthInsurance}}
-        <li>
-            <p class="card-text">{{ medical.healthInsurance }}</p>
-            <p class="card-text">Example text</p>
-        </li>
+    <li>
+        <p class="card-text">{{ medical.healthInsurance }}</p>
+        <p class="card-text">Example text</p>
+    </li>
     {{/if}}
+    <div class="mt-3">
+        <button class="btn btn-warning align-items-end mt-2">Add Medical Info</button>
+    </div>
 </div>

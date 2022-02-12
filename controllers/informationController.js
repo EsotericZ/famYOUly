@@ -8,15 +8,15 @@ const {
 module.exports = {
     addMedicalInfo: async (req, res) => {
         const {
-            healthInsurance,
             medications,
             allergies,
+            healthInsurance,
         } = req.body;
         try {
             const newMedicalInfo = await Medical.create({
-                healthInsurance,
                 medications,
                 allergies,
+                healthInsurance,
             });
             // const medicalData = newMedicalInfo.get({ plain: true });
             // res.json('/medical', {

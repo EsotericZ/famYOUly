@@ -1,8 +1,12 @@
-{{#each contacts as |contact|}}
-<h1><b>Contact: {{contact.firstName}} {{contact.lastName}}</b></h1>
+<div class="card-body">
+    {{#each contacts as |contact|}}
     <li>
         <p>Number: {{contact.number}}</p>
         <p>Relation: {{contact.relation}}</p>
         <p>Example</p>
     </li>
-{{/each}}
+    {{/each}}
+    <div class="mt-3">
+        <button class="btn btn-warning align-items-end mt-2">Add Contact Info</button>
+    </div>
+</div>

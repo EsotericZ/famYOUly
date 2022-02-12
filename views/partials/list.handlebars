@@ -1,6 +1,11 @@
-<li>
-    {{#each items as |item|}}
-    <p>{{list.item}}</p>
-    <p>Example</p>
-    {{/each}}
-</li>
+<div class="card-body">
+    <li>
+        {{#each items as |item|}}
+        <p>{{list.item}}</p>
+        <p>Example</p>
+        {{/each}}
+    </li>
+    <div class="mt-3">
+        <button class="btn btn-warning align-items-end mt-2">Add To List</button>
+    </div>
+</div>
