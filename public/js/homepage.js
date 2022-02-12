@@ -40,7 +40,7 @@ $(document).ready(function() {
     });
       window.location.reload();
   });
-});
+
 
 // moreInfoBtn.on('click', async function(event) {
 //   event.preventDefault();
