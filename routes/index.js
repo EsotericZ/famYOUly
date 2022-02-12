@@ -17,6 +17,7 @@ router.get('/profile', renderProfile);
 router.get('/todo', getAllTodos);
 router.get('/calendar', renderCalendar);
 
+
 router.get('/info', getInformation);
 
 router.use('/api', apiRoutes);

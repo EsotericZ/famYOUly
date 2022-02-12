@@ -58,29 +58,48 @@ module.exports = {
         }
     },
 
-    getInformation: async (req, res) => {
-        // if (!req.session.loggedIn) {
-		// 	return res.redirect('/login');
-		// }
-		// if (req.session.user.approval == 0) {
-		// 	return res.redirect('/waitingapproval');
-		// }
+    renderInformation: (req, res) => {
+		if (!req.session.loggedIn) {
+			return res.redirect('/login');
+		}
+		try {
+			res.render('information', {
+				user: req.session.user,
+			});
+		} catch (e) {
+			res.json(e);
+		}
+	},
+
+    setChild: async (req, res) => {
         const { childId } = req.body;
+        req.session.childId = childId;
+    },
+
+    getInformation: async (req, res) => {
+        if (!req.session.loggedIn) {
+			return res.redirect('/login');
+		}
+		if (req.session.user.approval == 0) {
+			return res.redirect('/waitingapproval');
+		}
+        const childId = req.params.childId;
+        console.log(childId);
         try {
             const allMedical = await Medical.findAll({
-                // where: {
-                //     childId
-                // },
+                where: {
+                    childId
+                },
             });
             const allContacts = await Contact.findAll({
-                // where: {
-                //     childId
-                // },
+                where: {
+                    childId
+                },
             });
             const allLists = await List.findAll({
-                // where: {
-                //     childId
-                // },
+                where: {
+                    childId
+                },
             });
             res.render('information', {
                 medical: allMedical.map(med => med.get({ plain: true })),
@@ -89,6 +108,7 @@ module.exports = {
             });
 
         } catch (e) {
+            console.log(e);
             res.json(e);
         }
     },
@@ -117,6 +137,7 @@ module.exports = {
 // 	},
 
 
+
 	renderInformation: (req, res) => {
 		if (!req.session.loggedIn) {
 			return res.redirect('/login');
@@ -130,3 +151,4 @@ module.exports = {
 		}
 	}
 };
+
