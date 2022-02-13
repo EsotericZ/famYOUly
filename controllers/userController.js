@@ -2,6 +2,7 @@ const {
 	User,
 	Child,
 	Todo,
+	Event,
 } = require('../models');
 
 module.exports = {
@@ -140,9 +141,15 @@ module.exports = {
 					familyName: req.session.user.familyName,
 				}
 			});
+			const userEventsData = await Event.findAll({
+				where: {
+					familyName: req.session.user.familyName,
+				}
+			});
 			res.render('homepage', {
 				allKids: childData.map(kid => kid.get({ plain: true })),
 				userTodos: userTodosData.map(userTodo => userTodo.get({ plain: true })),
+				userEvents: userEventsData.map(userEvent => userEvent.get({ plain: true })),
 				user: req.session.user,
 			});
 		} catch (e) {
