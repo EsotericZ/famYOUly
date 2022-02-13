@@ -1,5 +1,3 @@
-const res = require("express/lib/response");
-
 $(document).ready(function() {
   const kidFirstName = $('#kidFirstName');
   const kidLastName = $('#kidLastName');
@@ -12,6 +10,17 @@ $(document).ready(function() {
   const newTodo = $('#newTodo');
   const todoBox = $('.todoBox');
   const infoBtn = $('.infoBtn');
+  const eventBtn = $('#eventBtn');
+  const eventName = $('#eventName');
+  const eventNotes = $('#eventNotes');
+  const eventStartDate = $('#eventStartDate');
+  const eventEndDate = $('#eventEndDate');
+  const eventAllDay = $('#eventAllDay');
+  const eventStartTime = $('#eventStartTime');
+  const eventEndTime = $('#eventEndTime');
+  const eventLocation = $('#eventLocation');
+  const eventType = $('#eventType');
+  const eventFamilyName = $('#eventFamilyName');
 
   saveChild.on('click', async function(event) {
     event.preventDefault();
@@ -36,7 +45,7 @@ $(document).ready(function() {
 
   todoBox.on('click', async function(event) {
     event.preventDefault();
-    console.log(event.target.parentNode.children[0].value);
+    // console.log(event.target.parentNode.children[0].value);
     await $.post('/api/todos/complete', {
       id: event.target.parentNode.children[0].value,
     });
@@ -64,6 +73,19 @@ $(document).ready(function() {
     // window.location.href = '/info';
   // });
 
-  
+  eventBtn.on('click', async function(event) {
+    event.preventDefault();
+    console.log('clicked')
+    console.log("name", eventName.val())
+    console.log("notes", eventNotes.val())
+    console.log("s date", eventStartDate.val())
+    console.log("e date", eventEndDate.val())
+    console.log("all day", eventAllDay.val())
+    console.log("s time", eventStartTime.val())
+    console.log("e time", eventEndTime.val())
+    console.log("local", eventLocation.val())
+    console.log("type", eventType.val())
+    console.log("fam", eventFamilyName.val())
+  });
 
 });
