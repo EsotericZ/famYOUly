@@ -17,13 +17,13 @@ Medical.init(
             defaultValue: UUIDV4,
             primaryKey: true,
         },
-        healthInsurance: {
-            type: DataTypes.STRING,
-        },
         medications: {
             type: DataTypes.STRING,
         },
         allergies: {
+            type: DataTypes.STRING,
+        },
+        healthInsurance: {
             type: DataTypes.STRING,
         },
         // familyName: {

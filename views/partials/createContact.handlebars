@@ -1,0 +1,24 @@
+<h1>Contact Info</h1>
+<h2>{{ childId.firstName }} {{ childId.lastName }}</h2>
+
+<table class="table" id="contactTable">
+<thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Number</th>
+        <th scope="col">Relation</th>
+    </tr>
+    <tr>
+
+        <th scope="row">Example Name {{ contact.firstName }} {{ contact.lastName }}</th>
+        <td>4029844957<a href="tel:+4029844957{{contact.number}}">{{contact.number}}</a></td>
+        <td>School {{contact.relation}}</td>
+    </tr>
+    <tr>
+
+
+    </tr>
+</table>
+<button type="button" data-bs-toggle="modal" data-bs-target="#addContact" id="addContactBtn">
+    Add New Contact
+</button>
