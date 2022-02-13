@@ -5,6 +5,8 @@ const {
 	Event,
 } = require('../models');
 
+const { Op } = require('sequelize');
+
 module.exports = {
 	login: async (req, res) => {
 		try {
@@ -144,7 +146,15 @@ module.exports = {
 			const userEventsData = await Event.findAll({
 				where: {
 					familyName: req.session.user.familyName,
-				}
+				},
+				order: [
+					["start", "ASC"],
+					["startTime", "ASC"],
+				]
+					// start: {
+					// 	[Op.gte]: moment()
+					// }
+				
 			});
 			res.render('homepage', {
 				allKids: childData.map(kid => kid.get({ plain: true })),
@@ -179,22 +189,6 @@ module.exports = {
 		}
 		try {
 			res.render('waitingapproval', {
-				user: req.session.user,
-			});
-		} catch (e) {
-			res.json(e);
-		}
-	},
-
-	renderCalendar: async (req, res) => {
-		if (!req.session.loggedIn) {
-			return res.redirect('/login');
-		}
-		if (req.session.user.approval == 0) {
-			return res.redirect('/waitingapproval');
-		}
-		try {
-			res.render('calendar', {
 				user: req.session.user,
 			});
 		} catch (e) {

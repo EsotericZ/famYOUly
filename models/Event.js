@@ -10,6 +10,12 @@ Event.init(
 			defaultValue: UUIDV4,
 			primaryKey: true,
 		},
+		modalId: {
+			type: DataTypes.INTEGER,
+			unique: true,
+			allowNull: false,
+			autoIncrement: true,
+		},
 		title: {
 			type: DataTypes.STRING,
             allowNull: false,

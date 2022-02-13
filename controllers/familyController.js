@@ -50,7 +50,11 @@ module.exports = {
 			const userData = await User.findAll({
 				where: {
 					familyName: req.session.user.familyName,
-				}
+				},
+				order: [
+					['level', 'ASC'],
+					['firstName', 'ASC'],
+				]
 			});
 			res.render('myfamily', {
 				fullFam: userData.map(famMember => famMember.get({ plain: true })),

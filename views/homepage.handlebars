@@ -4,33 +4,87 @@
 <div class="container">
     <div class="row">
         <div class="card col-6">
-            <div class="card-header col-6">
-                Upcoming Events
-            </div>
-            <ul class="list-group list-group-flush">
+            <table class="table">
+                <tr class="table-active">
+                    <th>Upcoming Events</th>
+                    <th></th>
+                </tr>
                 {{#each userEvents as |event|}}
-                    <li class="list-group-item">{{ event.start }} at {{ event.startTime }} - {{ event.title }} @ {{ event.location }} </li>
+                    <tr>
+                        <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }} @ {{ event.location }} </td>
+                        <td>
+                            <div data-bs-toggle="modal" data-bs-target="#t{{ event.modalId }}">
+                                More..
+                            </div>
+                            <div class="modal fade" id="t{{ event.modalId }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">Event Details</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div ="container-fluid">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Title</span>
+                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" dataname="{{ event.id }}" value="{{ event.title }}" id="newTitle">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Notes</span>
+                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" dataname="{{ event.id }}" value="{{ event.notes }}" id="newNote">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Location</span>
+                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" dataname="{{ event.id }}" value="{{ event.location }}" id="newLocation">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Start Date</span>
+                                                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" dataname="{{ event.id }}" value="{{ event.start }}" id="newStartTime">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">End Date</span>
+                                                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" dataname="{{ event.id }}" value="{{ event.end }}" id="newEndDate">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Start Time</span>
+                                                    <input type="time" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" dataname="{{ event.id }}" value="{{ event.startTime }}" id="newStartTime">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">End Time</span>
+                                                    <input type="time" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" dataname="{{ event.id }}" value="{{ event.endTime }}" id="newEndTime">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Event Type</span>
+                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ event.eventType }}" readonly>
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <input type="hidden" class="form-control" value="ducks" id="newId">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary updateBtn" data-bs-dismiss="modal">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
                 {{/each}}
-            </ul>
+            </table>
         </div>
-        
-
-
-
 
        <div class="col-6">
              <div class="homepageButtons">
-                <div class="col-6 center">
+                {{!-- <div class="col-6 center"> --}}
+                <div>
                     <button type="button" data-bs-toggle="modal" data-bs-target="#eventmodal" class="btn btn-secondary">
                         Add an Event
                     </button>
-                </div>
-                <div class="col-6 center">
                     <button type="button" data-bs-toggle="modal" data-bs-target="#todomodal" class="btn btn-secondary">
                         Add a To Do
                     </button>
-                    
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addChild">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#addChild" class="btn btn-secondary">
                         Add Child
                     </button>
                 </div>

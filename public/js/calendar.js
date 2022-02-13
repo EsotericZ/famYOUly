@@ -5,11 +5,13 @@ $(document).ready(function() {
             center: 'title',
             right: 'month,basicWeek,basicDay'
         },
-        defaultDate: '2022-02-12',
+        // defaultDate: '2022-02-12',
         navLinks: true, // can click day/week names to navigate views
         editable: true,
         eventLimit: true, // allow "more" link when too many events
-
+        
+        
+        
         events: [
             {
                 title: 'All Day Event',
@@ -78,12 +80,12 @@ $(document).ready(function() {
         }
     });
 
-    $(".fc-right .fc-button-group").append(
-    '<div class="input-group datetimepicker"><input type="text" class="form-control fc-datepicker" placeholder="YYYY-MM-DD" style="padding: 0;width: 0;border: none;margin: 0;"></div>');
+    // $(".fc-right .fc-button-group").append(
+    // '<div class="input-group datetimepicker"><input type="text" class="form-control fc-datepicker" placeholder="YYYY-MM-DD" style="padding: 0;width: 0;border: none;margin: 0;"></div>');
 
-    $(".fc-datepicker").datepicker({
-        dateFormat: 'yy-mm-dd',
-        showOn: "button",
-        buttonText: '<span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>'
-    });
+    // $(".fc-datepicker").datepicker({
+    //     dateFormat: 'yy-mm-dd',
+    //     showOn: "button",
+    //     buttonText: '<span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>'
+    // });
 });
