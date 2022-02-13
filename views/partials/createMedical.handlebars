@@ -1,19 +1,57 @@
-<h3>Medical Info</h3>
+<h2>Medical Info</h2>
 
 <table class="table" id="medicalTable">
     <tr>
-        <td>Medications</td>
+        {{!-- delete these two rows --}}
+        <th>Ex: Medications</th>
+        <td>Example meds</td>
+        {{!-- keep these --}}
+        {{#each allMedications as |medication|}}
+        <th>Medications</th>
         <td>{{ medical.medications }}</td>
+        {{/each}}
+        <td>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#editProfile" id="profileBtn">
+            Update medications
+        </button></td>
     </tr>
     <tr>
-        <td>Allergies</td>
+        {{!-- delete these two rows --}}
+        <th>Ex: Allergies</th>
+        <td>Example allergies</td>
+        {{!-- keep these --}}
+        {{#each allAllergies as |allergies|}}
+        <th>Allergies</th>
+        {{#if allergies}}
         <td>{{ medical.allergies }}</td>
+        {{/if}}
+        {{/each}}
+        <td><button type="button" data-bs-toggle="modal" data-bs-target="#editProfile" id="profileBtn">
+            Update allergies
+        </button></td>
+
     </tr>
     <tr>
-        <td>Health Insurance</td>
+        {{!-- delete these two rows --}}
+        <th>Ex: Health Insurance</th>
+        <td>Example Health Insurance</td>
+        {{!-- keep these --}}
+        {{#each allHealthInsurance as |healthInsurance|}}
+        <th>Health Insurance</th>
+        {{#if healthInsurance}}
         <td>{{ medical.healthInsurance }}</td>
+        {{/if}}
+        {{/each}}
+        <td><button type="button" data-bs-toggle="modal" data-bs-target="#editProfile" id="profileBtn">
+            Update health insurance
+        </button></td>
     </tr>
 </table>
+
+    {{!-- BUTTON: Add medical info --}}
+    <div class="mt-3">
+        <button class="btn btn-warning align-items-end mt-2">Add Medical Info</button>
+    </div>
 <button type="button" data-bs-toggle="modal" data-bs-target="#editProfile" id="profileBtn">
     Edit
 </button>
