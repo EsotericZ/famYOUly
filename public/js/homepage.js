@@ -75,17 +75,28 @@ $(document).ready(function() {
 
   eventBtn.on('click', async function(event) {
     event.preventDefault();
-    console.log('clicked')
-    console.log("name", eventName.val())
-    console.log("notes", eventNotes.val())
-    console.log("s date", eventStartDate.val())
-    console.log("e date", eventEndDate.val())
-    console.log("all day", eventAllDay.val())
-    console.log("s time", eventStartTime.val())
-    console.log("e time", eventEndTime.val())
-    console.log("local", eventLocation.val())
-    console.log("type", eventType.val())
-    console.log("fam", eventFamilyName.val())
+    // console.log("name", eventName.val())
+    // console.log("notes", eventNotes.val())
+    // console.log("s date", eventStartDate.val())
+    // console.log("e date", eventEndDate.val())
+    // console.log("all day", document.querySelector('.adbox').checked)
+    // console.log("s time", eventStartTime.val())
+    // console.log("e time", eventEndTime.val())
+    // console.log("local", eventLocation.val())
+    // console.log("type", eventType.val())
+    // console.log("fam", eventFamilyName.val())
+    await $.post('/api/events/newevent', {
+      title: eventName.val(),
+      notes: eventNotes.val(),
+      start: eventStartDate.val(),
+      end: eventEndDate.val(),
+      allDay: document.querySelector('.adbox').checked,
+      startTime: eventStartTime.val(),
+      endTime: eventEndTime.val(),
+      location: eventLocation.val(),
+      eventType: eventType.val(),
+      familyName: eventFamilyName.val(),
+    });
+      window.location.reload();
   });
-
 });
