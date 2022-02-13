@@ -21,4 +21,25 @@ module.exports = {
 			res.json(e);
 		}
 	},
+
+    renderCalendar: async (req, res) => {
+		if (!req.session.loggedIn) {
+			return res.redirect('/login');
+		}
+		if (req.session.user.approval == 0) {
+			return res.redirect('/waitingapproval');
+		}
+		try {
+			const userEventsData = await Event.findAll({
+				where: {
+					familyName: req.session.user.familyName,
+				},
+			});
+			res.render('calendar', {
+				userEvents: userEventsData.map(userEvent => userEvent.get({ plain: true })),
+			});
+		} catch (e) {
+			res.json(e);
+		}
+	},
 };
