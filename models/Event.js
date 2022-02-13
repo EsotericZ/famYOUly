@@ -10,25 +10,35 @@ Event.init(
 			defaultValue: UUIDV4,
 			primaryKey: true,
 		},
+		title: {
+			type: DataTypes.STRING,
+            allowNull: false,
+		},
+		notes: {
+			type: DataTypes.STRING,
+		},
 		start: {
-			type: DataTypes.DATE,
+			type: DataTypes.DATEONLY,
 			allowNull: false,
             validate: {
 				isDate: true,
 			}
 		},
 		end: {
-			type: DataTypes.DATE,
+			type: DataTypes.DATEONLY,
 			allowNull: false,
             validate: {
 				isDate: true,
 			}
 		},
-		title: {
-			type: DataTypes.STRING,
-            allowNull: false,
+		allDay: {
+			type: DataTypes.BOOLEAN,
+            defaultValue: false,
 		},
-		notes: {
+		startTime: {
+			type: DataTypes.STRING,
+		},
+		endTime: {
 			type: DataTypes.STRING,
 		},
 		location: {
