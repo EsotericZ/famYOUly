@@ -8,12 +8,16 @@
                 Upcoming Events
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">2/14/22 at 2 PM Ellie Soccer Game @ Central Elementary School</li>
-                <li class="list-group-item">2/20/22 at 9 AM Jordan Dr. Apt @ Children Family Med - Central </li>
-                <li class="list-group-item">2/28/22 at 6 PM Birthday Party @ Beyonce's House </li>
+                {{#each userEvents as |event|}}
+                    <li class="list-group-item">{{ event.start }} at {{ event.startTime }} - {{ event.title }} @ {{ event.location }} </li>
+                {{/each}}
             </ul>
         </div>
         
+
+
+
+
        <div class="col-6">
              <div class="homepageButtons">
                 <div class="col-6 center">
