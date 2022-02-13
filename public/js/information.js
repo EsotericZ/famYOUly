@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    console.log(window.location.pathname);
-    console.log(req.session.childId);
+    // console.log(window.location.pathname);
+    // console.log(req.session.childId);
     // if (req.session.childId) {
     //     console.log('success');
     // }
