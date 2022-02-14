@@ -6,11 +6,13 @@ const {
     renderInformation,
     setChild,
     getInformation,
+    // updateMedicalInfoById,
 } = require('../../../controllers/informationController');
 
 router.post('/medical', addMedicalInfo);
 router.post('/contact', createContact);
 router.post('/list', createList);
+
 
 // router.route('/')
 //     .get(renderInformation);

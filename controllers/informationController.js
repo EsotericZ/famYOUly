@@ -28,12 +28,6 @@ module.exports = {
     },
 
     updateMedicalInfoById: async (req, res) => {
-        if (!req.session.loggedIn) {
-			return res.redirect('/login');
-		}
-		if (req.session.user.approval == 0) {
-			return res.redirect('/waitingapproval');
-		}
         const { medications, allergies, healthInsurance } = req.body;
         try {
             const medicalData = await Medical.findByPk(req.params.childId);
