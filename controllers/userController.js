@@ -136,7 +136,10 @@ module.exports = {
 			const childData = await Child.findAll({
 				where: {
 					familyName: req.session.user.familyName,
-				}
+				},
+				order: [
+					["birthday", "ASC"],
+				]
 			});
 			const userTodosData = await Todo.findAll({
 				where: {

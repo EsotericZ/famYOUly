@@ -2,6 +2,7 @@ const { Child } = require('../models');
 
 const childData = [
     {
+        modalId: 1,
         firstName: 'Sansa',
         lastName: 'Stark',
         nickname: '',
@@ -10,6 +11,7 @@ const childData = [
         familyName: 'Stark',
     },
     {
+        modalId: 2,
         firstName: 'Arya',
         lastName: 'Stark',
         nickname: 'Shadow',
@@ -18,6 +20,7 @@ const childData = [
         familyName: 'Stark',
     },
     {
+        modalId: 3,
         firstName: 'Bran',
         lastName: 'Stark',
         nickname: 'The Eye',
