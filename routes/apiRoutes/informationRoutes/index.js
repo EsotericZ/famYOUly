@@ -19,6 +19,7 @@ router.post('/list', createList);
 
 router.route('/:childId')
     .get(getInformation);
+    // .get(updateMedicalInfoById);
 
 router.route('/set')
     .post(setChild);
