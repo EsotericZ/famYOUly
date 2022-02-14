@@ -127,53 +127,49 @@
                                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill mx-4" viewBox="0 0 16 16">
                                                 <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
                                             </svg>
-
-
-                            {{!-- <div data-bs-toggle="modal" data-bs-target="#t{{ event.modalId }}"> --}}
-                                {{!-- More.. --}}
-                                        {{!-- </div> --}}
-                            <div class="modal fade" id="t{{ kid.modalId }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Event Details</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div ="container-fluid">
-                                                <div class="input-group mb-3">
-                                                    <input type="hidden" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" kiddata="{{ kid.id }}" value="{{ kid.id }}" id="newId">
-                                                </div>   
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">First/Last Name</span>
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" kiddata="{{ kid.id }}" value="{{ kid.firstName }}" id="newFirst">
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" kiddata="{{ kid.id }}" value="{{ kid.lastName }}" id="newLast">
+                                    <div class="modal fade" id="t{{ kid.modalId }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">Event Details</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Nickname</span>
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" kiddata="{{ kid.id }}" value="{{ kid.nickname }}" id="newNickName">
+                                                <div class="modal-body">
+                                                    <div ="container-fluid">
+                                                        <div class="input-group mb-3">
+                                                            <input type="hidden" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" kiddata="{{ kid.id }}" value="{{ kid.id }}" id="newId">
+                                                        </div>   
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text col-5" id="inputGroup-sizing-default">First/Last Name</span>
+                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" kiddata="{{ kid.id }}" value="{{ kid.firstName }}" id="newFirst">
+                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" kiddata="{{ kid.id }}" value="{{ kid.lastName }}" id="newLast">
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text col-5" id="inputGroup-sizing-default">Nickname</span>
+                                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" kiddata="{{ kid.id }}" value="{{ kid.nickname }}" id="newNickName">
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                        <div class="input-group mb-3">
+                                                            <label class="input-group-text col-5" for="inputGroupSelect01">Pronouns</label>
+                                                            <select kiddata="{{ kid.id }}" class="form-select" id="newPronouns" list ="level-list">
+                                                                <option>{{ kid.pronouns }}</option>
+                                                                <option value="He/Him">He/Him</option>
+                                                                <option value="She/Her">She/Her</option>
+                                                                <option value="They/Them">They/Them</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-group mb-3">
+                                                            <span class="input-group-text col-5" id="inputGroup-sizing-default">Birthday</span>
+                                                            <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" kiddata="{{ kid.id }}" value="{{ kid.birthday }}" id="newBirthday">
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary updateKidBtn" data-bs-dismiss="modal" kiddata="{{ kid.id }}">Save</button>
+                                                    </div>
                                                 </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Pronouns</span>
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" kiddata="{{ kid.id }}" value="{{ kid.pronouns }}" id="newPronouns">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Birthday</span>
-                                                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" kiddata="{{ kid.id }}" value="{{ kid.birthday }}" id="newBirthday">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary updateKidBtn" data-bs-dismiss="modal" kiddata="{{ kid.id }}">Save</button>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-
-
-
-
-
                                     </h5>
                                 </div>
                                 <ul class="list-group list-group-flush">

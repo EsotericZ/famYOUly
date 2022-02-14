@@ -127,6 +127,7 @@ $(document).ready(function() {
     const newPronouns = $(`#newPronouns[kiddata="${attribute}"]`).val();
     const newBirthday = $(`#newBirthday[kiddata="${attribute}"]`).val();
     event.preventDefault();
+    console.log(newPronouns)
     await $.post('/api/children/updatechild', {
       id: newId,
       firstName: newFirst,
@@ -136,11 +137,5 @@ $(document).ready(function() {
       birthday: newBirthday,
     });
       window.location.reload();
-      // console.log(newId)
-      // console.log(newFirst)
-      // console.log(newLast)
-      // console.log(newNickName)
-      // console.log(newPronouns)
-      // console.log(newBirthday)
   });
 });
