@@ -1,8 +1,11 @@
 :root {
+    --black: black;
     --darkest: #3c413b;
+    --darker: #244454;
     --dark:#607c82;
-    --medium: #b1b8be;
-    --light:#e4e4ec;
+    --medium: #939d92;
+    --light:#b1b8be;
+    --lighter:#e4e4ec;
     --white: white;
 }
 
@@ -131,4 +134,15 @@ body {
 
 #moreInfobtn {
     height: 20px;
+}
+
+#slide1h, #slide1p, #slide2h, #slide2p, #slide3h, #slide3p {
+    color: #white;
+	-webkit-text-stroke: 1px black;
+	text-shadow: 0px 4px 4px black;
+    font-size: 50px;
+}
+
+#slide1p, #slide2p, #slide3p {
+    font-size: 35px;
 }
