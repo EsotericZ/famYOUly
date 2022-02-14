@@ -21,6 +21,7 @@ $(document).ready(function() {
   const eventLocation = $('#eventLocation');
   const eventType = $('#eventType');
   const eventFamilyName = $('#eventFamilyName');
+  const updateEventBtn = $('.updateEventBtn');
 
   saveChild.on('click', async function(event) {
     event.preventDefault();
@@ -75,16 +76,6 @@ $(document).ready(function() {
 
   eventBtn.on('click', async function(event) {
     event.preventDefault();
-    // console.log("name", eventName.val())
-    // console.log("notes", eventNotes.val())
-    // console.log("s date", eventStartDate.val())
-    // console.log("e date", eventEndDate.val())
-    // console.log("all day", document.querySelector('.adbox').checked)
-    // console.log("s time", eventStartTime.val())
-    // console.log("e time", eventEndTime.val())
-    // console.log("local", eventLocation.val())
-    // console.log("type", eventType.val())
-    // console.log("fam", eventFamilyName.val())
     await $.post('/api/events/newevent', {
       title: eventName.val(),
       notes: eventNotes.val(),
@@ -96,6 +87,32 @@ $(document).ready(function() {
       location: eventLocation.val(),
       eventType: eventType.val(),
       familyName: eventFamilyName.val(),
+    });
+      window.location.reload();
+  });
+  
+  updateEventBtn.on('click', async function(event) {
+    const attribute = event.target.getAttribute('eventdata');
+    const newId = $(`#newId[eventdata="${attribute}"]`).val();
+    const newTitle = $(`#newTitle[eventdata="${attribute}"]`).val();
+    const newNote = $(`#newNote[eventdata="${attribute}"]`).val();
+    const newLocation = $(`#newLocation[eventdata="${attribute}"]`).val();
+    const newStartDate = $(`#newStartDate[eventdata="${attribute}"]`).val();
+    const newEndDate = $(`#newEndDate[eventdata="${attribute}"]`).val();
+    const newStartTime = $(`#newStartTime[eventdata="${attribute}"]`).val();
+    const newEndTime = $(`#newEndTime[eventdata="${attribute}"]`).val();
+    const newEventType = $(`#newEventType[eventdata="${attribute}"]`).val();
+    event.preventDefault();
+    await $.post('/api/events/updateevent', {
+      id: newId,
+      title: newTitle,
+      notes: newNote,
+      location: newLocation,
+      start: newStartDate,
+      end: newEndDate,
+      startTime: newStartTime,
+      endTime: newEndTime,
+      eventType: newEventType,
     });
       window.location.reload();
   });

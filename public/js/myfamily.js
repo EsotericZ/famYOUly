@@ -5,7 +5,6 @@ $(document).ready(function () {
   const deleteBtn = $('.deleteBtn');
 
   updateBtn.on('click', async function (event) {
-    console.log(event.target)
     const attribute = event.target.getAttribute('dataname');
     const newId = $(`#newId[dataname="${attribute}"]`).val();
     const newFirstName = $(`#newFirstName[dataname="${attribute}"]`).val().trim();

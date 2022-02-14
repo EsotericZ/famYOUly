@@ -21,6 +21,29 @@ module.exports = {
 			res.json(e);
 		}
 	},
+    
+	updateEvent: async (req, res) => {
+		const { id, title, notes, location, start, end, startTime, endTime, eventType } = req.body;
+		try {
+			const updatedEvent = await Event.update({
+                title,
+                notes,
+				location,
+                start,
+                end,
+                startTime,
+                endTime,
+                eventType,
+			},
+				{where: {
+				    id
+				}
+			});
+			res.redirect('/homepage');
+		} catch (e) {
+			res.json(e);
+		}
+	},
 
     renderCalendar: async (req, res) => {
 		if (!req.session.loggedIn) {
