@@ -1,2 +1,25 @@
-<h2>Thank you for signing up {{ user.firstName }} {{ user.lastName }}</h2>
-<h2>Your request is awaiting approval to join the {{ user.familyName }} FamYOUly</h2>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <header class="navbar navbar-dark bg-dark">
+          <div class="container-fluid">
+              <a class="navbar-brand mb-0 h1" href="/homepage">FamYOUly</a>
+          </div>
+        </header>
+      
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" id="logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<button class="btn btn-secondary" type="button" disabled>
+  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  Pending...
+</button>
+<h2>Thank you for signing up, {{ user.firstName }} {{ user.lastName }}!</h2>
+<h2>Your request is awaiting approval to join the {{ user.familyName }} FamYOUly.</h2>
+<h2>Please contact the {{ user.familyName }} FamYOUly Adminstrators for access.</h2>
