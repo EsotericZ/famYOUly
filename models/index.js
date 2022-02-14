@@ -56,6 +56,24 @@ Todo.belongsTo(User, {
 	foreignKey: 'userId',
 });
 
+// User.hasMany(Todo, {
+// 	foreignKey: 'firstName',
+// 	onDelete: 'CASCADE',
+// });
+// Todo.belongsTo(User, {
+// 	foreignKey: 'firstName',
+// });
+
+// User.hasMany(Todo, {
+// 	foreignKey: 'lastName',
+// 	onDelete: 'CASCADE',
+// });
+// Todo.belongsTo(User, {
+// 	foreignKey: 'lastName',
+// });
+
+
+
 Family.hasMany(Todo, {
 	foreignKey: 'familyName',
 	onDelete: 'CASCADE',

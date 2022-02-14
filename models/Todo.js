@@ -32,13 +32,13 @@ Todo.init(
 				key: 'familyName',
 			}
 		},
-		completedUser: {
-			type: DataTypes.UUID,
-			references: {
-				model: 'user',
-				key: 'id',
-			}
+		completedFirstName: {
+			type: DataTypes.STRING,
 		},
+		completedLastName: {
+			type: DataTypes.STRING,
+		},
+
 	},
 	{
 		sequelize,

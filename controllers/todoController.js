@@ -20,7 +20,9 @@ module.exports = {
 		try {
 			const finished = await Todo.update({
 				completed: 1,
-				completedUser: req.session.user.id,
+				// completedUser: req.session.user.id,
+				completedFirstName: req.session.user.firstName,
+				completedLastName: req.session.user.lastName,
 				},
 				{where: {
 					id
