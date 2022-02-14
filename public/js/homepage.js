@@ -22,6 +22,7 @@ $(document).ready(function() {
   const eventType = $('#eventType');
   const eventFamilyName = $('#eventFamilyName');
   const updateEventBtn = $('.updateEventBtn');
+  const updateKidBtn = $('.updateKidBtn');
 
   saveChild.on('click', async function(event) {
     event.preventDefault();
@@ -115,5 +116,31 @@ $(document).ready(function() {
       eventType: newEventType,
     });
       window.location.reload();
+  });
+    
+  updateKidBtn.on('click', async function(event) {
+    const attribute = event.target.getAttribute('kiddata');
+    const newId = $(`#newId[kiddata="${attribute}"]`).val();
+    const newFirst = $(`#newFirst[kiddata="${attribute}"]`).val();
+    const newLast = $(`#newLast[kiddata="${attribute}"]`).val();
+    const newNickName = $(`#newNickName[kiddata="${attribute}"]`).val();
+    const newPronouns = $(`#newPronouns[kiddata="${attribute}"]`).val();
+    const newBirthday = $(`#newBirthday[kiddata="${attribute}"]`).val();
+    event.preventDefault();
+    await $.post('/api/children/updatechild', {
+      id: newId,
+      firstName: newFirst,
+      lastName: newLast,
+      nickname: newNickName,
+      pronouns: newPronouns,
+      birthday: newBirthday,
+    });
+      window.location.reload();
+      // console.log(newId)
+      // console.log(newFirst)
+      // console.log(newLast)
+      // console.log(newNickName)
+      // console.log(newPronouns)
+      // console.log(newBirthday)
   });
 });

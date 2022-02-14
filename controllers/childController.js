@@ -19,4 +19,24 @@ module.exports = {
 			res.json(e);
 		}
 	},
+	    
+	updateChild: async (req, res) => {
+		const { id, firstName, lastName, nickname, pronouns, birthday } = req.body;
+		try {
+			const updatedChild = await Child.update({
+				firstName,
+				lastName,
+				nickname,
+				pronouns,
+				birthday,
+			},
+				{where: {
+				    id
+				}
+			});
+			res.redirect('/homepage');
+		} catch (e) {
+			res.json(e);
+		}
+	},
 }
