@@ -3,7 +3,7 @@
 <h1>To Do History</h1>
 
 <table class="table" id="todoTable">
-  <tr>
+  <tr class="table-active">
     <th>Task</th>
     <th>Created By</th>
     <th>Created On</th>
@@ -16,7 +16,7 @@
       <tr class="table-success">
         <td>{{ todo.task }}</td>
         <td>{{ user.firstName}} {{ user.lastName }}</td>
-        <td>{{ todo.createdAt }}</td>
+        <td class="date">{{ todo.createdAt }}</td>
         <td>Completed</td>
         <td>{{ todo.completedFirstName }} {{ todo.completedLastName }}</td>
         <td>{{ todo.updatedAt }}</td>
@@ -25,7 +25,7 @@
       <tr>
         <td>{{ todo.task }}</td>
         <td>{{ user.firstName }} {{ user.lastName }}</td>
-        <td>{{ todo.createdAt }}</td>
+        <td class="date">{{ todo.createdAt }}</td>
         <td>Open</td>
         <td>-</td>
         <td>-</td>
