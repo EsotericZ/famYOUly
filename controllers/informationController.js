@@ -27,6 +27,21 @@ module.exports = {
         }
     },
 
+    getAllMedicalInfo: async (req, res) => {
+        if (!req.session.loggedIn) {
+			return res.redirect('/login');
+		}
+		if (req.session.user.approval == 0) {
+			return res.redirect('/waitingapproval');
+		}
+        try {
+            const medicalData = await Medical.findAll({});
+            res.json(medicalData);
+        } catch (e) {
+            res.json(e);
+        }
+    },
+
     createContact: async (req, res) => {
         const { firstName, lastName, number, relation } = req.body;
         try {
