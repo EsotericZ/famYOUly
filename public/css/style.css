@@ -23,6 +23,12 @@ h4 {
     vertical-align: middle;
     height: 58px;
 }
+.homepageButtons{
+    margin-left: 15%;
+    margin-bottom: 15px;
+    margin-top: -10px;
+}
+
 
 #todoTable {
     padding: 10px;
