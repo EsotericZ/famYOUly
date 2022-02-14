@@ -1,31 +1,48 @@
 $(document).ready(function() {
-    
     let allEvents = [];
-    // $("#test").each(function() {
-    //     let rowDataArray = [];
-
-        // let actualData = $this.find('td');
-        // if (actualData.length > 0) {
-            // actualData.each(function() {
-                // rowDataArray.push($(this).text());
-            // });
-            // allEvents.push(rowDataArray);
-        // }
-    // });
-    // console.log(allEvents);
-
-    const t = document.getElementsByClassName('test1');
+    const t = document.getElementsByClassName('familyEvents');
     for (let i = 0; i < t.length; i++) {
+        title = t[i].children[0].textContent;
+        notes = t[i].children[1].textContent;
+        startDate = t[i].children[2].textContent;
+        endDate = t[i].children[3].textContent;
+        startTime = t[i].children[4].textContent;
+        endTime = t[i].children[5].textContent;
+        elocation = t[i].children[6].textContent;
+        etype = t[i].children[7].textContent;
+        if (startTime) {
+            startDT = startDate+"T"+startTime;
+            endDT = endDate+"T"+endTime;
+            startNote = moment(startDT).format("MMMM Do YYYY, h:mm a")
+            endNote = moment(endDT).format("MMMM Do YYYY, h:mm a")
+        } else {
+            startDT = startDate;
+            endDT = endDate;
+            startNote = moment(startDT).format("MMMM Do YYYY")
+            endNote = moment(endDT).format("MMMM Do YYYY")
+        }
+        if (etype === 'Required') {
+            bg = 'green';
+            symbol = 'success';
+        } else if (etype === 'Optional') {
+            bg = 'blue';
+            symbol = 'success';
+        } else {
+            bg = 'orange';
+            symbol = 'warning';
+        }
         let rowData = {
-            "title": t[i].children[0].textContent,
-            "start": t[i].children[1].textContent,
-            "end": t[i].children[2].textContent,
-            "backgroundColor": t[i].children[3].textContent,
+            "title": title,
+            "start": startDT,
+            "end": endDT,
+            "startNote": startNote,
+            "endNote": endNote,
+            "notes": notes,
+            "backgroundColor": bg,
+            "symbol": symbol,
         };
         allEvents.push(rowData);
     }
-    console.log(allEvents);
-
 
     $('#calendar').fullCalendar({
         header: {
@@ -33,87 +50,18 @@ $(document).ready(function() {
             center: 'title',
             right: 'month,basicWeek,basicDay'
         },
-        // defaultDate: '2022-02-12',
-        navLinks: true, // can click day/week names to navigate views
+        navLinks: true,
         editable: true,
-        eventLimit: true, // allow "more" link when too many events
-        
+        eventLimit: true, 
         events: allEvents,
-        
-        // events: [
-        //     {
-        //         title: 'All Day Event',
-        //         start: '2022-02-04',
-        //         backgroundColor:'red'
-        //     },
-        //     {
-        //         title: 'Long Event',
-        //         start: '2022-02-07',
-        //         end: '2022-02-10',
-        //         backgroundColor:'green'
-        //     },
-        //     {
-        //         id: 999,
-        //         title: 'Repeating Event',
-        //         start: '2018-03-09T16:00:00'
-        //     },
-        //     {
-        //         id: 999,
-        //         title: 'Repeating Event',
-        //         start: '2018-03-16T16:00:00'
-        //     },
-        //     {
-        //         title: 'Conference',
-        //         start: '2018-03-11',
-        //         end: '2018-03-13'
-        //     },
-        //     {
-        //         title: 'Class',
-        //         start: '2022-02-12T10:00:00',
-        //         end: '2022-02-12T2:00:00'
-        //     },
-        //     {
-        //         title: 'Lunch',
-        //         start: '2018-03-12T12:00:00'
-        //     },
-        //     {
-        //         title: 'Meeting',
-        //         start: '2018-03-12T14:30:00'
-        //     },
-        //     {
-        //         title: 'Happy Hour',
-        //         start: '2018-03-12T17:30:00'
-
-        //     },
-        //     {
-        //         title: 'Dinner',
-        //         start: '2018-03-12T20:00:00'
-        //     },
-        //     {
-        //         title: 'Birthday Party',
-        //         start: '2018-03-13T07:00:00'
-        //     },
-        //     {
-        //         title: 'Click for Google',
-        //         url: 'http://google.com/',
-        //         start: '2018-03-28'
-        //     }
-        // ],
         eventClick: function(calEvent, jsEvent, view, resourceObj) {
             swal({
             title: calEvent.title,
-            text: "Start From : "+moment(calEvent.start).format("MMMM Do YYYY, h:mm a"),
-            icon: "success",
+            text: calEvent.notes +'\n' + '\n' + 
+                "Start : " + calEvent.startNote +'\n' + 
+                "End : " + calEvent.endNote,
+            icon: calEvent.symbol,
             });
         }
     });
-
-    // $(".fc-right .fc-button-group").append(
-    // '<div class="input-group datetimepicker"><input type="text" class="form-control fc-datepicker" placeholder="YYYY-MM-DD" style="padding: 0;width: 0;border: none;margin: 0;"></div>');
-
-    // $(".fc-datepicker").datepicker({
-    //     dateFormat: 'yy-mm-dd',
-    //     showOn: "button",
-    //     buttonText: '<span class="input-group-addon"><i class="fas fa-calendar-alt"></i></span>'
-    // });
 });

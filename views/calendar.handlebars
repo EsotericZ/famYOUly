@@ -2,16 +2,18 @@
 <div id='calendar'></div>
 
 <table>
-    <tr class='test1'>
-        <td>Event One</td>
-        <td>2022-02-14</td>
-        <td>2022-02-17</td>
-        <td>red</td>
-    </tr>
-    <tr class='test1'>
-        <td>Event Two</td>
-        <td>2022-02-19</td>
-        <td>2022-02-20</td>
-        <td>green</td>
-    </tr>
+    <tbody style="display:none">
+        {{#each userEvents as |event| }}
+            <tr class="familyEvents">
+                <td>{{ event.title}}</td>
+                <td>{{ event.notes}}</td>
+                <td>{{ event.start}}</td>
+                <td>{{ event.end}}</td>
+                <td>{{ event.startTime}}</td>
+                <td>{{ event.endTime}}</td>
+                <td>{{ event.location}}</td>
+                <td>{{ event.eventType}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
 </table>
