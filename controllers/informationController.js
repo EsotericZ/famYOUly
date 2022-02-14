@@ -27,16 +27,18 @@ module.exports = {
         }
     },
 
-    getAllMedicalInfo: async (req, res) => {
+    updateMedicalInfoById: async (req, res) => {
         if (!req.session.loggedIn) {
 			return res.redirect('/login');
 		}
 		if (req.session.user.approval == 0) {
 			return res.redirect('/waitingapproval');
 		}
+        const { medications, allergies, healthInsurance } = req.body;
         try {
-            const medicalData = await Medical.findAll({});
-            res.json(medicalData);
+            const medicalData = await Medical.findByPk(req.params.childId);
+            const medical = medicalData.get({ plain: true });
+            res.json(medical);
         } catch (e) {
             res.json(e);
         }
