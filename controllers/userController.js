@@ -24,7 +24,6 @@ module.exports = {
 				});
 			}
 		} catch (e) {
-			console.log(e);
 			res.json(e);
 		}
 	},
@@ -56,13 +55,13 @@ module.exports = {
 	},
 
 	updateUser: async (req, res) => {
-		// const { id, firstName, lastName, role, level, phoneNumber } = req.body;
-		const { id, firstName, lastName, role, level } = req.body;
+		const { id, firstName, lastName, role, phoneNumber, level } = req.body;
 		try {
 			const updatedUser = await User.update({
 				firstName,
 				lastName,
 				role,
+				phoneNumber,
 				level,
 			},
 				{where: {

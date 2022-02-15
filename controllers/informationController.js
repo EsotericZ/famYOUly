@@ -40,7 +40,7 @@ module.exports = {
                 },
             });
             const medical = medicalData.get({ plain: true });
-            res.json(medical);
+            // res.json(medical);
         } catch (e) {
             res.json(e);
         }
@@ -55,8 +55,7 @@ module.exports = {
                 number,
                 relation,
             });
-            res.json(newContact);
-            console.log(newContact);
+            // res.json(newContact);
             // res.render('information', { contactInfo });
         } catch (e) {
             res.json(e);
@@ -73,7 +72,7 @@ module.exports = {
             const newList = await List.create({
                 item,
             });
-            res.json(newList);
+            // res.json(newList);
         } catch (e) {
             res.json(e);
         }
@@ -130,9 +129,7 @@ module.exports = {
                 list: allLists.map(li => li.get({ plain: true })),
                 childId: childData.get({ plain: true }),
             });
-
         } catch (e) {
-            console.log(e);
             res.json(e);
         }
     },

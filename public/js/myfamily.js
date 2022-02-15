@@ -10,7 +10,8 @@ $(document).ready(function () {
     const newFirstName = $(`#newFirstName[dataname="${attribute}"]`).val().trim();
     const newLastName = $(`#newLastName[dataname="${attribute}"]`).val().trim();
     const newRole = $(`#newRole[dataname="${attribute}"]`).val().trim();
-    // const newPhoneNumber = $(`#newPhoneNumber[dataname="${attribute}"]`).val().trim();
+    const newPhoneNumber = $(`#newPhoneNumber[dataname="${attribute}"]`).val().trim();
+    const fixedPhoneNumber = newPhoneNumber.replace('(', '').replace(') ', '').replace('-', '');
     const newLevel = $(`#newLevel[dataname="${attribute}"]`).val();
     // const newVisible = $(`#newVisible[dataname="${attribute}"]`).checked;
     // console.log(newVisible)
@@ -20,7 +21,7 @@ $(document).ready(function () {
       firstName: newFirstName,
       lastName: newLastName,
       role: newRole,
-      // phoneNumber: newPhoneNumber,
+      phoneNumber: fixedPhoneNumber,
       level: newLevel,
       // visible: newVisible.val(),
     });
