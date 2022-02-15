@@ -4,6 +4,13 @@ $(document).ready(function () {
     const allergies = $('#allergies');
     const healthInsurance = $('#healthInsurance');
     const childIdModal = $('#childIdModal');
+
+    const newContactBtn = $('#newContactBtn');
+    const firstNameContact = $('#firstNameContact');
+    const lastNameContact = $('#lastNameContact');
+    const numberContact = $('#numberContact');
+    const relationContact = $('#relationContact');
+
     
     newMedBtn.on('click', function(event) {
         event.preventDefault();
@@ -11,6 +18,18 @@ $(document).ready(function () {
             medications: medications.val(),
             allergies: allergies.val(),
             healthInsurance: healthInsurance.val(),
+            childId: childId.val(),
+        });
+        window.location.reload();
+    });
+
+    newContactBtn.on('click', function(event) {
+        event.preventDefault();
+        await $.post('/api/info/contact', {
+            firstName: firstNameContact.val(),
+            lastName: lastNameContact.val(),
+            number: numberContact.val(),
+            relation: relationContact.val(),
             childId: childId.val(),
         });
         window.location.reload();
