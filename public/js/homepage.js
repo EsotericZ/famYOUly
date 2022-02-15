@@ -9,13 +9,11 @@ $(document).ready(function() {
   const addTodoBtn = $('#addTodoBtn');
   const newTodo = $('#newTodo');
   const todoBox = $('.todoBox');
-  const infoBtn = $('.infoBtn');
   const eventBtn = $('#eventBtn');
   const eventName = $('#eventName');
   const eventNotes = $('#eventNotes');
   const eventStartDate = $('#eventStartDate');
   const eventEndDate = $('#eventEndDate');
-  const eventAllDay = $('#eventAllDay');
   const eventStartTime = $('#eventStartTime');
   const eventEndTime = $('#eventEndTime');
   const eventLocation = $('#eventLocation');
@@ -47,33 +45,11 @@ $(document).ready(function() {
 
   todoBox.on('click', async function(event) {
     event.preventDefault();
-    // console.log(event.target.parentNode.children[0].value);
     await $.post('/api/todos/complete', {
       id: event.target.parentNode.children[0].value,
     });
       window.location.reload();
   });
-
-  // infoBtn.on('click', async function(event) {
-  //   event.preventDefault();
-  //   console.log(event.target.getAttribute('data-child'));
-  //   const childId = event.target.getAttribute('data-child');
-  //   await $.post('/api/info/set', {
-  //     childId
-  //   })
-    // sessionStorage.setItem('childId');
-    // console.log(sessionStorage.getItem('childId'));
-    // let child;
-    // await $.get(`/api/info/${childId}`)
-    //   .then((data) => {
-    //     console.log(data);
-    //     child = data
-    //   })
-    // res.render('information', {
-    //   children: child
-    // });
-    // window.location.href = '/info';
-  // });
 
   eventBtn.on('click', async function(event) {
     event.preventDefault();
@@ -137,5 +113,11 @@ $(document).ready(function() {
       birthday: newBirthday,
     });
       window.location.reload();
+  });
+
+  $('.bdate').each(function() { 
+    var dateFormat = $(this).text()
+    var dateFormat = $.datepicker.formatDate('MM d, yy', new Date(dateFormat));
+    $(this).html('Birthday: '+ dateFormat + "<br>");
   });
 });

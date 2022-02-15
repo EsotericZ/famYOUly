@@ -14,7 +14,7 @@ module.exports = {
                 birthday,
 				familyName,
 			});
-            res.json(createdChild);
+            // res.json(createdChild);
 		} catch (e) {
 			res.json(e);
 		}

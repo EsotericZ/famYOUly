@@ -16,7 +16,6 @@ $(document).ready(function () {
         email: newEmail,
         phoneNumber: fixedPhoneNumber,
       });
-      console.log(newId, newFirstName, newLastName, newEmail, fixedPhoneNumber)
-    //   window.location.reload();
+      window.location.reload();
     });
 });
