@@ -7,12 +7,7 @@ const {
 
 module.exports = {
     addMedicalInfo: async (req, res) => {
-        const {
-            medications,
-            allergies,
-            healthInsurance,
-            childId,
-        } = req.body;
+        const { medications, allergies, healthInsurance, childId } = req.body;
         try {
             const newMedicalInfo = await Medical.create({
                 medications,
@@ -20,17 +15,13 @@ module.exports = {
                 healthInsurance,
                 childId,
             });
-            // const medicalData = newMedicalInfo.get({ plain: true });
-            // res.json('/medical', {
-            //     medicalData,
-            // });
         } catch (e) {
             res.json(e);
         }
     },
 
-    updateMedicalInfoById: async (req, res) => {
-        const { medications, allergies, healthInsurance } = req.body;
+    updateMedicalInfo: async (req, res) => {
+        const { medications, allergies, healthInsurance, id } = req.body;
         const childId = req.params.childId;
         try {
             const medicalData = await Medical.update({
@@ -40,11 +31,9 @@ module.exports = {
             },
             {
                 where: {
-                    childId
+                    id
                 }
             });
-            const medical = medicalData.get({ plain: true });
-            // res.json(medical);
         } catch (e) {
             res.json(e);
         }
@@ -175,43 +164,3 @@ module.exports = {
         }
     },
 };
-
-//     createInformation: async (req, res) => {
-//         const {
-// 			childId,
-// 			contact,
-// 			medical,
-// 			list,
-// 			// groupId,
-// 		} = req.body;
-// 		try {
-// 			const informationData = await Information.create({
-// 				childId,
-// 				contact,
-// 				medical,
-// 				list,
-// 				// groupId,
-// 			});
-// 			const information = informationData.get({plain: true});
-// 			res.render('information', { information });
-// 		} catch (e) {
-// 			res.json(e);
-// 		}
-// 	},
-
-
-
-// 	renderInformation: (req, res) => {
-// 		if (!req.session.loggedIn) {
-// 			return res.redirect('/login');
-// 		}
-// 		try {
-// 			res.render('information', {
-// 				user: req.session.user,
-// 			});
-// 		} catch (e) {
-// 			res.json(e);
-// 		}
-// 	}
-// };
-
