@@ -3,9 +3,9 @@
 <h3>The {{ user.familyName }} FamYOUly</h3>
 <div class="container">
     <div class="row">
-        <div class="card col-6">
+        <div class="card col-6"id="eventsCard">
             <table class="table">
-                <tr class="table-active">
+                <tr class="table-active" >
                     <th>Upcoming Events</th>
                     <th></th>
                 </tr>
@@ -95,9 +95,9 @@
 <div class="container">
     <div class="row">
         <div class="col-6" id="todoCol">
-            {{!-- <div class="card-header"> --}}
-                <h5>To Do's</h5>
-            {{!-- </div> --}}
+            <div class="card-header">
+                <h7>To Do's</h7>
+            </div>
             <ul class="list-group list-group-flush">
                 {{#each userTodos as |todo| }}
                     {{#unless todo.completed }}
@@ -118,7 +118,7 @@
                 <div class="row">
                     {{#each allKids as |kid|}}
                         <div class="col-6 ">
-                            <div class="card">
+                            <div class="card" id="kidsCard">
                                 <img src="/images/Placeholder_Image.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ kid.firstName }} {{ kid.lastName }} 
