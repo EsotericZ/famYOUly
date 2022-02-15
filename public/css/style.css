@@ -184,3 +184,7 @@ table {
 #signinBtn {
     background-color: #607c82;
 }
+
+.row>* {
+    padding: 0px;
+}
