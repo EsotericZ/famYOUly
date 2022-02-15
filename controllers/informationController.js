@@ -34,10 +34,12 @@ module.exports = {
             const medicalData = await Medical.update({
                 medications,
                 allergies,
-                healthInsurance,
+                healthInsurance
+            },
+            {
                 where: {
                     childId
-                },
+                }
             });
             const medical = medicalData.get({ plain: true });
             // res.json(medical);
@@ -63,7 +65,25 @@ module.exports = {
     },
 
     updateContact: async (req, res) => {
-
+        const { firstName, lastName, number, relation } = req.body;
+        const childId = req.params.childId;
+        try {
+            const contactInfo = await Contact.update({
+                firstName, 
+                lastName,
+                number,
+                relation
+            },
+            {
+                where: {
+                    childId
+                }
+            });
+            const updatedContact = contactInfo.get({ plain: true });
+            res.json(updatedContact);
+        } catch (e) {
+            res.json(e);
+        }
     },
 
     createList: async (req, res) => {
@@ -75,6 +95,23 @@ module.exports = {
                 item,
             });
             // res.json(newList);
+        } catch (e) {
+            res.json(e);
+        }
+    },
+
+    updateList: async (req, res) => {
+        const { item } = req.body;
+        const childId = req.params.childId;
+        try {
+            const updatedList = await List.update({
+                item
+            },
+            {
+                where: {
+                    childId
+                }
+            });
         } catch (e) {
             res.json(e);
         }
