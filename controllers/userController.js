@@ -75,6 +75,30 @@ module.exports = {
 		}
 	},
 
+	updateProfile: async (req, res) => {
+		const { id, firstName, lastName, email, phoneNumber } = req.body;
+		try {
+			const updatedProfile = await User.update({
+				firstName,
+				lastName,
+				email,
+				phoneNumber,
+			},
+				{where: {
+				    id
+				}
+			});
+			const user = updatedProfile.get({ plain: true });
+			req.session.save(() => {
+				req.session.loggedIn = true;
+				req.session.user = user;
+				res.redirect('/profile');
+			});
+		} catch (e) {
+			res.json(e);
+		}
+	},
+
 	approveUser: async (req, res) => {
 		const { id } = req.body;
 		try {
