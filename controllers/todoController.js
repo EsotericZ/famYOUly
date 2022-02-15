@@ -55,7 +55,11 @@ module.exports = {
 				],
 				where: {
 					familyName: req.session.user.familyName,
-				}
+				},
+				order: [
+					['completed', 'ASC'],
+					['createdAt', 'ASC']
+				]
 			});
 			res.render('todo', {
 				userTodos: userTodosData.map(userTodo => userTodo.get({ plain: true })),

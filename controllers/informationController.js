@@ -63,7 +63,9 @@ module.exports = {
         }
     },
 
-    
+    updateContact: async (req, res) => {
+
+    },
 
     createList: async (req, res) => {
         const {

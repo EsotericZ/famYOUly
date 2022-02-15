@@ -83,7 +83,7 @@
                     <button type="button" data-bs-toggle="modal" data-bs-target="#todomodal" class="btn btn-secondary">
                         Add a To Do
                     </button>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#addChild" class="btn btn-secondary">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#addChild" class="btn btn-secondary ">
                         Add Child
                     </button>
                 </div>
@@ -94,10 +94,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="card col-6">
-            <div class="card-header">
-                To Do's
-            </div>
+        <div class="col-6" id="todoCol">
+            {{!-- <div class="card-header"> --}}
+                <h5>To Do's</h5>
+            {{!-- </div> --}}
             <ul class="list-group list-group-flush">
                 {{#each userTodos as |todo| }}
                     {{#unless todo.completed }}
