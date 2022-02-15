@@ -10,7 +10,7 @@ const userData = [
         familyName: 'Stark',
         approval: 1,
         level: 1,
-        visible: 1,
+        visible: 'Yes',
         phoneNumber: 5551112211,
     },
     {
@@ -22,7 +22,7 @@ const userData = [
         familyName: 'Stark',
         approval: 1,
         level: 1,
-        visible: 1,
+        visible: 'Yes',
         phoneNumber: 5551113311,
     },
     {
@@ -34,7 +34,7 @@ const userData = [
         familyName: 'Stark',
         approval: 0,
         level: 2,
-        visible: 1,
+        visible: 'Yes',
         phoneNumber: 5551114411,
     },
     {
@@ -46,7 +46,7 @@ const userData = [
         familyName: 'Stark',
         approval: 1,
         level: 3,
-        visible: 0,
+        visible: 'No',
         phoneNumber: 5551115511,
     },
     {
@@ -58,7 +58,7 @@ const userData = [
         familyName: 'Lannister',
         approval: 1,
         level: 1,
-        visible: 1,
+        visible: 'Yes',
         phoneNumber: 5552221111,
     },
     {
@@ -70,7 +70,7 @@ const userData = [
         familyName: 'Lannister',
         approval: 1,
         level: 1,
-        visible: 1,
+        visible: 'Yes',
         phoneNumber: 5552223311,
     },
 ];

@@ -18,7 +18,7 @@ module.exports = {
 				approval: true,
 				familyName,
 				level: 1,
-				visible: true,
+				visible: 'Yes',
 				phoneNumber,
 			});
 			const user = createdUser.get({ plain: true });
