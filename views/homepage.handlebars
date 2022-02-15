@@ -14,9 +14,9 @@
                     <tr>
                         {{#if location}}
                             {{#if allDay}}
-                                <td class="edate">{{ event.start }} (All Day) - {{ event.title }} @ {{ event.location }} </td>
+                                <td>{{ event.start }} (All Day) - {{ event.title }} @ {{ event.location }} </td>
                             {{else}}
-                                <td class="edate">{{ event.start }} at {{ event.startTime }} - {{ event.title }} @ {{ event.location }} </td>
+                                <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }} @ {{ event.location }} </td>
                             {{/if}}
                         {{else}}
                             {{#if allDay}}
@@ -111,19 +111,27 @@
             <div class="card-header">
                 <h7>To Do's</h7>
             </div>
-            <ul class="list-group list-group-flush">
-                {{#each userTodos as |todo| }}
-                    {{#unless todo.completed }}
-                        <li class="list-group-item"> 
-                            <input type="hidden" class="form-control"  value="{{ todo.id }}">
-                            <input class="form-check-input todoBox" type="checkbox" value="{{ todo.task }}" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                {{ todo.task }} 
-                            </label>
-                        </li>
-                    {{/unless}}
-                {{/each}}
-            </ul>
+            {{#if anyTodos}}
+                <ul class="list-group list-group-flush">
+                    {{#each userTodos as |todo| }}
+                        {{#unless todo.completed }}
+                            <li class="list-group-item"> 
+                                <input type="hidden" class="form-control"  value="{{ todo.id }}">
+                                <input class="form-check-input todoBox" type="checkbox" value="{{ todo.task }}" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    {{ todo.task }} 
+                                </label>
+                            </li>
+                        {{/unless}}
+                    {{/each}}
+                </ul>
+            {{else}}
+                <li class="list-group-item"> 
+                    <label class="form-check-label" for="flexCheckDefault">
+                        No Current Tasks
+                    </label>
+                </li>
+            {{/if}}
             <a href="/todo">History</a>    
         </div>
         <div class="col-5">
