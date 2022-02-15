@@ -171,6 +171,12 @@ module.exports = {
 					familyName: req.session.user.familyName,
 				}
 			});
+			const anyTodosData = await Todo.findAll({
+				where: {
+					familyName: req.session.user.familyName,
+					completed: false,
+				},
+			});
 			const userEventsData = await Event.findAll({
 				where: {
 					familyName: req.session.user.familyName,
@@ -186,6 +192,7 @@ module.exports = {
 			res.render('homepage', {
 				allKids: childData.map(kid => kid.get({ plain: true })),
 				userTodos: userTodosData.map(userTodo => userTodo.get({ plain: true })),
+				anyTodos: anyTodosData.map(anyTodo => anyTodo.get({ plain: true })),
 				userEvents: userEventsData.map(userEvent => userEvent.get({ plain: true })),
 				user: req.session.user,
 			});
