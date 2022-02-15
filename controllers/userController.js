@@ -40,7 +40,7 @@ module.exports = {
 				role,
 				approval: false,
 				level: 3,
-				visible: false,
+				visible: 'No',
 				phoneNumber,
 			});
 			const user = createdUser.get({ plain: true });
@@ -55,7 +55,7 @@ module.exports = {
 	},
 
 	updateUser: async (req, res) => {
-		const { id, firstName, lastName, role, phoneNumber, level } = req.body;
+		const { id, firstName, lastName, role, phoneNumber, level, visible } = req.body;
 		try {
 			const updatedUser = await User.update({
 				firstName,
@@ -63,6 +63,7 @@ module.exports = {
 				role,
 				phoneNumber,
 				level,
+				visible,
 			},
 				{where: {
 				    id

@@ -51,7 +51,7 @@ User.init(
 			type: DataTypes.INTEGER,
 		},
 		visible: {
-			type: DataTypes.BOOLEAN,
+			type: DataTypes.STRING,
 		},
 		phoneNumber: {
 			type: DataTypes.STRING,

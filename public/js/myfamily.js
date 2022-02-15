@@ -13,8 +13,7 @@ $(document).ready(function () {
     const newPhoneNumber = $(`#newPhoneNumber[dataname="${attribute}"]`).val().trim();
     const fixedPhoneNumber = newPhoneNumber.replace('(', '').replace(') ', '').replace('-', '');
     const newLevel = $(`#newLevel[dataname="${attribute}"]`).val();
-    // const newVisible = $(`#newVisible[dataname="${attribute}"]`).checked;
-    // console.log(newVisible)
+    const newVisible = $(`#newVisible[dataname="${attribute}"]`).val();
     event.preventDefault();
     await $.post('/api/users/updateuser', {
       id: newId,
@@ -23,7 +22,7 @@ $(document).ready(function () {
       role: newRole,
       phoneNumber: fixedPhoneNumber,
       level: newLevel,
-      // visible: newVisible.val(),
+      visible: newVisible.val(),
     });
     window.location.reload();
   });
