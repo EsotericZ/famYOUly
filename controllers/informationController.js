@@ -11,12 +11,14 @@ module.exports = {
             medications,
             allergies,
             healthInsurance,
+            childId,
         } = req.body;
         try {
             const newMedicalInfo = await Medical.create({
                 medications,
                 allergies,
                 healthInsurance,
+                childId,
             });
             // const medicalData = newMedicalInfo.get({ plain: true });
             // res.json('/medical', {
