@@ -11,6 +11,10 @@ $(document).ready(function () {
     const numberContact = $('#numberContact');
     const relationContact = $('#relationContact');
 
+    const newListBtn = $('#newListBtn');
+    const item = $('#item');
+
+
     
     newMedBtn.on('click', function(event) {
         event.preventDefault();
@@ -34,4 +38,15 @@ $(document).ready(function () {
         });
         window.location.reload();
     });
+
+    newListBtn.on('click', function(event) {
+        event.preventDefault();
+        await $.post('/api/info/list', {
+            item: item.val(),
+            childId: childId.val(),
+        });
+        window.location.reload();
+    });
+
+
 });
