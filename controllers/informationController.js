@@ -27,6 +27,25 @@ module.exports = {
         }
     },
 
+    updateMedicalInfoById: async (req, res) => {
+        const { medications, allergies, healthInsurance } = req.body;
+        const childId = req.params.childId;
+        try {
+            const medicalData = await Medical.update({
+                medications,
+                allergies,
+                healthInsurance,
+                where: {
+                    childId
+                },
+            });
+            const medical = medicalData.get({ plain: true });
+            res.json(medical);
+        } catch (e) {
+            res.json(e);
+        }
+    },
+
     createContact: async (req, res) => {
         const { firstName, lastName, number, relation } = req.body;
         try {
