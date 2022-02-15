@@ -6,6 +6,7 @@ const {
 } = require('../models');
 
 const { Op } = require('sequelize');
+const TODAY_START = new Date().setHours(0, 0, 0, 0);
 
 module.exports = {
 	login: async (req, res) => {
@@ -173,15 +174,14 @@ module.exports = {
 			const userEventsData = await Event.findAll({
 				where: {
 					familyName: req.session.user.familyName,
+					start: {
+						[Op.gt]: TODAY_START-1,
+					},
 				},
 				order: [
 					["start", "ASC"],
 					["startTime", "ASC"],
 				]
-					// start: {
-					// 	[Op.gte]: moment()
-					// }
-				
 			});
 			res.render('homepage', {
 				allKids: childData.map(kid => kid.get({ plain: true })),

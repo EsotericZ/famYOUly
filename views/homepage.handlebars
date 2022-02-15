@@ -8,10 +8,23 @@
                 <tr class="table-active" >
                     <th>Upcoming Events</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 {{#each userEvents as |event|}}
                     <tr>
-                        <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }} @ {{ event.location }} </td>
+                        {{#if location}}
+                            {{#if allDay}}
+                                <td class="edate">{{ event.start }} (All Day) - {{ event.title }} @ {{ event.location }} </td>
+                            {{else}}
+                                <td class="edate">{{ event.start }} at {{ event.startTime }} - {{ event.title }} @ {{ event.location }} </td>
+                            {{/if}}
+                        {{else}}
+                            {{#if allDay}}
+                                <td>{{ event.start }} (All Day) - {{ event.title }}</td>
+                            {{else}}
+                                <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }}</td>
+                            {{/if}}
+                        {{/if}}
                         <td>
                             <div data-bs-toggle="modal" data-bs-target="#t{{ event.modalId }}">
                                 More..
