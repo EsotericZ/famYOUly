@@ -1,94 +1,107 @@
 <div class="card-body">
-    {{#each contactInfo as |contact|}}
-    {{!-- {{#if medications}}
-    <h5 class="card-title">Medications:</h5>
-    <li>
-        <p>{{ medical.medications }}</p>
-        <p class="card-text">Example text</p>
-    </li>
-    {{/if}} --}}
 
-    <h5 class="card-title">Name: {{ contact.firstName }} {{ contact.lastName }}</h5>
-    {{!-- {{/if}} --}}
-    <li>
-        <p>Number: {{contact.number}}</p>
-        <p>Relation: {{contact.relation}}</p>
-    </li>
-    {{!-- <h5 class="card-title">Number: {{ contact.number }}</h5>
-    <h5 class="card-title">Relation: {{ contact.relation }}</h5> --}}
+    {{#if contact}}
+        {{#each contact as |cont|}}
+            <h5 class="card-title">Name: {{ cont.firstName }} {{ cont.lastName }}</h5>
+            <p>Number: {{cont.number}}</p>
+            <p>Relation: {{cont.relation}}</p>
+
+    {{!-- BUTTON: Add contact info --}}
+    <div class="mt-3">
+        <button type="button" data-bs-toggle="modal" data-bs-target="#editContactModal" class="btn btn-secondary">
+            Edit Contact Info
+        </button>
+    </div>
+
+            <!-- Edit Medical Modal -->
+            <div class="modal fade" id="editContactModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabelEvent">Edit Contact Info</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div ="container-fluid">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text col-5">First Name</span>
+                                    <input type="text" aria-label="First name" class="form-control" value="{{ cont.firstName }}" id="editFirstName">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text col-5">Last Name</span>
+                                    <input type="text" aria-label="Last name" class="form-control" value="{{ cont.lastName }}" id="editLastName">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text col-5">Number</span>
+                                    <input type="text" aria-label="Number" class="form-control" value="{{ cont.number }}" id="editNumber">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Relation</span>
+                                    <input type="text" aria-label="Relation" class="form-control" value="{{ cont.relation }}" id="editRelation">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="hidden" aria-label="First name" class="form-control" value="{{ cont.id }}" id="editContactId">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" id="editContactBtn" data-bs-dismiss="modal">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-    {{/each}}
-    {{!-- <div class="mt-3">
-        <button class="btn btn-warning align-items-end mt-2">Add Contact Info</button>
-    </div> --}}
-    <button type="button" data-bs-toggle="modal" data-bs-target="#contactModal" class="btn btn-secondary">
-        Edit Medical Info
-    </button>
 
+        {{/each}}
+    
+    {{else}}
+        <h5 class="card-title">Name:</h5>
+        <p class="card-text py-3"></p>
+        <h5 class="card-title">Number:</h5>
+        <p class="card-text py-3"></p>
+        <h5 class="card-title">Relation:</h5>
+        <p class="card-text py-3"></p>
+
+        {{!-- BUTTON: Add contact info --}}
+        <div class="mt-3">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#addContactModal" class="btn btn-secondary">
+                Add Contact Info
+            </button>
+        </div>
+    {{/if}}
 </div>
 
 <!-- Add Contact Modal -->
-<div class="modal fade" id="contactModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
+<div class="modal fade" id="addContactModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabelEvent">Edit Contact Info</h5>
+                <h5 class="modal-title" id="staticBackdropLabelEvent">Add Contact Info</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div="container-fluid">
+                <div ="container-fluid">
                     <div class="input-group mb-3">
-                        <span class="input-group-text col-5">First Name</span>
-                        <input type="text" aria-label="First name" class="form-control" id="firstNameContact">
+                        <span class="input-group-text col-5">Medications</span>
+                        <input type="text" aria-label="First name" class="form-control" value="{{ medical.medications }}" id="medications">
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text col-5">Last Name</span>
-                        <input type="text" aria-label="Last name" class="form-control" id="lastNameContact">
+                        <span class="input-group-text col-5">Allergies</span>
+                        <input type="text" aria-label="First name" class="form-control" value="{{ medical.allergies }}" id="allergies">
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Number</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" id="numberContact">
+                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Health Insurance</span>
+                        <input type="text" aria-label="First name" class="form-control" value="{{ medical.healthInsurance }}" id="healthInsurance">
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Relation</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" id="relationContact">
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="hidden" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" value="{{ childId.id }}" id="childIdModal">
+                        <input type="hidden" aria-label="First name" class="form-control" value="{{ medical.id }}" id="medIdModal">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="newContactBtn" data-bs-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-success" id="addMedicalBtn" data-bs-dismiss="modal">Save</button>
             </div>
         </div>
     </div>
 </div>
-
-{{!-- 
-<table class="table" id="contactTable">
-<thead>
-    <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Number</th>
-        <th scope="col">Relation</th>
-    </tr>
-    <tr>
-
-        <th scope="row">Example Name {{ contact.firstName }} {{ contact.lastName }}</th>
-        <td>4029844957<a href="tel:+4029844957{{contact.number}}">{{contact.number}}</a></td>
-        <td>School {{contact.relation}}</td>
-    </tr>
-    <tr>
-
-
-    </tr>
-</table>
-<button type="button" data-bs-toggle="modal" data-bs-target="#addContact" id="addContactBtn">
-    Add New Contact
-</button> --}}
