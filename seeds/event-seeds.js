@@ -99,6 +99,34 @@ const eventData = [
         approval: false,
         familyName: 'Lannsiter',
     },
+    {
+        modalId: 8,
+        title: 'Joffrey: torture people',
+        notes: 'NOT REQ',
+        start: '2022-02-18',
+        end: '2022-02-18',
+        allDay: true,
+        startTime: '17:00',
+        endTime: '21:00',
+        location: 'Throne Room', 
+        eventType: 'Required', //Optional //Request
+        approval: true,
+        familyName: 'Lannsiter',
+    },
+    {
+        modalId: 9,
+        title: 'Tommen: cri over Margaery Tyrell',
+        notes: 'NOT REQ',
+        start: '2022-02-19',
+        end: '2022-02-19',
+        allDay: true,
+        startTime: '05:00',
+        endTime: '17:00',
+        location: 'Throne Room', 
+        eventType: 'Optional', //Optional //Request
+        approval: true,
+        familyName: 'Lannsiter',
+    },
 ];
 
 const seedEvents = () => Event.bulkCreate(eventData);
