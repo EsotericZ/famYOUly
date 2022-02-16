@@ -102,3 +102,49 @@
         </div>
     </div>
 </div>
+
+
+
+{{!-- <table class="table" id="medicalTable">
+    <tr>
+        {{!-- delete these two rows --}}
+        <th>Ex: Medications</th>
+        <td>Example meds</td>
+        {{!-- keep these --}}
+        {{#each allMedications as |medication|}}
+        <th>Medications</th>
+        <td>{{ medical.medications }}</td>
+        {{/each}}
+    </tr>
+    <tr>
+        {{!-- delete these two rows --}}
+        <th>Ex: Allergies</th>
+        <td>Example allergies</td>
+        {{!-- keep these --}}
+        {{#each allAllergies as |allergies|}}
+        <th>Allergies</th>
+        {{#if allergies}}
+        <td>{{ medical.allergies }}</td>
+        {{/if}}
+        {{/each}}
+        <td><button type="button" data-bs-toggle="modal" data-bs-target="#editProfile" id="profileBtn">
+                Update allergies
+            </button></td>
+
+    </tr>
+    <tr>
+        {{!-- delete these two rows --}}
+        <th>Ex: Health Insurance</th>
+        <td>Example Health Insurance</td>
+        {{!-- keep these --}}
+        {{#each allHealthInsurance as |healthInsurance|}}
+        <th>Health Insurance</th>
+        {{#if healthInsurance}}
+        <td>{{ medical.healthInsurance }}</td>
+        {{/if}}
+        {{/each}}
+        <td><button type="button" data-bs-toggle="modal" data-bs-target="#editProfile" id="profileBtn">
+                Update health insurance
+            </button></td>
+    </tr>
+</table> --}}
