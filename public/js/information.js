@@ -4,7 +4,8 @@ $(document).ready(function () {
     const medications = $('#medications');
     const allergies = $('#allergies');
     const healthInsurance = $('#healthInsurance');
-    const childIdModal = $('#childIdModal');
+    const childIdModal = $('#childInfo');
+    console.log(childIdModal.attr("data-childId"));
     const editMedicalBtn = $('#editMedicalBtn');
     const editMedications = $('#editMedications');
     const editAllergies = $('#editAllergies');
@@ -34,12 +35,15 @@ $(document).ready(function () {
     
     addMedicalBtn.on('click', async function(event) {
         event.preventDefault();
+        console.log('In the medical event');
+        console.log(childIdModal);
         await $.post('/api/info/medical', {
             medications: medications.val(),
             allergies: allergies.val(),
             healthInsurance: healthInsurance.val(),
-            childId: childIdModal.val(),
+            childId: childIdModal.attr("data-childId"),
         });
+        // document.location.replace(`/api/info/${childIdModal.attr("data-childId")}`);
         window.location.reload();
     });
 
@@ -51,6 +55,8 @@ $(document).ready(function () {
             healthInsurance: editHealthInsurance.val(),
             id: editMedId.val(),
         });
+        console.log("new update");
+        // window.location.replace(`/api/info/${childIdModal.attr("data-childId")}`);
         window.location.reload();
     });
 
