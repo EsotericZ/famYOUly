@@ -51,7 +51,7 @@ User.init(
 			type: DataTypes.INTEGER,
 		},
 		visible: {
-			type: DataTypes.BOOLEAN,
+			type: DataTypes.STRING,
 		},
 		phoneNumber: {
 			type: DataTypes.STRING,
@@ -62,6 +62,9 @@ User.init(
 				len: 10,
 			}
 		},
+		picture: {
+			type: DataTypes.STRING,
+		}
 	},
 	{
 		sequelize,

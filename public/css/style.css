@@ -132,7 +132,7 @@ body {
     text-align: center;
 }
 
-#table1{
+#table1, #table2, #table3 {
     padding: 30px;
     margin: 15px;
     border-style:solid;

@@ -25,10 +25,23 @@
                 <tr class="table-active" >
                     <th>Upcoming Events</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 {{#each userEvents as |event|}}
                     <tr>
-                        <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }} @ {{ event.location }} </td>
+                        {{#if location}}
+                            {{#if allDay}}
+                                <td>{{ event.start }} (All Day) - {{ event.title }} @ {{ event.location }} </td>
+                            {{else}}
+                                <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }} @ {{ event.location }} </td>
+                            {{/if}}
+                        {{else}}
+                            {{#if allDay}}
+                                <td>{{ event.start }} (All Day) - {{ event.title }}</td>
+                            {{else}}
+                                <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }}</td>
+                            {{/if}}
+                        {{/if}}
                         <td>
                             <div data-bs-toggle="modal" data-bs-target="#t{{ event.modalId }}">
                                 More..
@@ -98,19 +111,27 @@
             <div class="card-header">
                 <h7>To Do's</h7>
             </div>
-            <ul class="list-group list-group-flush">
-                {{#each userTodos as |todo| }}
-                    {{#unless todo.completed }}
-                        <li class="list-group-item"> 
-                            <input type="hidden" class="form-control"  value="{{ todo.id }}">
-                            <input class="form-check-input todoBox" type="checkbox" value="{{ todo.task }}" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                {{ todo.task }} 
-                            </label>
-                        </li>
-                    {{/unless}}
-                {{/each}}
-            </ul>
+            {{#if anyTodos}}
+                <ul class="list-group list-group-flush">
+                    {{#each userTodos as |todo| }}
+                        {{#unless todo.completed }}
+                            <li class="list-group-item"> 
+                                <input type="hidden" class="form-control"  value="{{ todo.id }}">
+                                <input class="form-check-input todoBox" type="checkbox" value="{{ todo.task }}" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    {{ todo.task }} 
+                                </label>
+                            </li>
+                        {{/unless}}
+                    {{/each}}
+                </ul>
+            {{else}}
+                <li class="list-group-item"> 
+                    <label class="form-check-label" for="flexCheckDefault">
+                        No Current Tasks
+                    </label>
+                </li>
+            {{/if}}
             <a href="/todo">History</a>    
         </div>
     
@@ -121,7 +142,11 @@
                             {{#each allKids as |kid|}}
                                 <div class="col-6 px-1">
                                     <div class="card" id="kidsCard">
-                                        <img src="/images/Placeholder_Image.jpg" class="card-img-top" alt="...">
+                                        {{#if kid.picture}}
+                                          <img src="{{ kid.picture }}" class="card-img-top" alt="..."> 
+                                        {{else}}
+                                          <img src="/images/Placeholder_Image.jpg" class="card-img-top" alt="...">
+                                        {{/if}}
                                         <div class="card-body">
                                             <h5 class="card-title">{{ kid.firstName }} {{ kid.lastName }} 
                                                 {{!-- <div data-bs-toggle="modal" data-bs-target="#t{{ event.modalId }}"> --}}

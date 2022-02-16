@@ -6,6 +6,7 @@ const {
 } = require('../models');
 
 const { Op } = require('sequelize');
+const TODAY_START = new Date().setHours(0, 0, 0, 0);
 
 module.exports = {
 	login: async (req, res) => {
@@ -40,7 +41,7 @@ module.exports = {
 				role,
 				approval: false,
 				level: 3,
-				visible: false,
+				visible: 'No',
 				phoneNumber,
 			});
 			const user = createdUser.get({ plain: true });
@@ -55,7 +56,7 @@ module.exports = {
 	},
 
 	updateUser: async (req, res) => {
-		const { id, firstName, lastName, role, phoneNumber, level } = req.body;
+		const { id, firstName, lastName, role, phoneNumber, level, visible } = req.body;
 		try {
 			const updatedUser = await User.update({
 				firstName,
@@ -63,6 +64,7 @@ module.exports = {
 				role,
 				phoneNumber,
 				level,
+				visible,
 			},
 				{where: {
 				    id
@@ -169,22 +171,28 @@ module.exports = {
 					familyName: req.session.user.familyName,
 				}
 			});
+			const anyTodosData = await Todo.findAll({
+				where: {
+					familyName: req.session.user.familyName,
+					completed: false,
+				},
+			});
 			const userEventsData = await Event.findAll({
 				where: {
 					familyName: req.session.user.familyName,
+					start: {
+						[Op.gt]: TODAY_START-1,
+					},
 				},
 				order: [
 					["start", "ASC"],
 					["startTime", "ASC"],
 				]
-					// start: {
-					// 	[Op.gte]: moment()
-					// }
-				
 			});
 			res.render('homepage', {
 				allKids: childData.map(kid => kid.get({ plain: true })),
 				userTodos: userTodosData.map(userTodo => userTodo.get({ plain: true })),
+				anyTodos: anyTodosData.map(anyTodo => anyTodo.get({ plain: true })),
 				userEvents: userEventsData.map(userEvent => userEvent.get({ plain: true })),
 				user: req.session.user,
 			});

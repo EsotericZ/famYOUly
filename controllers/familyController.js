@@ -18,7 +18,7 @@ module.exports = {
 				approval: true,
 				familyName,
 				level: 1,
-				visible: true,
+				visible: 'Yes',
 				phoneNumber,
 			});
 			const user = createdUser.get({ plain: true });
@@ -56,8 +56,30 @@ module.exports = {
 					['firstName', 'ASC'],
 				]
 			});
+			const lvl2Data = await User.findAll({
+				where: {
+					familyName: req.session.user.familyName,
+					level: [1, 2],
+				},
+				order: [
+					['level', 'ASC'],
+					['firstName', 'ASC'],
+				]
+			});
+			const lvl3Data = await User.findAll({
+				where: {
+					familyName: req.session.user.familyName,
+					visible: 'Yes',
+				},
+				order: [
+					['level', 'ASC'],
+					['firstName', 'ASC'],
+				]
+			});
 			res.render('myfamily', {
 				fullFam: userData.map(famMember => famMember.get({ plain: true })),
+				lvl2Fam: lvl2Data.map(famMember => famMember.get({ plain: true })),
+				lvl3Fam: lvl3Data.map(famMember => famMember.get({ plain: true })),
 				user: req.session.user,
 			});
 		} catch (e) {
