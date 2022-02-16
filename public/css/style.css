@@ -209,3 +209,21 @@ table {
     margin-right: auto;
     background-color: white;
 }
+
+.kidPic {
+    max-height: 175px;
+    max-width: 100%;
+}
+
+.nav-link.active {
+    color: white;
+    vertical-align: middle;
+}
+#logout,
+#profileLink {
+    margin-bottom: 20px;
+    m
+    /* left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+} */
