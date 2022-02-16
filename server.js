@@ -30,5 +30,6 @@ app.use(session(sessionSettings));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
+    console.log('happeni')
     app.listen(PORT, () => console.log(`Server listening on port: ${PORT}`));
 });
