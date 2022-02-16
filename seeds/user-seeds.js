@@ -16,7 +16,7 @@ const userData = [
     },
     {
         firstName: 'Catelyn',
-        lastName: 'Stark',
+        lastName: 'Tully',
         email: 'catelyn@stark.com',
         password: 'password',
         role: 'Mother',
