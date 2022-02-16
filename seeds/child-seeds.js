@@ -31,6 +31,36 @@ const childData = [
         familyName: 'Stark',
         picture: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.images.express.co.uk%2Fimg%2Fdynamic%2F20%2F590x%2Fsecondary%2Flord-of-light-game-of-thrones-1848082.png%3Fr%3D1556558562355&f=1&nofb=1',
     },
+    {
+        modalId: 4,
+        firstName: 'Marcella',
+        lastName: 'Lannister',
+        nickname: 'Marci',
+        pronouns: 'She/Her',
+        birthday: '1995-05-31',
+        familyName: 'Lanniser',
+        picture: '',
+    },
+    {
+        modalId: 5,
+        firstName: 'Joffrey',
+        lastName: 'Lannister',
+        nickname: '',
+        pronouns: 'He/Him',
+        birthday: '1998-7-01',
+        familyName: 'Lannister',
+        picture: '',
+    },
+    {
+        modalId: 6,
+        firstName: 'Tommen',
+        lastName: 'Lannister',
+        nickname: '',
+        pronouns: 'He/Him',
+        birthday: '200-08-20',
+        familyName: 'Lannister',
+        picture: '',
+    },
 ];
 
 const seedChildren = () => Child.bulkCreate(childData);
