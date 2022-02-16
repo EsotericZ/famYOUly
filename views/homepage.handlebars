@@ -23,7 +23,7 @@
             <div class="card"id="eventsCard">
             <table class="table">
                 <tr class="table-active" >
-                    <th>Upcoming Events</th>
+                    <h7>Upcoming Events</h7>
                     <th></th>
                     <th></th>
                 </tr>
@@ -143,9 +143,9 @@
                                 <div class="col-6 px-1">
                                     <div class="card" id="kidsCard">
                                         {{#if kid.picture}}
-                                          <img src="{{ kid.picture }}" class="card-img-top" alt="..."> 
+                                          <img src="{{ kid.picture }}" class="card-img-top kidPic"  alt="..."> 
                                         {{else}}
-                                          <img src="/images/Placeholder_Image.jpg" class="card-img-top" alt="...">
+                                          <img src="/images/Placeholder_Image.jpg" class="card-img-top kidPic" alt="...">
                                         {{/if}}
                                         <div class="card-body">
                                             <h5 class="card-title">{{ kid.firstName }} {{ kid.lastName }} 
