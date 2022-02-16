@@ -11,7 +11,7 @@ const eventData = [
         startTime: '18:00',
         endTime: '21:00',
         location: 'The Barn', 
-        eventType: 'Required', //Optional //Request
+        eventType: 'Required', 
         approval: true,
         familyName: 'Stark',
     },
@@ -25,7 +25,7 @@ const eventData = [
         startTime: '18:00',
         endTime: '21:00',
         location: 'Front Room', 
-        eventType: 'Required', //Optional //Request
+        eventType: 'Required', 
         approval: true,
         familyName: 'Stark',
     },
@@ -39,7 +39,7 @@ const eventData = [
         startTime: '',
         endTime: '',
         location: 'The Barn', 
-        eventType: 'Request', //Optional //Request
+        eventType: 'Request', 
         approval: false,
         familyName: 'Stark',
     },
@@ -53,7 +53,7 @@ const eventData = [
         startTime: '09:00',
         endTime: '10:00',
         location: 'Everywhere', 
-        eventType: 'Optional', //Optional //Request
+        eventType: 'Optional', 
         approval: true,
         familyName: 'Stark',
     },
@@ -67,7 +67,7 @@ const eventData = [
         startTime: '',
         endTime: '',
         location: '', 
-        eventType: 'Required', //Optional //Request
+        eventType: 'Required', 
         approval: true,
         familyName: 'Stark',
     },
@@ -81,7 +81,7 @@ const eventData = [
         startTime: '09:00',
         endTime: '10:00',
         location: 'Everywhere', 
-        eventType: 'Required', //Optional //Request
+        eventType: 'Required', 
         approval: true,
         familyName: 'Lannsiter',
     },
@@ -95,7 +95,7 @@ const eventData = [
         startTime: '',
         endTime: '',
         location: '', 
-        eventType: 'Request', //Optional //Request
+        eventType: 'Request', 
         approval: false,
         familyName: 'Lannsiter',
     },
@@ -109,7 +109,7 @@ const eventData = [
         startTime: '17:00',
         endTime: '21:00',
         location: 'Throne Room', 
-        eventType: 'Required', //Optional //Request
+        eventType: 'Required', 
         approval: true,
         familyName: 'Lannsiter',
     },
@@ -123,7 +123,7 @@ const eventData = [
         startTime: '05:00',
         endTime: '17:00',
         location: 'Throne Room', 
-        eventType: 'Optional', //Optional //Request
+        eventType: 'Optional', 
         approval: true,
         familyName: 'Lannsiter',
     },
