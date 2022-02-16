@@ -9,7 +9,7 @@ const childData = [
         pronouns: 'She/Her',
         birthday: '1986-02-05',
         familyName: 'Stark',
-        picture: 'https://vignette.wikia.nocookie.net/game-of-thrones-le-trone-de-fer/images/7/73/Sansa_Stark.png/revision/latest?cb=20170818143944&path-prefix=fr',
+        picture: 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages4.fanpop.com%2Fimage%2Fforum%2F78000%2F78091_1304243113169_full.jpg&f=1&nofb=1',
     },
     {
         modalId: 2,
