@@ -32,7 +32,7 @@ const userData = [
         lastName: 'Stark',
         email: 'robb@stark.com',
         password: 'password',
-        role: 'Uncle',
+        role: 'Brother',
         familyName: 'Stark',
         approval: 0,
         level: 2,
