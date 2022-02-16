@@ -10,7 +10,7 @@ const eventData = [
         allDay: false,
         startTime: '18:00',
         endTime: '21:00',
-        location: 'NOT REQ', 
+        location: 'The Barn', 
         eventType: 'Required', //Optional //Request
         approval: true,
         familyName: 'Stark',
@@ -24,7 +24,7 @@ const eventData = [
         allDay: false,
         startTime: '18:00',
         endTime: '21:00',
-        location: 'NOT REQ', 
+        location: 'Front Room', 
         eventType: 'Required', //Optional //Request
         approval: true,
         familyName: 'Stark',
@@ -38,9 +38,23 @@ const eventData = [
         allDay: true,
         startTime: '',
         endTime: '',
-        location: 'NOT REQ', 
+        location: 'The Barn', 
         eventType: 'Request', //Optional //Request
         approval: false,
+        familyName: 'Stark',
+    },
+    {
+        modalId: 4,
+        title: 'Bran: See the future',
+        notes: 'NOT REQ',
+        start: '2022-02-21',
+        end: '2022-02-21',
+        allDay: false,
+        startTime: '09:00',
+        endTime: '10:00',
+        location: 'Everywhere', 
+        eventType: 'Optional', //Optional //Request
+        approval: true,
         familyName: 'Stark',
     },
 ];
