@@ -45,6 +45,9 @@ Child.init(
 				key: 'familyName',
 			}
 		},
+		picture: {
+			type: DataTypes.STRING,
+		}
 	},
 	{
 		sequelize,

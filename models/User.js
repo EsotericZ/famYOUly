@@ -62,6 +62,9 @@ User.init(
 				len: 10,
 			}
 		},
+		picture: {
+			type: DataTypes.STRING,
+		}
 	},
 	{
 		sequelize,
