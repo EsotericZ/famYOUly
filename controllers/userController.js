@@ -77,6 +77,8 @@ module.exports = {
 	},
 
 	updateProfile: async (req, res) => {
+		console.log('made it%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
+		console.log(req.body)
 		const { id, firstName, lastName, email, phoneNumber } = req.body;
 		try {
 			const updatedProfile = await User.update({
@@ -89,13 +91,20 @@ module.exports = {
 				    id
 				}
 			});
-			const user = updatedProfile.get({ plain: true });
+			console.log(updatedProfile)
+			
+			// const user = updatedProfile.get({ plain: true });
+			// req.session.destroy();
 			req.session.save(() => {
+				console.log('imhap!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', user)
 				req.session.loggedIn = true;
 				req.session.user = user;
-				res.redirect('/profile');
+				req.session.firstName = firstName;
+				// res.redirect('/profile');
+				res.json(true)
 			});
 		} catch (e) {
+			console.log(e)
 			res.json(e);
 		}
 	},
