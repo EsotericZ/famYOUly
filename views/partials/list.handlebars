@@ -1,10 +1,56 @@
 <div class="card-body">
-    <li>
-        {{#each items as |item|}}
-        <p>{{list.item}}</p>
-        <p>Example</p>
+    
+    {{#if list}}
+        {{#each list as |li|}}
+        <p>{{li.item}}</p>    
+    
+        {{!-- BUTTON: Add list info --}}
+        <div class="mt-3">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#editListModal" class="btn btn-secondary">
+                Edit List
+            </button>
+        </div>
+
+    <!-- Edit List Modal -->
+            <div class="modal fade" id="editListModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabelEvent">Edit List</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div ="container-fluid">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text col-5">Medications</span>
+                                    <input type="text" aria-label="First name" class="form-control" value="{{ med.medications }}" id="editMedications">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text col-5">Allergies</span>
+                                    <input type="text" aria-label="First name" class="form-control" value="{{ med.allergies }}" id="editAllergies">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Health Insurance</span>
+                                    <input type="text" aria-label="First name" class="form-control" value="{{ med.healthInsurance }}" id="editHealthInsurance">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="hidden" aria-label="First name" class="form-control" value="{{ med.id }}" id="editMedId">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-success" id="editMedicalBtn" data-bs-dismiss="modal">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
         {{/each}}
-    </li>
+
+    {{/if}}
+    
     {{!-- <div class="mt-3">
         <button class="btn btn-warning align-items-end mt-2">Add To List</button>
     </div> --}}
