@@ -6,6 +6,7 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
+            {{#eq user.level 1}}
              <div class="homepageButtons">
                 <div>
                     <button type="button" data-bs-toggle="modal" data-bs-target="#eventmodal" class="btn btn-dark">
@@ -18,95 +19,191 @@
                         Add Child
                     </button>
                 </div>
-            </div> 
+            </div>
+            {{/eq}} 
 
+            {{#eq user.level 1}}
             <div class="card"id="eventsCard">
-            <table class="table">
-                <tr class="table-active" >
-                    <th>Upcoming Events</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                {{#each userEvents as |event|}}
-                    <tr>
-                        {{#if location}}
-                            {{#if allDay}}
-                                <td>{{ event.start }} (All Day) - {{ event.title }} @ {{ event.location }} </td>
+                <table class="table">
+                    <tr class="table-active" >
+                        <th>Upcoming Events</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    {{#each userEvents as |event|}}
+                        <tr>
+                            {{#if location}}
+                                {{#if allDay}}
+                                    <td>{{ event.start }} (All Day) - {{ event.title }} @ {{ event.location }} </td>
+                                {{else}}
+                                    <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }} @ {{ event.location }} </td>
+                                {{/if}}
                             {{else}}
-                                <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }} @ {{ event.location }} </td>
+                                {{#if allDay}}
+                                    <td>{{ event.start }} (All Day) - {{ event.title }}</td>
+                                {{else}}
+                                    <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }}</td>
+                                {{/if}}
                             {{/if}}
-                        {{else}}
-                            {{#if allDay}}
-                                <td>{{ event.start }} (All Day) - {{ event.title }}</td>
-                            {{else}}
-                                <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }}</td>
-                            {{/if}}
-                        {{/if}}
-                        <td>
-                            <div data-bs-toggle="modal" data-bs-target="#t{{ event.modalId }}">
-                                More..
-                            </div>
-                            <div class="modal fade" id="t{{ event.modalId }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Event Details</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div ="container-fluid">
-                                                <div class="input-group mb-3">
-                                                    <input type="hidden" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.id }}" id="newId">
-                                                </div>   
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Title</span>
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.title }}" id="newTitle">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Notes</span>
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.notes }}" id="newNote">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Location</span>
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.location }}" id="newLocation">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Start Date</span>
-                                                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.start }}" id="newStartDate">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">End Date</span>
-                                                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.end }}" id="newEndDate">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Start Time</span>
-                                                    <input type="time" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.startTime }}" id="newStartTime">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">End Time</span>
-                                                    <input type="time" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.endTime }}" id="newEndTime">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Event Type</span>
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.eventType }}" id="newEventType">
-                                                </div>
+                            <td>
+                                <div data-bs-toggle="modal" data-bs-target="#t{{ event.modalId }}">
+                                    More..
+                                </div>
+                                <div class="modal fade" id="t{{ event.modalId }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Event Details</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary updateEventBtn" data-bs-dismiss="modal" eventdata="{{ event.id }}">Save</button>
+                                            <div class="modal-body">
+                                                <div ="container-fluid">
+                                                    <div class="input-group mb-3">
+                                                        <input type="hidden" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.id }}" id="newId">
+                                                    </div>   
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Title</span>
+                                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.title }}" id="newTitle">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Notes</span>
+                                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.notes }}" id="newNote">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Location</span>
+                                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.location }}" id="newLocation">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Start Date</span>
+                                                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.start }}" id="newStartDate">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">End Date</span>
+                                                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.end }}" id="newEndDate">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Start Time</span>
+                                                        <input type="time" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.startTime }}" id="newStartTime">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">End Time</span>
+                                                        <input type="time" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.endTime }}" id="newEndTime">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <label class="input-group-text col-5" for="inputGroupSelect01">Event Type</label>
+                                                        <select eventdata="{{ event.id }}" class="form-select" id="newEventType" list ="event-list">
+                                                            <option>{{ event.eventType }}</option>
+                                                            <option value="Required">Required</option>
+                                                            <option value="Optional">Optional</option>
+                                                            <option value="Request">Request</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary updateEventBtn" data-bs-dismiss="modal" eventdata="{{ event.id }}">Save</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                {{/each}}
-            </table>
-        </div>
-    
+                            </td>
+                        </tr>
+                    {{/each}}
+                </table>
+            </div>
 
-        {{!-- <div class="container"> --}}
-        {{!-- <div class="row"> --}}
+            {{else}}
+            <div class="card"id="eventsCard">
+                <table class="table">
+                    <tr class="table-active" >
+                        <th>Upcoming Events</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    {{#each userEvents as |event|}}
+                        <tr>
+                            {{#if location}}
+                                {{#if allDay}}
+                                    <td>{{ event.start }} (All Day) - {{ event.title }} @ {{ event.location }} </td>
+                                {{else}}
+                                    <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }} @ {{ event.location }} </td>
+                                {{/if}}
+                            {{else}}
+                                {{#if allDay}}
+                                    <td>{{ event.start }} (All Day) - {{ event.title }}</td>
+                                {{else}}
+                                    <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }}</td>
+                                {{/if}}
+                            {{/if}}
+                            <td>
+                                <div data-bs-toggle="modal" data-bs-target="#t{{ event.modalId }}">
+                                    More..
+                                </div>
+                                <div class="modal fade" id="t{{ event.modalId }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Event Details</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div ="container-fluid">
+                                                    <div class="input-group mb-3">
+                                                        <input type="hidden" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.id }}">
+                                                    </div>   
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Title</span>
+                                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ event.title }}" readonly>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Notes</span>
+                                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.notes }}">
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Location</span>
+                                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ event.location }}" readonly>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Start Date</span>
+                                                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ event.start }}" readonly>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">End Date</span>
+                                                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ event.end }}" readonly>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Start Time</span>
+                                                        <input type="time" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ event.startTime }}" readonly>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <span class="input-group-text col-5" id="inputGroup-sizing-default">End Time</span>
+                                                        <input type="time" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ event.endTime }}" readonly>
+                                                    </div>
+                                                    <div class="input-group mb-3">
+                                                        <label class="input-group-text col-5" for="inputGroupSelect01">Event Type</label>
+                                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{ event.eventType }}" readonly>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary updateEventBtn" data-bs-dismiss="modal">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </table>
+            </div>
+            {{/eq}}
+
+
+
+
+
+
+    
         <div class="card col-12" id="todoCol">
             <div class="card-header">
                 <h7>To Do's</h7>
@@ -137,6 +234,7 @@
     
         </div>
         <div class="col-6">
+                    {{#eq user.level 1}}
                     <div class="container">
                         <div class="row">
                             {{#each allKids as |kid|}}
@@ -149,11 +247,10 @@
                                         {{/if}}
                                         <div class="card-body">
                                             <h5 class="card-title">{{ kid.firstName }} {{ kid.lastName }} 
-                                                {{!-- <div data-bs-toggle="modal" data-bs-target="#t{{ event.modalId }}"> --}}
-                                                    <svg data-bs-toggle="modal" data-bs-target="#t{{ kid.modalId }}"
-                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill mx-4" viewBox="0 0 16 16">
-                                                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
-                                                    </svg>
+                                                <svg data-bs-toggle="modal" data-bs-target="#t{{ kid.modalId }}"
+                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill mx-4" viewBox="0 0 16 16">
+                                                    <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                                                </svg>
                                             <div class="modal fade" id="t{{ kid.modalId }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
@@ -211,100 +308,33 @@
                         </div>
                     </div>
 
-        {{!-- <div class="card col-6"id="eventsCard">
-            <table class="table">
-                <tr class="table-active" >
-                    <th>Upcoming Events</th>
-                    <th></th>
-                </tr>
-                {{#each userEvents as |event|}}
-                    <tr>
-                        <td>{{ event.start }} at {{ event.startTime }} - {{ event.title }} @ {{ event.location }} </td>
-                        <td>
-                            <div data-bs-toggle="modal" data-bs-target="#t{{ event.modalId }}">
-                                More..
-                            </div>
-                            <div class="modal fade" id="t{{ event.modalId }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="staticBackdropLabel">Event Details</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    {{else}}
+                    <div class="container">
+                        <div class="row">
+                            {{#each allKids as |kid|}}
+                                <div class="col-6 px-1">
+                                    <div class="card" id="kidsCard">
+                                        {{#if kid.picture}}
+                                          <img src="{{ kid.picture }}" class="card-img-top kidPic"  alt="..."> 
+                                        {{else}}
+                                          <img src="/images/Placeholder_Image.jpg" class="card-img-top kidPic" alt="...">
+                                        {{/if}}
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ kid.firstName }} {{ kid.lastName }}</h5>
                                         </div>
-                                        <div class="modal-body">
-                                            <div ="container-fluid">
-                                                <div class="input-group mb-3">
-                                                    <input type="hidden" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.id }}" id="newId">
-                                                </div>   
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Title</span>
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.title }}" id="newTitle">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Notes</span>
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.notes }}" id="newNote">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Location</span>
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.location }}" id="newLocation">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Start Date</span>
-                                                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.start }}" id="newStartDate">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">End Date</span>
-                                                    <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.end }}" id="newEndDate">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Start Time</span>
-                                                    <input type="time" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.startTime }}" id="newStartTime">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">End Time</span>
-                                                    <input type="time" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.endTime }}" id="newEndTime">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Event Type</span>
-                                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" eventdata="{{ event.id }}" value="{{ event.eventType }}" id="newEventType">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary updateEventBtn" data-bs-dismiss="modal" eventdata="{{ event.id }}">Save</button>
-                                            </div>
-                                        </div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">Nick name: {{ kid.nickname }}</li>
+                                            <li class="list-group-item">Pronouns: {{ kid.pronouns }}</li>
+                                            <li class="list-group-item bdate">{{ kid.birthday }}</li>
+                                            <li class="list-group-item text-end"><a href="/api/info/{{ kid.id }}">More Info</a></li>
+                                        </ul>
                                     </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                {{/each}}
-            </table>
-        </div> --}}
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/eq}}
 
-
-{{!-- <div class="container">
-    <div class="row">
-        <div class="col-6" id="todoCol">
-            <div class="card-header">
-                <h7>To Do's</h7>
-            </div>
-            <ul class="list-group list-group-flush">
-                {{#each userTodos as |todo| }}
-                    {{#unless todo.completed }}
-                        <li class="list-group-item"> 
-                            <input type="hidden" class="form-control"  value="{{ todo.id }}">
-                            <input class="form-check-input todoBox" type="checkbox" value="{{ todo.task }}" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                {{ todo.task }} 
-                            </label>
-                        </li>
-                    {{/unless}}
-                {{/each}}
-            </ul>
-            <a href="/todo">History</a>    
-        </div> --}}
-        
         </div>
     </div>
 </div>
