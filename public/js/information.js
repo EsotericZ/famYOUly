@@ -1,4 +1,5 @@
 $(document).ready(function () {
+// medical
     const addMedicalBtn = $('#addMedicalBtn');
     const medications = $('#medications');
     const allergies = $('#allergies');
@@ -9,15 +10,20 @@ $(document).ready(function () {
     const editAllergies = $('#editAllergies');
     const editHealthInsurance = $('#editHealthInsurance');
     const editMedId = $('#editMedId');
+// contact
+    const addContactBtn = $('#addContactBtn');
+    const firstName = $('#firstName');
+    const lastName = $('#lastName');
+    const number = $('#number');
+    const relation = $('#relation');
+    // const childIdModal = $('#childIdModal');
+    const editContactBtn = $('#editContactBtn');
+    const editFirstName = $('#editFirstName');
+    const editLastName = $('#editLastName');
+    const editNumber = $('#editNumber');
+    const editRelation = $('#editRelation');
+    const editContactId = $('#editContactId');
 
-    // const newContactBtn = $('#newContactBtn');
-    // const firstNameContact = $('#firstNameContact');
-    // const lastNameContact = $('#lastNameContact');
-    // const numberContact = $('#numberContact');
-    // const relationContact = $('#relationContact');
-
-    // const newListBtn = $('#newListBtn');
-    // const item = $('#item');
     
     addMedicalBtn.on('click', async function(event) {
         event.preventDefault();
@@ -31,6 +37,29 @@ $(document).ready(function () {
     });
 
     editMedicalBtn.on('click', async function(event) {
+        event.preventDefault();
+        await $.post('/api/info/updatemedical', {
+            medications: editMedications.val(),
+            allergies: editAllergies.val(),
+            healthInsurance: editHealthInsurance.val(),
+            id: editMedId.val(),
+        });
+        console.log(medications, allergies, healthInsurance, editMedId);
+        window.location.reload();
+    });
+
+    addContactBtn.on('click', async function(event) {
+        event.preventDefault();
+        await $.post('/api/info/contact', {
+            medications: medications.val(),
+            allergies: allergies.val(),
+            healthInsurance: healthInsurance.val(),
+            childId: childIdModal.val(),
+        });
+        window.location.reload();
+    });
+
+    editContactBtn.on('click', async function(event) {
         event.preventDefault();
         await $.post('/api/info/updatemedical', {
             medications: editMedications.val(),

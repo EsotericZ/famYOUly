@@ -14,7 +14,9 @@ const {
 router.post('/medical', addMedicalInfo);
 router.post('/updatemedical', updateMedicalInfo);
 router.post('/contact', createContact);
+router.post('/updatecontact', updateContact);
 router.post('/list', createList);
+router.post('/updatelist', updateList);
 // router.post('/medication', addMedicalInfo)
 
 
