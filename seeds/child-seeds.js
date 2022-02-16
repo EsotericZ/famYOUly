@@ -33,8 +33,8 @@ const childData = [
     },
     {
         modalId: 4,
-        firstName: 'Marcella',
-        lastName: 'Lannister',
+        firstName: 'Mrycella',
+        lastName: 'Baratheon',
         nickname: 'Marci',
         pronouns: 'She/Her',
         birthday: '1995-05-31',
@@ -44,8 +44,8 @@ const childData = [
     {
         modalId: 5,
         firstName: 'Joffrey',
-        lastName: 'Lannister',
-        nickname: '',
+        lastName: 'Baratheon',
+        nickname: 'Joff',
         pronouns: 'He/Him',
         birthday: '1998-7-01',
         familyName: 'Lannister',
@@ -54,7 +54,7 @@ const childData = [
     {
         modalId: 6,
         firstName: 'Tommen',
-        lastName: 'Lannister',
+        lastName: 'Baratheon',
         nickname: '',
         pronouns: 'He/Him',
         birthday: '200-08-20',
