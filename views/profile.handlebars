@@ -1,7 +1,9 @@
 {{> navbar}}
 
 <h3>User Profile</h3>
-
+<div class="container">
+  <div class="row">
+  <div class="col-8">
 <table class="table" id="profileTable">
   <tr>
     <td>Name</td>
@@ -24,13 +26,16 @@
     <td>{{ user.familyName }}</td>
   </tr>
 </table>
-
+</div>
+<div class="col-4">
 {{#if user.picture}}
-  <img src="{{ user.picture }}" class="card-img-top" alt="..."> 
+  <img src="{{ user.picture }}" class="card-img-top profilePic" alt="..."> 
 {{else}}
-  <img src="/images/Placeholder_Image.jpg" class="card-img-top" alt="...">
+  <img src="/images/Placeholder_Image.jpg" class="card-img-top profilePic" alt="...">
 {{/if}}
-
+</div>
+</div>
+</container>
 <button type="button" data-bs-toggle="modal" data-bs-target="#editProfile" class="btn btn-dark btn-lg" id="profileBtn">Edit</button>
 
   <!-- Button trigger modal -->

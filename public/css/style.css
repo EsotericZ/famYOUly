@@ -67,19 +67,6 @@ h3 {
     margin-top: 25px;
 }
 
-#profileTable {
-    width: 50%;
-    display: table;
-    padding: 30px;
-    margin: 15px;
-    border-style:solid;
-    text-align: center;
-    margin-left: 25%;
-    margin-right: auto;
-    display: flex;
-    background-color: white;
-}
-
 
 /* CALENDAR STUFF */
 body {
@@ -143,16 +130,6 @@ body {
     background-color: white;
 }
 
-#profileTable{
-    padding: 30px;
-    margin: 15px;
-    border-style:solid;
-    text-align: center;
-    display: table;
-    margin-left: 25%;
-    margin-right: auto;
-    background-color: white; 
-}
 
 #moreInfobtn {
     height: 20px;
@@ -215,37 +192,20 @@ table {
 .form-floating {
     background-color: #244454;
 }
-
-#logout {
-	/* display: inline-block; */
-    /* float: right; */
-	/* justify-content: end; */
-	/* position: relative; */
+.profilePic {
+    max-height: 90%;
+    max-width: 50%;
+    margin-top: 15px;
 }
 
-/* .navbar-nav {
-    padding: 0px;
-    /* width: 100%; */
-    /* margin: auto; */
-  }
-  
-  /* .navbar ul {
-    list-style-type: none;
-  }  */
-/*   
-  .navbar li {
-    display: inline-block;
-    margin: auto; */
-    /* padding: 10px; */
-  }
-  
-  /* .nav-left {
-    /* position: relative; */
-    /* right: 30px; */
-    /* margin-left: 10px; */
-    /* float: left;
-  } */
-  
-  /* .nav-right {
-    float: right;
-  } */ 
+#profileTable {
+    width: 90%;
+    display: table;
+    padding: 30px;
+    margin: 15px;
+    border-style:solid;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
