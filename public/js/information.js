@@ -25,6 +25,8 @@ $(document).ready(function () {
 // list
     const addListBtn = $('#addListBtn');
     const item = $('#item');
+    const listItems = $('#listItems');
+    const listIdModal = $('#listIdModal');
     const editListBtn = $('#editListBtn');
     const editListItems = $('#editListItems');
     const editListId = $('#editListId');
