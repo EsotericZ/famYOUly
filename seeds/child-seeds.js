@@ -1,11 +1,11 @@
-const { Child } = require('../models');
+const { Child, Contact } = require('../models');
 
 const childData = [
     {
         modalId: 1,
         firstName: 'Sansa',
         lastName: 'Stark',
-        nickname: '',
+        nickname: 'Queen of the North',
         pronouns: 'She/Her',
         birthday: '1986-02-05',
         familyName: 'Stark',
@@ -15,7 +15,7 @@ const childData = [
         modalId: 2,
         firstName: 'Arya',
         lastName: 'Stark',
-        nickname: 'Shadow',
+        nickname: 'A Girl Has No Nickname',
         pronouns: 'They/Them',
         birthday: '1988-02-08',
         familyName: 'Stark',
@@ -25,7 +25,7 @@ const childData = [
         modalId: 3,
         firstName: 'Bran',
         lastName: 'Stark',
-        nickname: 'The Eye',
+        nickname: 'Bran the Broken',
         pronouns: 'He/Him',
         birthday: '1995-04-01',
         familyName: 'Stark',

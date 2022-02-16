@@ -56,7 +56,7 @@ module.exports = {
     },
 
     updateContact: async (req, res) => {
-        const { firstName, lastName, number, relation } = req.body;
+        const { firstName, lastName, number, relation, id } = req.body;
         const childId = req.params.childId;
         try {
             const contactInfo = await Contact.update({
@@ -67,11 +67,9 @@ module.exports = {
             },
             {
                 where: {
-                    childId
+                    id
                 }
             });
-            const updatedContact = contactInfo.get({ plain: true });
-            res.json(updatedContact);
         } catch (e) {
             res.json(e);
         }
@@ -92,7 +90,7 @@ module.exports = {
     },
 
     updateList: async (req, res) => {
-        const { item } = req.body;
+        const { item, id } = req.body;
         const childId = req.params.childId;
         try {
             const updatedList = await List.update({
@@ -100,7 +98,7 @@ module.exports = {
             },
             {
                 where: {
-                    childId
+                    id
                 }
             });
         } catch (e) {
