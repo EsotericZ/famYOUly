@@ -83,24 +83,28 @@
             <div class="modal-body">
                 <div ="container-fluid">
                     <div class="input-group mb-3">
-                        <span class="input-group-text col-5">Medications</span>
-                        <input type="text" aria-label="First name" class="form-control" value="{{ medical.medications }}" id="medications">
+                        <span class="input-group-text col-5">First Name</span>
+                        <input type="text" aria-label="First name" class="form-control" value="{{ cont.firstName }}" id="firstName">
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text col-5">Allergies</span>
-                        <input type="text" aria-label="First name" class="form-control" value="{{ medical.allergies }}" id="allergies">
+                        <span class="input-group-text col-5">Last Name</span>
+                        <input type="text" aria-label="Last name" class="form-control" value="{{ cont.lastName }}" id="lastName">
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Health Insurance</span>
-                        <input type="text" aria-label="First name" class="form-control" value="{{ medical.healthInsurance }}" id="healthInsurance">
+                        <span class="input-group-text col-5">Number</span>
+                        <input type="text" aria-label="First name" class="form-control" value="{{ cont.number }}" id="number">
                     </div>
                     <div class="input-group mb-3">
-                        <input type="hidden" aria-label="First name" class="form-control" value="{{ medical.id }}" id="medIdModal">
+                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Relation</span>
+                        <input type="text" aria-label="First name" class="form-control" value="{{ cont.relation }}" id="relation">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="hidden" aria-label="First name" class="form-control" value="{{ cont.id }}" id="contactIdModal">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="addMedicalBtn" data-bs-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-success" id="addContactBtn" data-bs-dismiss="modal">Save</button>
             </div>
         </div>
     </div>
