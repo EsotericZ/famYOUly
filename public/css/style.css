@@ -25,7 +25,7 @@ h4 {
     height: 58px;
 }
 .homepageButtons{
-    margin-left: 15%;
+    margin-left: 10%;
     margin-bottom: 15px;
     margin-top: -10px;
 }
@@ -64,6 +64,7 @@ h3 {
     text-align: center;
     font-family: 'Merriweather', serif;
     font-size: 40px;
+    margin-top: 25px;
 }
 
 #profileTable {
@@ -214,3 +215,37 @@ table {
 .form-floating {
     background-color: #244454;
 }
+
+#logout {
+	/* display: inline-block; */
+    /* float: right; */
+	/* justify-content: end; */
+	/* position: relative; */
+}
+
+/* .navbar-nav {
+    padding: 0px;
+    /* width: 100%; */
+    /* margin: auto; */
+  }
+  
+  /* .navbar ul {
+    list-style-type: none;
+  }  */
+/*   
+  .navbar li {
+    display: inline-block;
+    margin: auto; */
+    /* padding: 10px; */
+  }
+  
+  /* .nav-left {
+    /* position: relative; */
+    /* right: 30px; */
+    /* margin-left: 10px; */
+    /* float: left;
+  } */
+  
+  /* .nav-right {
+    float: right;
+  } */ 
