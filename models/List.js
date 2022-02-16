@@ -5,22 +5,22 @@ class List extends Model {}
 
 List.init(
     {
-        childId: {
-            type: DataTypes.UUID,
-            defaultValue: UUIDV4,
-            primaryKey: true,
-            references: {
-                model: 'child',
-                key: 'id',
-            },
-        },
         id: {
             type: DataTypes.UUID,
             defaultValue: UUIDV4,
+            primaryKey: true,
         },
         item: {
             type: DataTypes.STRING,
         },
+        childId: {
+            type: DataTypes.UUID,
+            defaultValue: UUIDV4,
+            references: {
+                model: 'child',
+                key: 'id',
+            },
+        }
     },
     {
         sequelize,
