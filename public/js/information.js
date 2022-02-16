@@ -16,13 +16,13 @@ $(document).ready(function () {
     const lastName = $('#lastName');
     const number = $('#number');
     const relation = $('#relation');
-    // const childIdModal = $('#childIdModal');
     const editContactBtn = $('#editContactBtn');
     const editFirstName = $('#editFirstName');
     const editLastName = $('#editLastName');
     const editNumber = $('#editNumber');
     const editRelation = $('#editRelation');
     const editContactId = $('#editContactId');
+// list
 
     
     addMedicalBtn.on('click', async function(event) {
@@ -51,9 +51,10 @@ $(document).ready(function () {
     addContactBtn.on('click', async function(event) {
         event.preventDefault();
         await $.post('/api/info/contact', {
-            medications: medications.val(),
-            allergies: allergies.val(),
-            healthInsurance: healthInsurance.val(),
+            firstName: firstName.val(),
+            lastName: lastName.val(),
+            number: number.val(),
+            relation: relation.val(),
             childId: childIdModal.val(),
         });
         window.location.reload();
@@ -61,36 +62,15 @@ $(document).ready(function () {
 
     editContactBtn.on('click', async function(event) {
         event.preventDefault();
-        await $.post('/api/info/updatemedical', {
-            medications: editMedications.val(),
-            allergies: editAllergies.val(),
-            healthInsurance: editHealthInsurance.val(),
-            id: editMedId.val(),
+        await $.post('/api/info/updatecontact', {
+            firstName: editFirstName.val(),
+            lastName: editLastName.val(),
+            number: editNumber.val(),
+            relation: editRelation.val(),
+            id: editContactId.val(),
         });
-        console.log(medications, allergies, healthInsurance, editMedId);
         window.location.reload();
     });
-
-    // newContactBtn.on('click', function(event) {
-    //     event.preventDefault();
-    //     await $.post('/api/info/contact', {
-    //         firstName: firstNameContact.val(),
-    //         lastName: lastNameContact.val(),
-    //         number: numberContact.val(),
-    //         relation: relationContact.val(),
-    //         childId: childId.val(),
-    //     });
-    //     window.location.reload();
-    // });
-
-    // newListBtn.on('click', function(event) {
-    //     event.preventDefault();
-    //     await $.post('/api/info/list', {
-    //         item: item.val(),
-    //         childId: childId.val(),
-    //     });
-    //     window.location.reload();
-    // });
 
 
 });
