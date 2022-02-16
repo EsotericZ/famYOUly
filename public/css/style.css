@@ -216,6 +216,7 @@ table {
 }
 
 .nav-link.active {
+    font-size: 18px;
     color: white;
     vertical-align: middle;
 }
