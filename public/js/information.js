@@ -69,6 +69,7 @@ $(document).ready(function () {
             relation: editRelation.val(),
             id: editContactId.val(),
         });
+        console.log(firstName, lastName, number, relation);
         window.location.reload();
     });
 
