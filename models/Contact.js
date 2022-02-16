@@ -47,7 +47,7 @@ Contact.init(
         sequelize,
 		timestamps: false,
 		freezeTableName: true,
-		modelName: 'information',
+		modelName: 'contact',
     }
 );
 

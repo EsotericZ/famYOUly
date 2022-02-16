@@ -40,16 +40,15 @@ module.exports = {
     },
 
     createContact: async (req, res) => {
-        const { firstName, lastName, number, relation } = req.body;
+        const { firstName, lastName, number, relation, childId } = req.body;
         try {
             const newContact = await Contact.create({
                 firstName,
                 lastName,
                 number,
                 relation,
+                childId,
             });
-            // res.json(newContact);
-            // res.render('information', { contactInfo });
         } catch (e) {
             res.json(e);
         }
@@ -76,14 +75,12 @@ module.exports = {
     },
 
     createList: async (req, res) => {
-        const {
-            item,
-        } = req.body;
+        const { item, childId } = req.body;
         try {
             const newList = await List.create({
                 item,
+                childId,
             });
-            // res.json(newList);
         } catch (e) {
             res.json(e);
         }

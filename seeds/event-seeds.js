@@ -2,7 +2,7 @@ const { Event } = require('../models');
 
 const eventData = [
     {
-        modalId: 1,
+        modalId: 101,
         title: 'Brush direwolves',
         notes: 'NOT REQ',
         start: '2022-02-17',
@@ -16,7 +16,7 @@ const eventData = [
         familyName: 'Stark',
     },
     {
-        modalId: 2,
+        modalId: 102,
         title: 'Sansa - embriodery class',
         notes: 'NOT REQ',
         start: '2022-02-19',
@@ -30,7 +30,7 @@ const eventData = [
         familyName: 'Stark',
     },
     {
-        modalId: 3,
+        modalId: 103,
         title: 'Show Arya how to stick them with the pointy end',
         notes: 'NOT REQ',
         start: '2022-02-20',
@@ -44,7 +44,7 @@ const eventData = [
         familyName: 'Stark',
     },
     {
-        modalId: 4,
+        modalId: 104,
         title: 'Bran: See the future',
         notes: 'NOT REQ',
         start: '2022-02-21',
@@ -56,6 +56,76 @@ const eventData = [
         eventType: 'Optional', //Optional //Request
         approval: true,
         familyName: 'Stark',
+    },
+    {
+        modalId: 105,
+        title: 'Winter is Coming',
+        notes: 'NOT REQ',
+        start: '2019-01-01',
+        end: '2022-02-14',
+        allDay: true,
+        startTime: '',
+        endTime: '',
+        location: '', 
+        eventType: 'Required', //Optional //Request
+        approval: true,
+        familyName: 'Stark',
+    },
+    {
+        modalId: 106,
+        title: 'Pay Debts',
+        notes: 'NOT REQ',
+        start: '2022-02-21',
+        end: '2022-02-21',
+        allDay: false,
+        startTime: '09:00',
+        endTime: '10:00',
+        location: 'Everywhere', 
+        eventType: 'Required', //Optional //Request
+        approval: true,
+        familyName: 'Lannsiter',
+    },
+    {
+        modalId: 107,
+        title: 'Attend court',
+        notes: 'NOT REQ',
+        start: '2022-02-01',
+        end: '2022-02-13',
+        allDay: true,
+        startTime: '',
+        endTime: '',
+        location: '', 
+        eventType: 'Request', //Optional //Request
+        approval: false,
+        familyName: 'Lannsiter',
+    },
+    {
+        modalId: 108,
+        title: 'Joffrey: torture people',
+        notes: 'NOT REQ',
+        start: '2022-02-18',
+        end: '2022-02-18',
+        allDay: true,
+        startTime: '17:00',
+        endTime: '21:00',
+        location: 'Throne Room', 
+        eventType: 'Required', //Optional //Request
+        approval: true,
+        familyName: 'Lannsiter',
+    },
+    {
+        modalId: 109,
+        title: 'Tommen: cri over Margaery Tyrell',
+        notes: 'NOT REQ',
+        start: '2022-02-19',
+        end: '2022-02-19',
+        allDay: true,
+        startTime: '05:00',
+        endTime: '17:00',
+        location: 'Throne Room', 
+        eventType: 'Optional', //Optional //Request
+        approval: true,
+        familyName: 'Lannsiter',
     },
 ];
 

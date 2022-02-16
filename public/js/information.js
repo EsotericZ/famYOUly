@@ -23,6 +23,11 @@ $(document).ready(function () {
     const editRelation = $('#editRelation');
     const editContactId = $('#editContactId');
 // list
+    const addListBtn = $('#addListBtn');
+    const item = $('#item');
+    const editListBtn = $('#editListBtn');
+    const editListItems = $('#editListItems');
+    const editListId = $('#editListId');
 
     
     addMedicalBtn.on('click', async function(event) {
@@ -44,7 +49,6 @@ $(document).ready(function () {
             healthInsurance: editHealthInsurance.val(),
             id: editMedId.val(),
         });
-        console.log(medications, allergies, healthInsurance, editMedId);
         window.location.reload();
     });
 
@@ -69,9 +73,24 @@ $(document).ready(function () {
             relation: editRelation.val(),
             id: editContactId.val(),
         });
-        console.log(firstName, lastName, number, relation);
         window.location.reload();
     });
 
+    addListBtn.on('click', async function(event) {
+        event.preventDefault();
+        await $.post('/api/info/list', {
+            item: item.val(),
+            childId: childIdModal.val(),
+        });
+        window.location.reload();
+    });
 
+    editListBtn.on('click', async function(event) {
+        event.preventDefault();
+        await $.post('/api/info/updatelist', {
+            item: editListItems.val(),
+            id: editListId.val(),
+        });
+        window.location.reload();
+    });
 });

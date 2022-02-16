@@ -149,7 +149,7 @@ body {
 h7 {
     font-size: 20px;
     background-color: white;
-    width: 546px;
+    /* width: 546px; */
     font-family: 'Merriweather', serif;
 }
 #todoCol {
@@ -193,7 +193,7 @@ table {
     background-color: #244454;
 }
 .profilePic {
-    max-height: 90%;
+    max-height: 100%;
     max-width: 50%;
     margin-top: 15px;
 }
@@ -216,14 +216,22 @@ table {
 }
 
 .nav-link.active {
+    font-size: 18px;
     color: white;
     vertical-align: middle;
 }
-#logout,
-#profileLink {
+
+#profileLink, 
+#logout {
     margin-bottom: 20px;
-    m
-    /* left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-} */
+}
+
+h9 {
+    font-size: 20px;
+    padding-left: 16px;
+    padding-top: 10px;
+    background-color: white;
+    /* width: 546px; */
+    font-family: 'Merriweather', serif;
+    border-collapse: collapse;
+}
