@@ -1,6 +1,7 @@
 const seedUsers = require('./user-seeds');
 const seedFamilies = require('./family-seeds');
 const seedChildren = require('./child-seeds');
+const seedEvents = require('./event-seeds');
 
 const sequelize = require('../config/');
 
@@ -16,6 +17,9 @@ const seedAll = async () => {
 
     await seedChildren();
     console.log('\n----- CHILDREN SEEDED -----\n');
+
+    await seedEvents();
+    console.log('\n----- EVENTS SEEDED -----\n');
 
     process.exit(0);
 };
