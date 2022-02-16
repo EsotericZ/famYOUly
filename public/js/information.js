@@ -38,6 +38,7 @@ $(document).ready(function () {
             healthInsurance: editHealthInsurance.val(),
             id: editMedId.val(),
         });
+        console.log(medications, allergies, healthInsurance, editMedId);
         window.location.reload();
     });
 
