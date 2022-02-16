@@ -49,8 +49,6 @@ module.exports = {
                 relation,
                 childId,
             });
-            // res.json(newContact);
-            // res.render('information', { contactInfo });
         } catch (e) {
             res.json(e);
         }
@@ -83,7 +81,6 @@ module.exports = {
                 item,
                 childId,
             });
-            // res.json(newList);
         } catch (e) {
             res.json(e);
         }
