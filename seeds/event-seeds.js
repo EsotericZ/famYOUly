@@ -2,7 +2,7 @@ const { Event } = require('../models');
 
 const eventData = [
     {
-        modalId: 1,
+        modalId: 101,
         title: 'Brush direwolves',
         notes: 'NOT REQ',
         start: '2022-02-17',
@@ -16,7 +16,7 @@ const eventData = [
         familyName: 'Stark',
     },
     {
-        modalId: 2,
+        modalId: 102,
         title: 'Sansa - embriodery class',
         notes: 'NOT REQ',
         start: '2022-02-19',
@@ -30,7 +30,7 @@ const eventData = [
         familyName: 'Stark',
     },
     {
-        modalId: 3,
+        modalId: 103,
         title: 'Show Arya how to stick them with the pointy end',
         notes: 'NOT REQ',
         start: '2022-02-20',
@@ -44,7 +44,7 @@ const eventData = [
         familyName: 'Stark',
     },
     {
-        modalId: 4,
+        modalId: 104,
         title: 'Bran: See the future',
         notes: 'NOT REQ',
         start: '2022-02-21',
@@ -58,7 +58,7 @@ const eventData = [
         familyName: 'Stark',
     },
     {
-        modalId: 5,
+        modalId: 105,
         title: 'Winter is Coming',
         notes: 'NOT REQ',
         start: '2019-01-01',
@@ -72,7 +72,7 @@ const eventData = [
         familyName: 'Stark',
     },
     {
-        modalId: 6,
+        modalId: 106,
         title: 'Pay Debts',
         notes: 'NOT REQ',
         start: '2022-02-21',
@@ -86,7 +86,7 @@ const eventData = [
         familyName: 'Lannsiter',
     },
     {
-        modalId: 7,
+        modalId: 107,
         title: 'Attend court',
         notes: 'NOT REQ',
         start: '2022-02-01',
@@ -100,7 +100,7 @@ const eventData = [
         familyName: 'Lannsiter',
     },
     {
-        modalId: 8,
+        modalId: 108,
         title: 'Joffrey: torture people',
         notes: 'NOT REQ',
         start: '2022-02-18',
@@ -114,7 +114,7 @@ const eventData = [
         familyName: 'Lannsiter',
     },
     {
-        modalId: 9,
+        modalId: 109,
         title: 'Tommen: cri over Margaery Tyrell',
         notes: 'NOT REQ',
         start: '2022-02-19',
