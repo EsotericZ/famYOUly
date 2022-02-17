@@ -4,7 +4,6 @@ const {
     List,
     Child,
 } = require('../models');
-// const { restore } = require('../models/Child');
 
 module.exports = {
     addMedicalInfo: async (req, res) => {
@@ -16,7 +15,8 @@ module.exports = {
                 healthInsurance,
                 childId,
             });
-            res.json(newMedicalInfo);
+            res.redirect(request.get('referer'));
+            // res.json(newMedicalInfo);
         } catch (e) {
             res.json(e);
         }
@@ -24,7 +24,6 @@ module.exports = {
 
     updateMedicalInfo: async (req, res) => {
         const { medications, allergies, healthInsurance, id } = req.body;
-        // const childId = req.params.childId;
         try {
             const medicalData = await Medical.update({
                 medications,
@@ -36,7 +35,7 @@ module.exports = {
                     id
                 }
             });
-            res.json(medicalData);
+            res.redirect(request.get('referer'));
         } catch (e) {
             res.json(e);
         }
@@ -52,7 +51,8 @@ module.exports = {
                 relation,
                 childId
             });
-            res.json(newContact);
+            res.redirect(request.get('referer'));
+            // res.json(newContact);
         } catch (e) {
             res.json(e);
         }
@@ -73,7 +73,7 @@ module.exports = {
                     id
                 }
             });
-            res.json(contactInfo);
+            res.redirect(request.get('referer'));
         } catch (e) {
             res.json(e);
         }
@@ -87,6 +87,7 @@ module.exports = {
                     id
                 }
             });
+            res.redirect(request.get('referer'));
         } catch (e) {
             res.json(e);
         }
@@ -99,56 +100,25 @@ module.exports = {
                 item,
                 childId,
             });
-            res.json(newList);
+            res.redirect(request.get('referer'));
         } catch (e) {
             res.json(e);
         }
     },
 
-    updateList: async (req, res) => {
-        const { item, id } = req.body;
-        const childId = req.params.childId;
-        try {
-            const updatedList = await List.update({
-                item
-            },
-            {
-                where: {
-                    id
-                }
-            });
-            res.json(updatedList);
-        } catch (e) {
-            res.json(e);
-        }
-    },
-
-    deleteList: async (req, res) => {
-        const { id } = req.body;
-        try {
-            const deleteList = await List.destroy({
-                where: {
-                    id
-                }
-            });
-            res.json(deleteList);
-        } catch (e) {
-            res.json(e);
-        }
-    },
-
-    renderInformation: (req, res) => {
-		if (!req.session.loggedIn) {
-			return res.redirect('/login');
-		}
-		try {
-			res.render('information', {
-				user: req.session.user,
-			});
-		} catch (e) {
-			res.json(e);
-		}
-	},
+    // deleteList: async (req, res) => {
+    //     const { id } = req.body;
+    //     try {
+    //         const deleteList = await List.destroy({
+    //             where: {
+    //                 id
+    //             }
+    //         });
+    //         res.json(deleteList);
+    //     } catch (e) {
+    //         res.json(e);
+    //     }
+    // },
 
     setChild: async (req, res) => {
         const { childId } = req.body;
@@ -181,8 +151,6 @@ module.exports = {
                 },
             });
             const childData = await Child.findByPk(childId);
-            // console.log("this is contact info");
-            // console.log(allContacts.map(cont => cont.get({ plain: true })));
             res.render('information', {
                 medical: allMedical.map(med => med.get({ plain: true })),
                 contact: allContacts.map(cont => cont.get({ plain: true })),

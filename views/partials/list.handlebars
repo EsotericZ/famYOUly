@@ -1,62 +1,26 @@
-
+{{#if list}}
     
-    {{#if list}}
+    <div class="card-body infoCard rounded-3 my-3">
+        <h5 class="card-title">Item List:</h5>
         {{#each list as |lists|}}
-        <div class="card-body infoCard rounded-3 my-3">
-            <h5 class="card-title">Item:</h5>
-                <p>{{lists.item}}</p>
-            <button class="btn btn-danger btn-sm" dataname="#{{ lists.id }}" data-bs-toggle="modal" id="deleteItemBtn">Delete Item</button>
-            
-    
-        {{!-- BUTTON: Add list info --}}
-        {{!-- <div class="mt-3">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#editListModal" class="btn btn-secondary">
-                Edit List Info
-            </button>
-        </div> --}}
-
-    <!-- Edit List Modal -->
-            {{!-- <div class="modal fade" id="editListModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabelEvent">Edit List</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div ="container-fluid">
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text col-5">Items</span>
-                                    <input type="text" aria-label="First name" class="form-control" value="{{ lists.item }}" id="editListItems">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <input type="hidden" aria-label="First name" class="form-control" value="{{ lists.id }}" id="editListId">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-success" id="editListBtn" data-bs-dismiss="modal">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-        </div>
+            <p>{{ lists.item }}</p>
+        {{!-- <button class="btn btn-danger btn-sm" dataname="#{{ lists.id }}" data-bs-toggle="modal" id="deleteItemBtn">Delete Item</button> --}}
         {{/each}}
+    </div>
 
-    {{else}}
-        <h5 class="card-title">Items:</h5>
-        <p class="card-text py-3"></p>
-    
-    {{/if}}
-        {{!-- BUTTON: Add list info --}}
-        <div class="mt-3">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#addListModal" class="btn btn-dark">
-                Add To List
-            </button>
-        </div>
+{{else}}
+    <h5 class="card-title">Currently No Items</h5>
+
+{{/if}}
+
+    {{!-- BUTTON: Add list info --}}
+<div class="mt-3">
+    <button type="button" data-bs-toggle="modal" data-bs-target="#addListModal" class="btn btn-dark">
+        Add To List
+    </button>
 </div>
 
-<!-- Add List Modal -->
+    <!-- Add List Modal -->
 <div class="modal fade" id="addListModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -68,15 +32,12 @@
                 <div ="container-fluid">
                     <div class="input-group mb-3">
                         <span class="input-group-text col-5">Items</span>
-                        <input type="text" aria-label="Items" class="form-control" value="{{ list.item }}" id="item">
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="hidden" aria-label="Id" class="form-control" value="{{ list.id }}" id="listIdModal">
+                        <input type="text" aria-label="Items" class="form-control" value="{{ list.item }}" id="newItem">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-dark" id="addListBtn" data-bs-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-dark addListBtn" data-bs-dismiss="modal">Save</button>
             </div>
         </div>
     </div>
