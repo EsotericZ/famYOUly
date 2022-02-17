@@ -3,14 +3,12 @@ const {
     addMedicalInfo,
     createContact,
     createList,
-    renderInformation,
     setChild,
     getInformation,
     updateMedicalInfo,
     updateContact,
-    // updateList,
     deleteContact,
-    deleteList,
+    // deleteList,
 } = require('../../../controllers/informationController');
 
 router.post('/medical', addMedicalInfo);
@@ -19,8 +17,7 @@ router.post('/contact', createContact);
 router.post('/updatecontact', updateContact);
 router.post('/deletecontact', deleteContact);
 router.post('/list', createList);
-// router.post('/updatelist', updateList);
-router.post('/deletelist', deleteList);
+// router.post('/deletelist', deleteList);
 
 router.route('/:childId')
     .get(getInformation);

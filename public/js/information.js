@@ -1,36 +1,28 @@
 $(document).ready(function () {
     const childInfo = $('#childInfo');
-// medical
+    // medical
     const addMedicalBtn = $('#addMedicalBtn');
     const medications = $('#medications');
     const allergies = $('#allergies');
     const healthInsurance = $('#healthInsurance');
-    
     const editMedicalBtn = $('#editMedicalBtn');
     const editMedications = $('#editMedications');
     const editAllergies = $('#editAllergies');
     const editHealthInsurance = $('#editHealthInsurance');
     const editMedId = $('#editMedId');
-// contact
+    // contact
     const addContactBtn = $('#addContactBtn');
     const firstName = $('#firstName');
     const lastName = $('#lastName');
     const number = $('#number');
     const relation = $('#relation');
-    // const contactIdModal = $('#contactIdModal');
     const editContactBtn = $('.editContactBtn');
     const deleteContactBtn = $('.deleteContactBtn');
-// list
+    // list
     const addListBtn = $('.addListBtn');
     const item = $('#newItem');
-    // const listItems = $('#listItems');
-    const listIdModal = $('#listIdModal');
-    // const editListBtn = $('#editListBtn');
-    // const editListItems = $('#editListItems');
-    // const editListId = $('#editListId');
     const deleteItemBtn = $('#deleteItemBtn');
 
-    
     addMedicalBtn.on('click', async function(event) {
         event.preventDefault();
         console.log('In the medical event');
@@ -52,13 +44,11 @@ $(document).ready(function () {
             healthInsurance: editHealthInsurance.val(),
             id: editMedId.val(),
         });
-        console.log("new update");
         window.location.reload();
     });
 
     addContactBtn.on('click', async function(event) {
         event.preventDefault();
-        // console.log("In the contact event");
         await $.post('/api/info/contact', {
             firstName: firstName.val(),
             lastName: lastName.val(),
@@ -106,20 +96,11 @@ $(document).ready(function () {
         window.location.reload();
     });
 
-    // editListBtn.on('click', async function(event) {
-    //     event.preventDefault();
-    //     await $.post('/api/info/updatelist', {
-    //         item: editListItems.val(),
-    //         id: editListId.val(),
-    //     });
-    //     window.location.reload();
-    // });
-
     deleteItemBtn.on('click', async function(event) {
         event.preventDefault();
         await $.post('/api/info/deletelist', {
             id: list.attr("dataname"),
         });
         window.location.reload();
-    })
+    });
 });
