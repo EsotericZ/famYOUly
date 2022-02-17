@@ -4,7 +4,7 @@ const {
     List,
     Child,
 } = require('../models');
-const { restore } = require('../models/Child');
+// const { restore } = require('../models/Child');
 
 module.exports = {
     addMedicalInfo: async (req, res) => {
@@ -24,7 +24,7 @@ module.exports = {
 
     updateMedicalInfo: async (req, res) => {
         const { medications, allergies, healthInsurance, id } = req.body;
-        const childId = req.params.childId;
+        // const childId = req.params.childId;
         try {
             const medicalData = await Medical.update({
                 medications,
@@ -82,12 +82,11 @@ module.exports = {
     deleteContact: async (req, res) => {
         const { id } = req.body;
         try {
-            const deleteContact = await Contact.destroy({
+            await Contact.destroy({
                 where: {
                     id
                 }
             });
-            res.json("contact deleted", deleteContact);
         } catch (e) {
             res.json(e);
         }
@@ -182,13 +181,14 @@ module.exports = {
                 },
             });
             const childData = await Child.findByPk(childId);
-            console.log("this is contact info");
-            console.log(allContacts.map(cont => cont.get({ plain: true })));
+            // console.log("this is contact info");
+            // console.log(allContacts.map(cont => cont.get({ plain: true })));
             res.render('information', {
                 medical: allMedical.map(med => med.get({ plain: true })),
                 contact: allContacts.map(cont => cont.get({ plain: true })),
                 list: allLists.map(li => li.get({ plain: true })),
                 childId: childData.get({ plain: true }),
+                user: req.session.user,
             });
         } catch (e) {
             res.json(e);

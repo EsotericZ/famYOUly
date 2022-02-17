@@ -18,13 +18,8 @@ $(document).ready(function () {
     const number = $('#number');
     const relation = $('#relation');
     const contactIdModal = $('#contactIdModal');
-    const editContactBtn = $('#editContactBtn');
-    const editFirstName = $('#editFirstName');
-    const editLastName = $('#editLastName');
-    const editNumber = $('#editNumber');
-    const editRelation = $('#editRelation');
-    const editContactId = $('#editContactId');
-    const deleteContactBtn = $('#deleteContactBtn');
+    const editContactBtn = $('.editContactBtn');
+    const deleteContactBtn = $('.deleteContactBtn');
 // list
     const addListBtn = $('#addListBtn');
     const item = $('#item');
@@ -75,24 +70,32 @@ $(document).ready(function () {
     });
 
     editContactBtn.on('click', async function(event) {
+        const attribute = event.target.getAttribute("contname");
+        const editFirstName = $(`#editFirstName[contname="${attribute}"]`).val();
+        const editLastName = $(`#editLastName[contname="${attribute}"]`).val();
+        const editNumber = $(`#editNumber[contname="${attribute}"]`).val();
+        const fixedPhoneNumber = editNumber.replace('(', '').replace(') ', '').replace('-', '');
+        const editRelation = $(`#editRelation[contname="${attribute}"]`).val();
+        const editContactId = $(`#editContactId[contname="${attribute}"]`).val();
         event.preventDefault();
         await $.post('/api/info/updatecontact', {
-            firstName: editFirstName.val(),
-            lastName: editLastName.val(),
-            number: editNumber.val(),
-            relation: editRelation.val(),
-            id: contact.id.attr("dataname"),
+            firstName: editFirstName,
+            lastName: editLastName,
+            number: fixedPhoneNumber,
+            relation: editRelation,
+            id: editContactId,
         });
-        console.log("updated contact");
         window.location.reload();
     });
 
     deleteContactBtn.on('click', async function(event) {
+        const attribute = event.target.getAttribute("delname");
+        const deleteId = $(`#deleteContactId[delname="${attribute}"]`).val();
         await $.post('/api/info/deletecontact', {
-            id: contact.id.attr("data-contactId"),
+            id: deleteId,
         });
         window.location.reload();
-    })
+    });
 
     addListBtn.on('click', async function(event) {
         event.preventDefault();
