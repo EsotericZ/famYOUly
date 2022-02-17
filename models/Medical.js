@@ -26,13 +26,6 @@ Medical.init(
         healthInsurance: {
             type: DataTypes.STRING,
         },
-        // familyName: {
-        //     type: DataTypes.STRING,
-        //     references: {
-        //         model: 'family',
-        //         key: 'familyName',
-        //     },
-        // },
     },
     {
         sequelize,

@@ -5,6 +5,13 @@ class Contact extends Model {}
 
 Contact.init(
     {
+        childId: {
+            type: DataTypes.UUID,
+            references: {
+                model: 'child',
+                key: 'id',
+            },
+        },
         id: {
             type: DataTypes.UUID,
             defaultValue: UUIDV4,
@@ -27,21 +34,6 @@ Contact.init(
         relation: {
             type: DataTypes.STRING,
         },
-        childId: {
-            type: DataTypes.UUID,
-            defaultValue: UUIDV4,
-            references: {
-                model: 'child',
-                key: 'id',
-            },
-        },
-        // familyName: {
-        //     type: DataTypes.STRING,
-        //     references: {
-        //         model: 'family',
-        //         key: 'familyName',
-        //     },
-        // },
     },
     {
         sequelize,
