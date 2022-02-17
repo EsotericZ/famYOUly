@@ -77,7 +77,6 @@ module.exports = {
 	},
 
 	updateProfile: async (req, res) => {
-		console.log('made it%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
 		console.log(req.body)
 		const { id, firstName, lastName, email, phoneNumber } = req.body;
 		try {
@@ -96,7 +95,6 @@ module.exports = {
 			// const user = updatedProfile.get({ plain: true });
 			// req.session.destroy();
 			req.session.save(() => {
-				console.log('imhap!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', user)
 				req.session.loggedIn = true;
 				req.session.user = user;
 				req.session.firstName = firstName;

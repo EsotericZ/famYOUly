@@ -1,24 +1,19 @@
 
-
     {{#if contact}}
         {{#each contact as |cont|}}
         <div class="card-body my-3 infoCard rounded-3">
             <h5 class="card-title fs-4">Name: {{ cont.firstName }} {{ cont.lastName }}</h5>
-            <p class="card-text">Number:
-                <a href="tel:+{{cont.number}}">{{cont.number}}</a>
-            </p>
+            <p class="card-text">Number: {{phoneNumber cont.number}}</p>
             <p class="card-text">Relation: {{cont.relation}}</p>
 
             <div class="mt-2">
     {{!-- BUTTON: Edit contact info --}}
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#editContactModal" dataname="{{ cont.id }}" class="btn btn-dark btn-sm">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#{{ cont.firstName }}{{ cont.lastName }}" dataname="{{ cont.id }}" class="btn btn-dark btn-sm">
                         Edit Contact Info
                     </button>
-    {{!-- BUTTON: Delete contact info --}}
-                    <button class="btn btn-danger btn-sm" data-contactId="#{{ cont.id }}" data-bs-toggle="modal" id="deleteContactBtn">Delete Contact</button>
-            </div>
+
             <!-- Edit Contact Modal -->
-            <div class="modal fade" id="editContactModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
+            <div class="modal fade" id="{{ cont.firstName }}{{ cont.lastName }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -29,37 +24,36 @@
                             <div ="container-fluid">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text col-5">First Name</span>
-                                    <input type="text" aria-label="First name" class="form-control" value="{{ cont.firstName }}" id="editFirstName">
+                                    <input type="text" aria-label="First name" class="form-control" value="{{ cont.firstName }}" contname="{{ cont.id }}" id="editFirstName">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text col-5">Last Name</span>
-                                    <input type="text" aria-label="Last name" class="form-control" value="{{ cont.lastName }}" id="editLastName">
+                                    <input type="text" aria-label="Last name" class="form-control" value="{{ cont.lastName }}" contname="{{ cont.id }}" id="editLastName">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text col-5">Number</span>
-                                    <input type="text" aria-label="Number" class="form-control" value="{{ cont.number }}" id="editNumber">
+                                    <input type="text" aria-label="Number" class="form-control" value="{{phoneNumber cont.number }}" contname="{{ cont.id }}" id="editNumber">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text col-5" id="inputGroup-sizing-default">Relation</span>
-                                    <input type="text" aria-label="Relation" class="form-control" value="{{ cont.relation }}" id="editRelation">
+                                    <input type="text" aria-label="Relation" class="form-control" value="{{ cont.relation }}" contname="{{ cont.id }}" id="editRelation">
                                 </div>
                                 <div class="input-group mb-3">
-                                    <input type="hidden" aria-label="First name" class="form-control" value="{{ cont.id }}" id="editContactId">
+                                    <input type="hidden" aria-label="First name" class="form-control" value="{{ cont.id }}" contname="{{ cont.id }}" id="editContactId">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="hidden" aria-label="First name" class="form-control" value="{{ cont.id }}" delname="{{ cont.id }}" id="deleteContactId">
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-success" id="editContactBtn" data-bs-dismiss="modal">Save</button>
+                            <button type="button" class="btn btn-danger deleteContactBtn" data-bs-dismiss="modal" delname="{{ cont.id }}">Delete Contact</button>
+                            <button type="button" class="btn btn-dark editContactBtn" data-bs-dismiss="modal" contname="{{ cont.id }}">Update</button>
                         </div>
                     </div>
                 </div>
             </div> 
         </div>
-
-    {{!-- {{/each}} --}}
-    {{!-- <div class="mt-3">
-        <button class="btn btn-warning align-items-end mt-2">Add Contact Info</button>
-    </div> --}}
 
         {{/each}}
     
