@@ -183,10 +183,9 @@ table {
     background-color: white;
 }
 
-#loginBtn,
-#signinBtn {
+#loginBtn {
     /* background-color: #244454; */
-    padding-top: 4px;
+    padding-top: 25px;
 }
 
 .row>* {
