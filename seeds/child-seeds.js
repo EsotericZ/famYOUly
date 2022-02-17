@@ -38,7 +38,7 @@ const childData = [
         nickname: 'Marci',
         pronouns: 'She/Her',
         birthday: '1995-05-31',
-        familyName: 'Lanniser',
+        familyName: 'Lannister',
         picture: '',
     },
     {

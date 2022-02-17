@@ -83,7 +83,7 @@ const eventData = [
         location: 'Everywhere', 
         eventType: 'Required', 
         approval: true,
-        familyName: 'Lannsiter',
+        familyName: 'Lannister',
     },
     {
         modalId: 107,
@@ -97,7 +97,7 @@ const eventData = [
         location: '', 
         eventType: 'Request', 
         approval: false,
-        familyName: 'Lannsiter',
+        familyName: 'Lannister',
     },
     {
         modalId: 108,
@@ -111,7 +111,7 @@ const eventData = [
         location: 'Throne Room', 
         eventType: 'Required', 
         approval: true,
-        familyName: 'Lannsiter',
+        familyName: 'Lannister',
     },
     {
         modalId: 109,
@@ -125,7 +125,7 @@ const eventData = [
         location: 'Throne Room', 
         eventType: 'Optional', 
         approval: true,
-        familyName: 'Lannsiter',
+        familyName: 'Lannister',
     },
 ];
 
