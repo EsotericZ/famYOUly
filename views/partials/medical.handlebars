@@ -1,103 +1,129 @@
-{{#if medical}}
-    {{#each medical as |med|}}
-    <div class="card-body my-2 infoCard rounded-3">
-        <div class="card-body my-2 medCard rounded-3">
-            <h5 class="card-title fs-4">Medications:</h5>
-            <p class="card-text">{{ med.medications }}</p>
-        </div>
-        <div class="card-body my-2 medCard rounded-3">
-            <h5 class="card-title fs-4">Allergies:</h5>
-            <p class="card-text">{{ med.allergies }}</p>
-        </div>
-        <div class="card-body my-2 medCard rounded-3">
-            <h5 class="card-title fs-4">Health Insurance:</h5>
-            <p class="card-text">{{ med.healthInsurance }}</p>
-        </div>
+{{#eq user.level 1}}    
+    {{#if medical}}
+        {{#each medical as |med|}}
+        <div class="card-body my-2 infoCard rounded-3">
+            <div class="card-body my-2 medCard rounded-3">
+                <h5 class="card-title fs-4">Medications:</h5>
+                <p class="card-text">{{ med.medications }}</p>
+            </div>
+            <div class="card-body my-2 medCard rounded-3">
+                <h5 class="card-title fs-4">Allergies:</h5>
+                <p class="card-text">{{ med.allergies }}</p>
+            </div>
+            <div class="card-body my-2 medCard rounded-3">
+                <h5 class="card-title fs-4">Health Insurance:</h5>
+                <p class="card-text">{{ med.healthInsurance }}</p>
+            </div>
 
-        {{!-- BUTTON: Add medical info --}}
-        <div class="mt-3">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#editMedicalModal" class="btn btn-dark">
-                Edit Medical Info
-            </button>
-        </div>
+            {{!-- BUTTON: Add medical info --}}
+            <div class="mt-3">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#editMedicalModal" class="btn btn-dark">
+                    Edit Medical Info
+                </button>
+            </div>
 
-        <!-- Edit Medical Modal -->
-        <div class="modal fade" id="editMedicalModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabelEvent">Edit Medical Info</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div ="container-fluid">
-                            <div class="input-group mb-3">
-                                <span class="input-group-text col-5">Medications</span>
-                                <input type="text" aria-label="First name" class="form-control" value="{{ med.medications }}" id="editMedications">
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text col-5">Allergies</span>
-                                <input type="text" aria-label="First name" class="form-control" value="{{ med.allergies }}" id="editAllergies">
-                            </div>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text col-5" id="inputGroup-sizing-default">Health Insurance</span>
-                                <input type="text" aria-label="First name" class="form-control" value="{{ med.healthInsurance }}" id="editHealthInsurance">
-                            </div>
-                            <div class="input-group mb-3">
-                                <input type="hidden" aria-label="First name" class="form-control" value="{{ med.id }}" id="editMedId">
+            <!-- Edit Medical Modal -->
+            <div class="modal fade" id="editMedicalModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabelEvent">Edit Medical Info</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div ="container-fluid">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text col-5">Medications</span>
+                                    <input type="text" aria-label="First name" class="form-control" value="{{ med.medications }}" id="editMedications">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text col-5">Allergies</span>
+                                    <input type="text" aria-label="First name" class="form-control" value="{{ med.allergies }}" id="editAllergies">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text col-5" id="inputGroup-sizing-default">Health Insurance</span>
+                                    <input type="text" aria-label="First name" class="form-control" value="{{ med.healthInsurance }}" id="editHealthInsurance">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="hidden" aria-label="First name" class="form-control" value="{{ med.id }}" id="editMedId">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" id="editMedicalBtn" data-bs-dismiss="modal">Save</button>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" id="editMedicalBtn" data-bs-dismiss="modal">Save</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        {{/each}}
+
+    {{else}}
+        <h5 class="card-title">Currently No Medical Info</h5>
+
+            {{!-- BUTTON: Add medical info --}}
+        <div class="mt-3">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#addMedicalModal" class="btn btn-dark">
+                Add Medical Info
+            </button>
+        </div>
+    {{/if}}
+
+        <!-- Add Medical Modal -->
+    <div class="modal fade" id="addMedicalModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabelEvent">Add Medical Info</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div ="container-fluid">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-5">Medications</span>
+                            <input type="text" aria-label="First name" class="form-control" value="{{ medical.medications }}" id="medications">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-5">Allergies</span>
+                            <input type="text" aria-label="First name" class="form-control" value="{{ medical.allergies }}" id="allergies">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-5" id="inputGroup-sizing-default">Health Insurance</span>
+                            <input type="text" aria-label="First name" class="form-control" value="{{ medical.healthInsurance }}" id="healthInsurance">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="hidden" aria-label="First name" class="form-control" value="{{ medical.id }}" id="medIdModal">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="addMedicalBtn" data-bs-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
     </div>
-    {{/each}}
 
 {{else}}
-    <h5 class="card-title">Currently No Medical Info</h5>
 
-        {{!-- BUTTON: Add medical info --}}
-    <div class="mt-3">
-        <button type="button" data-bs-toggle="modal" data-bs-target="#addMedicalModal" class="btn btn-dark">
-            Add Medical Info
-        </button>
-    </div>
-{{/if}}
-
-    <!-- Add Medical Modal -->
-<div class="modal fade" id="addMedicalModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabelEvent">Add Medical Info</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    {{#if medical}}
+        {{#each medical as |med|}}
+        <div class="card-body my-2 infoCard rounded-3">
+            <div class="card-body my-2 medCard rounded-3">
+                <h5 class="card-title fs-4">Medications:</h5>
+                <p class="card-text">{{ med.medications }}</p>
             </div>
-            <div class="modal-body">
-                <div ="container-fluid">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text col-5">Medications</span>
-                        <input type="text" aria-label="First name" class="form-control" value="{{ medical.medications }}" id="medications">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text col-5">Allergies</span>
-                        <input type="text" aria-label="First name" class="form-control" value="{{ medical.allergies }}" id="allergies">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text col-5" id="inputGroup-sizing-default">Health Insurance</span>
-                        <input type="text" aria-label="First name" class="form-control" value="{{ medical.healthInsurance }}" id="healthInsurance">
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="hidden" aria-label="First name" class="form-control" value="{{ medical.id }}" id="medIdModal">
-                    </div>
-                </div>
+            <div class="card-body my-2 medCard rounded-3">
+                <h5 class="card-title fs-4">Allergies:</h5>
+                <p class="card-text">{{ med.allergies }}</p>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="addMedicalBtn" data-bs-dismiss="modal">Save</button>
+            <div class="card-body my-2 medCard rounded-3">
+                <h5 class="card-title fs-4">Health Insurance:</h5>
+                <p class="card-text">{{ med.healthInsurance }}</p>
             </div>
         </div>
-    </div>
-</div>
+        {{/each}}
+    {{else}}
+        <h5 class="card-title">Currently No Medical Info</h5>
+    {{/if}}
+
+{{/eq}}
