@@ -32,7 +32,14 @@ h4 {
     margin-bottom: 15px;
     margin-top: -10px;
 }
-
+#history {
+    margin-left: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.list-group {
+    padding: 8px;
+}
 
 #todoTable {
     padding: 10px;

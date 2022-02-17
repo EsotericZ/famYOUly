@@ -29,6 +29,7 @@
                     <tr class="table" id="upEvents" >
                         <h7>Upcoming Events</h7>
                     </tr>
+                    <th> </th>
                     {{#each userEvents as |event|}}
                         <tr>
                             {{#if location}}
@@ -114,7 +115,7 @@
             {{else}}
             <div class="card"id="eventsCard">
                 <table class="table">
-                    <tr class="table-active" >
+                    <tr class="table" >
                         <h7>Upcoming Events</h7>
                         <th></th>
                         <th></th>
@@ -228,7 +229,7 @@
                     </label>
                 </li>
             {{/if}}
-            <a href="/todo">History</a>    
+            <a href="/todo" id="history">History</a>    
         </div>
     
         </div>
