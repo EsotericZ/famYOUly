@@ -151,6 +151,8 @@ h7 {
     background-color: white;
     /* width: 546px; */
     font-family: 'Merriweather', serif;
+    /* margin-left: 16px;
+    margin-top: 8px; */
 }
 #todoCol {
     margin-top:10px;
@@ -244,4 +246,9 @@ h9 {
 .medCard {
     border-style: solid;
     border-color: var(--black);
+}
+
+#eventsCard {
+    padding-top: 8px;
+    padding-left: 16px;
 }

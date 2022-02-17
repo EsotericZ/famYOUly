@@ -25,11 +25,9 @@
             {{#eq user.level 1}}
             <div class="card"id="eventsCard">
 
-<table class="table">
-                    <tr class="table-active" >
-                        <th>Upcoming Events</th>
-                        <th></th>
-                        <th></th>
+                <table class="table">
+                    <tr class="table" id="upEvents" >
+                        <h7>Upcoming Events</h7>
                     </tr>
                     {{#each userEvents as |event|}}
                         <tr>
@@ -117,7 +115,7 @@
             <div class="card"id="eventsCard">
                 <table class="table">
                     <tr class="table-active" >
-                        <th>Upcoming Events</th>
+                        <h7>Upcoming Events</h7>
                         <th></th>
                         <th></th>
                     </tr>
