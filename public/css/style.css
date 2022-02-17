@@ -235,3 +235,13 @@ h9 {
     font-family: 'Merriweather', serif;
     border-collapse: collapse;
 }
+
+.infoCard {
+    background-color: #607c82;
+    color: white;
+}
+
+.medCard {
+    border-style: solid;
+    border-color: var(--black);
+}
