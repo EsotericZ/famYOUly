@@ -38,8 +38,9 @@ h4 {
     padding-bottom: 8px;
     color: black;
 }
-#infoMore {
+a {
     color: black;
+    text-decoration: none;
 }
 .list-group {
     padding: 8px;
@@ -273,3 +274,4 @@ h9 {
 #informationPageInfo {
 max-height: 200px;
 }
+
