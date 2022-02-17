@@ -269,3 +269,7 @@ h9 {
 #liInfo {
     margin-left: 10px;
 }
+
+#informationPageInfo {
+max-height: 200px;
+}
