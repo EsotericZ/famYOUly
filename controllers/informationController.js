@@ -79,6 +79,20 @@ module.exports = {
         }
     },
 
+    deleteContact: async (req, res) => {
+        const { id } = req.body;
+        try {
+            const deleteContact = await Contact.destroy({
+                where: {
+                    id
+                }
+            });
+            res.json("contact deleted", deleteContact);
+        } catch (e) {
+            res.json(e);
+        }
+    },
+
     createList: async (req, res) => {
         const { item, childId } = req.body;
         try {

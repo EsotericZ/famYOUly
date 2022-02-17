@@ -24,6 +24,8 @@ $(document).ready(function () {
     const editNumber = $('#editNumber');
     const editRelation = $('#editRelation');
     const editContactId = $('#editContactId');
+    const deleteContactBtn = $('#deleteContactBtn');
+    // const editContactBtn = $('#editContactBtn');
 // list
     const addListBtn = $('#addListBtn');
     const item = $('#item');
@@ -89,7 +91,12 @@ $(document).ready(function () {
         window.location.reload();
     });
 
-
+    deleteContactBtn.on('click', async function(event) {
+        await $.post('/api/info/deletecontact', {
+            id: contact.id.attr("data-contactId"),
+        });
+        window.location.reload();
+    })
 
 
 

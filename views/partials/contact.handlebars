@@ -5,6 +5,10 @@
             <h5 class="card-title">Name: {{ cont.firstName }} {{ cont.lastName }}</h5>
             <p>Number: {{cont.number}}</p>
             <p>Relation: {{cont.relation}}</p>
+            <div class="modal-body">
+                    <button class="btn btn-danger" data-contactId="#{{ cont.id }}" data-bs-toggle="modal" id="deleteContactBtn">Delete Contact</button>
+                    <button type="button" class="btn btn-primary" id="editContactBtn" data-bs-dismiss="modal" dataname="{{ cont.id }}">Edit</button>
+            </div>
 
     {{!-- BUTTON: Add contact info --}}
     {{!-- <div class="mt-3">
