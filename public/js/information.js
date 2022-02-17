@@ -33,6 +33,7 @@ $(document).ready(function () {
     const editListBtn = $('#editListBtn');
     const editListItems = $('#editListItems');
     const editListId = $('#editListId');
+    const deleteItemBtn = $('#deleteItemBtn');
 
     
     addMedicalBtn.on('click', async function(event) {
@@ -93,15 +94,8 @@ $(document).ready(function () {
         window.location.reload();
     })
 
-
-
-
-
-
-
     addListBtn.on('click', async function(event) {
         event.preventDefault();
-        console.log("I'm hit");
         await $.post('/api/info/list', {
             item: item.val(),
             childId: childInfo.attr("data-childId"),
@@ -117,4 +111,12 @@ $(document).ready(function () {
         });
         window.location.reload();
     });
+
+    deleteItemBtn.on('click', async function(event) {
+        event.preventDefault();
+        await $.post('/api/info/deletelist', {
+            id: list.attr("dataname"),
+        });
+        window.location.reload();
+    })
 });

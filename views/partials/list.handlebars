@@ -1,11 +1,11 @@
-<div class="card-body">
+
     
     {{#if list}}
         {{#each list as |lists|}}
+        <div class="card-body infoCard rounded-3 my-3">
             <h5 class="card-title">Item:</h5>
-            <li>
                 <p>{{lists.item}}</p>
-            </li>
+            <button class="btn btn-danger btn-sm" dataname="#{{ lists.id }}" data-bs-toggle="modal" id="deleteItemBtn">Delete Item</button>
             
     
         {{!-- BUTTON: Add list info --}}
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div> --}}
-
+        </div>
         {{/each}}
 
     {{else}}

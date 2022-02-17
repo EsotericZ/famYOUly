@@ -124,6 +124,20 @@ module.exports = {
         }
     },
 
+    deleteList: async (req, res) => {
+        const { id } = req.body;
+        try {
+            const deleteList = await List.destroy({
+                where: {
+                    id
+                }
+            });
+            res.json(deleteList);
+        } catch (e) {
+            res.json(e);
+        }
+    },
+
     renderInformation: (req, res) => {
 		if (!req.session.loggedIn) {
 			return res.redirect('/login');

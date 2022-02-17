@@ -136,7 +136,7 @@ body {
 }
 
 #slide1h, #slide1p, #slide2h, #slide2p, #slide3h, #slide3p {
-    color: #white;
+    color: white;
 	-webkit-text-stroke: 1px black;
 	text-shadow: 0px 4px 4px black;
     font-size: 50px;
