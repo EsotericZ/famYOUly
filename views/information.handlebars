@@ -8,29 +8,23 @@
             <div class="col-12">
                 <div class="card mt-2">
                     <div class="card-body">
-                        <h3 class="card-title text-start">{{ childId.firstName }} {{ childId.lastName }}:</h3>
-
+                        <h3 class="card-title text-start" id="childInfo" data-childId={{childId.id}}>{{ childId.firstName }} {{ childId.lastName }}:</h3>
                         {{!-- medical --}}
                         <a class="btn btn-dark my-5" data-bs-toggle="collapse" href="#medicalInfo" role="button"
                             aria-expanded="false" aria-controls="medicalInfo">
                             Medical Info
-                            {{!-- {{> medical}} --}}
                         </a>
                         {{!-- contact --}}
                         <a class="btn btn-dark my-5" data-bs-toggle="collapse" href="#contactInfo" role="button"
                             aria-expanded="false" aria-controls="contactInfo">
                             Contact Info
-                            {{!-- {{> contact}} --}}
                         </a>
                         {{!-- list --}}
                         <a class="btn btn-dark my-5" data-bs-toggle="collapse" href="#listInfo" role="button"
                             aria-expanded="false" aria-controls="listInfo">
                             Don't Forget List
-                            {{!-- {{> list}} --}}
                         </a>
                     </div>
-
-
                 </div>
                 <div class="collapse" id="medicalInfo">
                     <div class="card card-body">
@@ -49,7 +43,4 @@
                 </div>
             </div>
         </div>
-
-        {{!-- {{> createMedical }} --}}
-        {{!-- {{> createContact }} --}}
     </div>

@@ -1,10 +1,11 @@
 $(document).ready(function () {
+    const childInfo = $('#childInfo');
 // medical
     const addMedicalBtn = $('#addMedicalBtn');
     const medications = $('#medications');
     const allergies = $('#allergies');
     const healthInsurance = $('#healthInsurance');
-    const childIdModal = $('#childIdModal');
+    
     const editMedicalBtn = $('#editMedicalBtn');
     const editMedications = $('#editMedications');
     const editAllergies = $('#editAllergies');
@@ -34,11 +35,13 @@ $(document).ready(function () {
     
     addMedicalBtn.on('click', async function(event) {
         event.preventDefault();
+        console.log('In the medical event');
+        console.log(childInfo);
         await $.post('/api/info/medical', {
             medications: medications.val(),
             allergies: allergies.val(),
             healthInsurance: healthInsurance.val(),
-            childId: childIdModal.val(),
+            childId: childInfo.attr("data-childId"),
         });
         window.location.reload();
     });
@@ -51,17 +54,24 @@ $(document).ready(function () {
             healthInsurance: editHealthInsurance.val(),
             id: editMedId.val(),
         });
+        console.log("new update");
         window.location.reload();
     });
 
+
+
+
+
     addContactBtn.on('click', async function(event) {
         event.preventDefault();
+        console.log('In the contact event');
+        console.log(childInfo);
         await $.post('/api/info/contact', {
             firstName: firstName.val(),
             lastName: lastName.val(),
             number: number.val(),
             relation: relation.val(),
-            childId: childIdModal.val(),
+            childId: childInfo.attr("data-childId"),
         });
         window.location.reload();
     });
@@ -75,14 +85,23 @@ $(document).ready(function () {
             relation: editRelation.val(),
             id: editContactId.val(),
         });
+        console.log("updated contact");
         window.location.reload();
     });
+
+
+
+
+
+
+
+
 
     addListBtn.on('click', async function(event) {
         event.preventDefault();
         await $.post('/api/info/list', {
             item: item.val(),
-            childId: childIdModal.val(),
+            childId: childInfo.attr("data-childId"),
         });
         window.location.reload();
     });

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-	addMedicalInfo,
+    addMedicalInfo,
     createContact,
     createList,
     renderInformation,

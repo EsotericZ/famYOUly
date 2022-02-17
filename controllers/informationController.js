@@ -4,6 +4,7 @@ const {
     List,
     Child,
 } = require('../models');
+const { restore } = require('../models/Child');
 
 module.exports = {
     addMedicalInfo: async (req, res) => {
@@ -15,6 +16,7 @@ module.exports = {
                 healthInsurance,
                 childId,
             });
+            res.json(newMedicalInfo);
         } catch (e) {
             res.json(e);
         }
@@ -34,6 +36,7 @@ module.exports = {
                     id
                 }
             });
+            res.json(medicalData);
         } catch (e) {
             res.json(e);
         }
@@ -49,6 +52,7 @@ module.exports = {
                 relation,
                 childId,
             });
+            res.json(newContact);
         } catch (e) {
             res.json(e);
         }
@@ -69,6 +73,7 @@ module.exports = {
                     id
                 }
             });
+            res.json(contactInfo);
         } catch (e) {
             res.json(e);
         }
@@ -81,6 +86,7 @@ module.exports = {
                 item,
                 childId,
             });
+            res.json(newList);
         } catch (e) {
             res.json(e);
         }
@@ -98,6 +104,7 @@ module.exports = {
                     id
                 }
             });
+            res.json(updatedList);
         } catch (e) {
             res.json(e);
         }
@@ -130,7 +137,6 @@ module.exports = {
 		}
         const childId = req.params.childId;
         console.log(childId);
-
         try {
             const allMedical = await Medical.findAll({
                 where: {
@@ -148,6 +154,8 @@ module.exports = {
                 },
             });
             const childData = await Child.findByPk(childId);
+            console.log("this is medical info");
+            console.log(allMedical.map(med => med.get({ plain: true })));
             res.render('information', {
                 medical: allMedical.map(med => med.get({ plain: true })),
                 contact: allContacts.map(cont => cont.get({ plain: true })),
