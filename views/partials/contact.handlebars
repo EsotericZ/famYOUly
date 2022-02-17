@@ -75,7 +75,6 @@
                 Add Contact Info
             </button>
         </div>
-    {{!-- {{/if}} --}}
 </div>
 
 <!-- Add Contact Modal -->
@@ -90,22 +89,22 @@
                 <div ="container-fluid">
                     <div class="input-group mb-3">
                         <span class="input-group-text col-5">First Name</span>
-                        <input type="text" aria-label="First name" class="form-control" value="{{ cont.firstName }}" id="firstName">
+                        <input type="text" aria-label="First name" class="form-control" value="{{ contact.firstName }}" id="firstName">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text col-5">Last Name</span>
-                        <input type="text" aria-label="Last name" class="form-control" value="{{ cont.lastName }}" id="lastName">
+                        <input type="text" aria-label="Last name" class="form-control" value="{{ contact.lastName }}" id="lastName">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text col-5">Number</span>
-                        <input type="text" aria-label="First name" class="form-control" value="{{ cont.number }}" id="number">
+                        <input type="text" aria-label="First name" class="form-control" value="{{ contact.number }}" id="number">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text col-5" id="inputGroup-sizing-default">Relation</span>
-                        <input type="text" aria-label="First name" class="form-control" value="{{ cont.relation }}" id="relation">
+                        <input type="text" aria-label="First name" class="form-control" value="{{ contact.relation }}" id="relation">
                     </div>
                     <div class="input-group mb-3">
-                        <input type="hidden" aria-label="First name" class="form-control" value="{{ cont.id }}" id="contactIdModal">
+                        <input type="hidden" aria-label="First name" class="form-control" value="{{ contact.id }}" id="contactIdModal">
                     </div>
                 </div>
             </div>

@@ -99,6 +99,7 @@ $(document).ready(function () {
 
     addListBtn.on('click', async function(event) {
         event.preventDefault();
+        console.log("I'm hit");
         await $.post('/api/info/list', {
             item: item.val(),
             childId: childInfo.attr("data-childId"),

@@ -154,7 +154,8 @@ module.exports = {
                 },
             });
             const childData = await Child.findByPk(childId);
-            console.log("this is medical info");
+            console.log("this is contact info");
+            console.log(allContacts.map(cont => cont.get({ plain: true })));
             res.render('information', {
                 medical: allMedical.map(med => med.get({ plain: true })),
                 contact: allContacts.map(cont => cont.get({ plain: true })),
