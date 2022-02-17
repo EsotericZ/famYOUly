@@ -21,7 +21,7 @@
                 </div>
             </div>
             {{/eq}} 
-
+{{!-- Upcoming Events --}}
             {{#eq user.level 1}}
             <div class="card"id="eventsCard">
 
@@ -100,7 +100,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary updateEventBtn" data-bs-dismiss="modal" eventdata="{{ event.id }}">Save</button>
+                                                    <button type="button" class="btn btn-dark updateEventBtn" data-bs-dismiss="modal" eventdata="{{ event.id }}">Save</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -185,7 +185,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary updateEventBtn" data-bs-dismiss="modal">Save</button>
+                                                    <button type="button" class="btn btn-dark updateEventBtn" data-bs-dismiss="modal">Save</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -199,11 +199,7 @@
             {{/eq}}
 
 
-
-
-
-
-    
+    {{!-- todos --}}
         <div class="card col-12" id="todoCol">
             <div class="card-header">
                 <h7>To Do's</h7>
@@ -288,7 +284,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-primary updateKidBtn" data-bs-dismiss="modal" kiddata="{{ kid.id }}">Save</button>
+                                                                <button type="button" class="btn btn-dark updateKidBtn" data-bs-dismiss="modal" kiddata="{{ kid.id }}">Save</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -300,7 +296,7 @@
                                             <li class="list-group-item">Nick name: {{ kid.nickname }}</li>
                                             <li class="list-group-item">Pronouns: {{ kid.pronouns }}</li>
                                             <li class="list-group-item bdate">{{ kid.birthday }}</li>
-                                            <li class="list-group-item text-end"><a href="/api/info/{{ kid.id }}">More Info</a></li>
+                                            <li class="list-group-item text-end" id="infoMore"><a href="/api/info/{{ kid.id }}">More Info</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -326,7 +322,7 @@
                                             <li class="list-group-item">Nick name: {{ kid.nickname }}</li>
                                             <li class="list-group-item">Pronouns: {{ kid.pronouns }}</li>
                                             <li class="list-group-item bdate">{{ kid.birthday }}</li>
-                                            <li class="list-group-item text-end"><a href="/api/info/{{ kid.id }}">More Info</a></li>
+                                            <li class="list-group-item text-end" id="infoMore"><a href="/api/info/{{ kid.id }}">More Info</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -465,7 +461,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="eventBtn" data-bs-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-dark" id="eventBtn" data-bs-dismiss="modal">Save</button>
             </div>
         </div>
     </div>

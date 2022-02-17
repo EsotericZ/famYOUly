@@ -36,6 +36,10 @@ h4 {
     margin-left: 16px;
     padding-top: 8px;
     padding-bottom: 8px;
+    color: black;
+}
+#infoMore {
+    color: black;
 }
 .list-group {
     padding: 8px;
@@ -261,8 +265,8 @@ h9 {
     padding-left: 16px;
 }
 
-#medicalInfo,
-#contactInfo,
-#listInfo {
+#infoMedical,
+#infoContact,
+#infoList {
     margin-left: 10px;
 }
