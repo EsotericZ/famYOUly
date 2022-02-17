@@ -3,17 +3,19 @@
     {{#if contact}}
         {{#each contact as |cont|}}
         <div class="card-body my-3 infoCard rounded-3">
-            <h5 class="card-title">Name: {{ cont.firstName }} {{ cont.lastName }}</h5>
-            <p class="card-text">Number: {{cont.number}}</p>
+            <h5 class="card-title fs-4">Name: {{ cont.firstName }} {{ cont.lastName }}</h5>
+            <p class="card-text">Number:
+                <a href="tel:+{{cont.number}}">{{cont.number}}</a>
+            </p>
             <p class="card-text">Relation: {{cont.relation}}</p>
 
             <div class="mt-2">
     {{!-- BUTTON: Edit contact info --}}
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#editContactModal" dataname="{{ cont.id }}" class="btn btn-dark">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#editContactModal" dataname="{{ cont.id }}" class="btn btn-dark btn-sm">
                         Edit Contact Info
                     </button>
     {{!-- BUTTON: Delete contact info --}}
-                    <button class="btn btn-danger" data-contactId="#{{ cont.id }}" data-bs-toggle="modal" id="deleteContactBtn">Delete Contact</button>
+                    <button class="btn btn-danger btn-sm" data-contactId="#{{ cont.id }}" data-bs-toggle="modal" id="deleteContactBtn">Delete Contact</button>
             </div>
             <!-- Edit Contact Modal -->
             <div class="modal fade" id="editContactModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
