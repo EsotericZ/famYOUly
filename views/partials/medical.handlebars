@@ -1,13 +1,20 @@
-<div class="card-body">
+
 
     {{#if medical}}
         {{#each medical as |med|}}
-            <h5 class="card-title">Medications:</h5>
-            <p class="card-text py-3">{{ med.medications }}</p>
-            <h5 class="card-title">Allergies:</h5>
-            <p class="card-text py-3">{{ med.allergies }}</p>
-            <h5 class="card-title">Health Insurance:</h5>
-            <p class="card-text py-3">{{ med.healthInsurance }}</p>
+        <div class="card-body my-2 infoCard rounded-3">
+            <div class="card-body my-2 medCard rounded-3">
+                <h5 class="card-title fs-4">Medications:</h5>
+                <p class="card-text py-3 fs-5">{{ med.medications }}</p>
+            </div>
+            <div class="card-body my-2 medCard rounded-3">
+                <h5 class="card-title fs-4">Allergies:</h5>
+                <p class="card-text py-3 fs-5">{{ med.allergies }}</p>
+            </div>
+            <div class="card-body my-2 medCard rounded-3">
+                <h5 class="card-title fs-4">Health Insurance:</h5>
+                <p class="card-text py-3 fs-5">{{ med.healthInsurance }}</p>
+            </div>
 
             {{!-- BUTTON: Add medical info --}}
             <div class="mt-3">
@@ -49,6 +56,7 @@
                     </div>
                 </div>
             </div>
+        </div>
 
         {{/each}}
 

@@ -1,20 +1,22 @@
-<div class="card-body">
+
     
     {{#if list}}
         {{#each list as |lists|}}
-        <li>
-            <p>{{lists.item}}</p>
-        </li>
+        <div class="card-body infoCard rounded-3 my-3">
+            <h5 class="card-title">Item:</h5>
+                <p>{{lists.item}}</p>
+            <button class="btn btn-danger btn-sm" dataname="#{{ lists.id }}" data-bs-toggle="modal" id="deleteItemBtn">Delete Item</button>
+            
     
-        {{!-- BUTTON: Edit list info --}}
-        <div class="mt-3">
+        {{!-- BUTTON: Add list info --}}
+        {{!-- <div class="mt-3">
             <button type="button" data-bs-toggle="modal" data-bs-target="#editListModal" class="btn btn-secondary">
                 Edit List Info
             </button>
-        </div>
+        </div> --}}
 
     <!-- Edit List Modal -->
-            <div class="modal fade" id="editListModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
+            {{!-- <div class="modal fade" id="editListModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -37,22 +39,21 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
+            </div> --}}
+        </div>
         {{/each}}
 
     {{else}}
         <h5 class="card-title">Items:</h5>
         <p class="card-text py-3"></p>
-
+    
+    {{/if}}
         {{!-- BUTTON: Add list info --}}
         <div class="mt-3">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#addListModal" class="btn btn-dark">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#addListModal" class="btn btn-secondary">
                 Add To List
             </button>
         </div>
-    {{/if}}
-
 </div>
 
 <!-- Add List Modal -->
@@ -67,7 +68,7 @@
                 <div ="container-fluid">
                     <div class="input-group mb-3">
                         <span class="input-group-text col-5">Items</span>
-                        <input type="text" aria-label="Items" class="form-control" value="{{ list.item }}" id="listItems">
+                        <input type="text" aria-label="Items" class="form-control" value="{{ list.item }}" id="item">
                     </div>
                     <div class="input-group mb-3">
                         <input type="hidden" aria-label="Id" class="form-control" value="{{ list.id }}" id="listIdModal">

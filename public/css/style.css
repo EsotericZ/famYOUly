@@ -136,7 +136,7 @@ body {
 }
 
 #slide1h, #slide1p, #slide2h, #slide2p, #slide3h, #slide3p {
-    color: #white;
+    color: white;
 	-webkit-text-stroke: 1px black;
 	text-shadow: 0px 4px 4px black;
     font-size: 50px;
@@ -234,4 +234,14 @@ h9 {
     /* width: 546px; */
     font-family: 'Merriweather', serif;
     border-collapse: collapse;
+}
+
+.infoCard {
+    background-color: #607c82;
+    color: white;
+}
+
+.medCard {
+    border-style: solid;
+    border-color: var(--black);
 }

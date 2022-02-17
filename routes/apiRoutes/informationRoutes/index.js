@@ -9,25 +9,21 @@ const {
     updateMedicalInfo,
     updateContact,
     updateList,
+    deleteContact,
+    deleteList,
 } = require('../../../controllers/informationController');
 
 router.post('/medical', addMedicalInfo);
 router.post('/updatemedical', updateMedicalInfo);
 router.post('/contact', createContact);
 router.post('/updatecontact', updateContact);
+router.post('/deletecontact', deleteContact);
 router.post('/list', createList);
 router.post('/updatelist', updateList);
-// router.post('/medication', addMedicalInfo)
-
-
-// router.route('/')
-//     .get(renderInformation);
+router.post('/deletelist', deleteList);
 
 router.route('/:childId')
     .get(getInformation);
-    // .post(updateMedicalInfoById)
-    // .post(updateContact)
-    // .post(updateList);
 
 router.route('/set')
     .post(setChild);

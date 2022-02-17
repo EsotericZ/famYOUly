@@ -50,7 +50,7 @@ module.exports = {
                 lastName,
                 number,
                 relation,
-                childId,
+                childId
             });
             res.json(newContact);
         } catch (e) {
@@ -74,6 +74,20 @@ module.exports = {
                 }
             });
             res.json(contactInfo);
+        } catch (e) {
+            res.json(e);
+        }
+    },
+
+    deleteContact: async (req, res) => {
+        const { id } = req.body;
+        try {
+            const deleteContact = await Contact.destroy({
+                where: {
+                    id
+                }
+            });
+            res.json("contact deleted", deleteContact);
         } catch (e) {
             res.json(e);
         }
@@ -105,6 +119,20 @@ module.exports = {
                 }
             });
             res.json(updatedList);
+        } catch (e) {
+            res.json(e);
+        }
+    },
+
+    deleteList: async (req, res) => {
+        const { id } = req.body;
+        try {
+            const deleteList = await List.destroy({
+                where: {
+                    id
+                }
+            });
+            res.json(deleteList);
         } catch (e) {
             res.json(e);
         }
@@ -154,7 +182,8 @@ module.exports = {
                 },
             });
             const childData = await Child.findByPk(childId);
-            console.log("this is medical info");
+            console.log("this is contact info");
+            console.log(allContacts.map(cont => cont.get({ plain: true })));
             res.render('information', {
                 medical: allMedical.map(med => med.get({ plain: true })),
                 contact: allContacts.map(cont => cont.get({ plain: true })),

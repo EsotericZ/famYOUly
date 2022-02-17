@@ -17,12 +17,14 @@ $(document).ready(function () {
     const lastName = $('#lastName');
     const number = $('#number');
     const relation = $('#relation');
+    const contactIdModal = $('#contactIdModal');
     const editContactBtn = $('#editContactBtn');
     const editFirstName = $('#editFirstName');
     const editLastName = $('#editLastName');
     const editNumber = $('#editNumber');
     const editRelation = $('#editRelation');
     const editContactId = $('#editContactId');
+    const deleteContactBtn = $('#deleteContactBtn');
 // list
     const addListBtn = $('#addListBtn');
     const item = $('#item');
@@ -31,6 +33,7 @@ $(document).ready(function () {
     const editListBtn = $('#editListBtn');
     const editListItems = $('#editListItems');
     const editListId = $('#editListId');
+    const deleteItemBtn = $('#deleteItemBtn');
 
     
     addMedicalBtn.on('click', async function(event) {
@@ -58,14 +61,9 @@ $(document).ready(function () {
         window.location.reload();
     });
 
-
-
-
-
     addContactBtn.on('click', async function(event) {
         event.preventDefault();
-        console.log('In the contact event');
-        console.log(childInfo);
+        console.log("In the contact event");
         await $.post('/api/info/contact', {
             firstName: firstName.val(),
             lastName: lastName.val(),
@@ -83,19 +81,18 @@ $(document).ready(function () {
             lastName: editLastName.val(),
             number: editNumber.val(),
             relation: editRelation.val(),
-            id: editContactId.val(),
+            id: contact.id.attr("dataname"),
         });
         console.log("updated contact");
         window.location.reload();
     });
 
-
-
-
-
-
-
-
+    deleteContactBtn.on('click', async function(event) {
+        await $.post('/api/info/deletecontact', {
+            id: contact.id.attr("data-contactId"),
+        });
+        window.location.reload();
+    })
 
     addListBtn.on('click', async function(event) {
         event.preventDefault();
@@ -114,4 +111,12 @@ $(document).ready(function () {
         });
         window.location.reload();
     });
+
+    deleteItemBtn.on('click', async function(event) {
+        event.preventDefault();
+        await $.post('/api/info/deletelist', {
+            id: list.attr("dataname"),
+        });
+        window.location.reload();
+    })
 });
