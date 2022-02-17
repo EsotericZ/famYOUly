@@ -183,10 +183,9 @@ table {
     background-color: white;
 }
 
-#loginBtn,
-#signinBtn {
+#loginBtn {
     /* background-color: #244454; */
-    padding-top: 4px;
+    padding-top: 25px;
 }
 
 .row>* {
@@ -265,8 +264,12 @@ h9 {
     padding-left: 16px;
 }
 
-#infoMedical,
-#infoContact,
-#infoList {
+#medInfo,
+#contInfo,
+#liInfo {
     margin-left: 10px;
+}
+
+#informationPageInfo {
+max-height: 200px;
 }
