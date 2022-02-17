@@ -264,11 +264,11 @@ h9 {
     padding-left: 16px;
 }
 
-#medInfo,
+/* #medInfo,
 #contInfo,
 #liInfo {
     /* margin-left: 10px; */
-}
+
 
 #informationPageInfo {
 max-height: 200px;
