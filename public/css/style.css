@@ -66,8 +66,6 @@ h3 {
     font-size: 40px;
     margin-top: 25px;
 }
-
-
 /* CALENDAR STUFF */
 body {
     padding: 0;
@@ -239,8 +237,8 @@ h9 {
 }
 
 .infoCard {
-    background-color: #607c82;
-    color: white;
+    /* background-color: #607c82; */
+    color: black;
 }
 
 .medCard {
