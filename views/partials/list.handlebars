@@ -6,7 +6,7 @@
             <p>{{lists.item}}</p>
         </li>
     
-        {{!-- BUTTON: Add list info --}}
+        {{!-- BUTTON: Edit list info --}}
         <div class="mt-3">
             <button type="button" data-bs-toggle="modal" data-bs-target="#editListModal" class="btn btn-secondary">
                 Edit List Info
@@ -67,10 +67,10 @@
                 <div ="container-fluid">
                     <div class="input-group mb-3">
                         <span class="input-group-text col-5">Items</span>
-                        <input type="text" aria-label="Items" class="form-control" value="{{ lists.item }}" id="listItems">
+                        <input type="text" aria-label="Items" class="form-control" value="{{ list.item }}" id="listItems">
                     </div>
                     <div class="input-group mb-3">
-                        <input type="hidden" aria-label="Id" class="form-control" value="{{ lists.id }}" id="listIdModal">
+                        <input type="hidden" aria-label="Id" class="form-control" value="{{ list.id }}" id="listIdModal">
                     </div>
                 </div>
             </div>
