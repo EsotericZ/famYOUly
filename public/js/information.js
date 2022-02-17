@@ -17,6 +17,7 @@ $(document).ready(function () {
     const lastName = $('#lastName');
     const number = $('#number');
     const relation = $('#relation');
+    const contactIdModal = $('#contactIdModal');
     const editContactBtn = $('#editContactBtn');
     const editFirstName = $('#editFirstName');
     const editLastName = $('#editLastName');
@@ -64,8 +65,7 @@ $(document).ready(function () {
 
     addContactBtn.on('click', async function(event) {
         event.preventDefault();
-        console.log('In the contact event');
-        console.log(childInfo);
+        console.log("In the contact event");
         await $.post('/api/info/contact', {
             firstName: firstName.val(),
             lastName: lastName.val(),

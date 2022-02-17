@@ -50,7 +50,7 @@ module.exports = {
                 lastName,
                 number,
                 relation,
-                childId,
+                childId
             });
             res.json(newContact);
         } catch (e) {
