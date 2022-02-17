@@ -232,10 +232,10 @@
         <div class="col-6">
                     {{#eq user.level 1}}
                     <div class="container">
-                        <div class="row">
+                        <div class="row"id="kidsCard">
                             {{#each allKids as |kid|}}
                                 <div class="col-6 px-1">
-                                    <div class="card" id="kidsCard">
+                                    <div class="card" >
                                         {{#if kid.picture}}
                                           <img src="{{ kid.picture }}" class="card-img-top kidPic"  alt="..."> 
                                         {{else}}
