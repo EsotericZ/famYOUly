@@ -25,7 +25,6 @@ $(document).ready(function () {
     const editRelation = $('#editRelation');
     const editContactId = $('#editContactId');
     const deleteContactBtn = $('#deleteContactBtn');
-    // const editContactBtn = $('#editContactBtn');
 // list
     const addListBtn = $('#addListBtn');
     const item = $('#item');
@@ -61,10 +60,6 @@ $(document).ready(function () {
         window.location.reload();
     });
 
-
-
-
-
     addContactBtn.on('click', async function(event) {
         event.preventDefault();
         console.log("In the contact event");
@@ -85,7 +80,7 @@ $(document).ready(function () {
             lastName: editLastName.val(),
             number: editNumber.val(),
             relation: editRelation.val(),
-            id: editContactId.val(),
+            id: contact.id.attr("dataname"),
         });
         console.log("updated contact");
         window.location.reload();
