@@ -1,40 +1,56 @@
-{{#if list}}
-    <div class="card-body infoCard rounded-3 my-3">
-        <h5 class="card-title">Item List:</h5>
-        {{#each list as |lists|}}
-            <p>{{ lists.item }}</p>
-        {{/each}}
+{{#eq user.level 1}}
+    {{#if list}}
+        <div class="card-body infoCard rounded-3 my-3">
+            <h5 class="card-title">Item List:</h5>
+            {{#each list as |lists|}}
+                <p>{{ lists.item }}</p>
+            {{/each}}
+        </div>
+    {{else}}
+        <h5 class="card-title">Currently No Items</h5>
+    {{/if}}
+
+        {{!-- BUTTON: Add list info --}}
+    <div class="mt-3">
+        <button type="button" data-bs-toggle="modal" data-bs-target="#addListModal" class="btn btn-dark">
+            Add To List
+        </button>
     </div>
-{{else}}
-    <h5 class="card-title">Currently No Items</h5>
-{{/if}}
 
-    {{!-- BUTTON: Add list info --}}
-<div class="mt-3">
-    <button type="button" data-bs-toggle="modal" data-bs-target="#addListModal" class="btn btn-dark">
-        Add To List
-    </button>
-</div>
-
-    <!-- Add List Modal -->
-<div class="modal fade" id="addListModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabelEvent">Add To List</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div ="container-fluid">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text col-5">Items</span>
-                        <input type="text" aria-label="Items" class="form-control" value="{{ list.item }}" id="newItem">
+        <!-- Add List Modal -->
+    <div class="modal fade" id="addListModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabelEvent" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabelEvent">Add To List</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div ="container-fluid">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text col-5">Items</span>
+                            <input type="text" aria-label="Items" class="form-control" value="{{ list.item }}" id="newItem">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-dark addListBtn" data-bs-dismiss="modal">Save</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark addListBtn" data-bs-dismiss="modal">Save</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+{{else}}
+
+    {{#if list}}
+        <div class="card-body infoCard rounded-3 my-3">
+            <h5 class="card-title">Item List:</h5>
+            {{#each list as |lists|}}
+                <p>{{ lists.item }}</p>
+            {{/each}}
+        </div>
+    {{else}}
+        <h5 class="card-title">Currently No Items</h5>
+    {{/if}}
+
+{{/eq}}
