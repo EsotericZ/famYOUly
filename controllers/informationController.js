@@ -16,7 +16,7 @@ module.exports = {
                 healthInsurance,
                 childId,
             });
-            res.json(newMedicalInfo);
+            // res.json(newMedicalInfo);
         } catch (e) {
             res.json(e);
         }
@@ -36,7 +36,7 @@ module.exports = {
                     id
                 }
             });
-            res.json(medicalData);
+            // res.json(medicalData);
         } catch (e) {
             res.json(e);
         }
@@ -52,7 +52,7 @@ module.exports = {
                 relation,
                 childId
             });
-            res.json(newContact);
+            // res.json(newContact);
         } catch (e) {
             res.json(e);
         }
@@ -73,7 +73,7 @@ module.exports = {
                     id
                 }
             });
-            res.json(contactInfo);
+            // res.json(contactInfo);
         } catch (e) {
             res.json(e);
         }
@@ -99,29 +99,29 @@ module.exports = {
                 item,
                 childId,
             });
-            res.json(newList);
+            // res.redirect('/');
         } catch (e) {
             res.json(e);
         }
     },
 
-    updateList: async (req, res) => {
-        const { item, id } = req.body;
-        const childId = req.params.childId;
-        try {
-            const updatedList = await List.update({
-                item
-            },
-            {
-                where: {
-                    id
-                }
-            });
-            res.json(updatedList);
-        } catch (e) {
-            res.json(e);
-        }
-    },
+    // updateList: async (req, res) => {
+    //     const { item, id } = req.body;
+    //     const childId = req.params.childId;
+    //     try {
+    //         const updatedList = await List.update({
+    //             item
+    //         },
+    //         {
+    //             where: {
+    //                 id
+    //             }
+    //         });
+    //         res.json(updatedList);
+    //     } catch (e) {
+    //         res.json(e);
+    //     }
+    // },
 
     deleteList: async (req, res) => {
         const { id } = req.body;

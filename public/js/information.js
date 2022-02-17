@@ -17,17 +17,17 @@ $(document).ready(function () {
     const lastName = $('#lastName');
     const number = $('#number');
     const relation = $('#relation');
-    const contactIdModal = $('#contactIdModal');
+    // const contactIdModal = $('#contactIdModal');
     const editContactBtn = $('.editContactBtn');
     const deleteContactBtn = $('.deleteContactBtn');
 // list
-    const addListBtn = $('#addListBtn');
-    const item = $('#item');
-    const listItems = $('#listItems');
+    const addListBtn = $('.addListBtn');
+    const item = $('#newItem');
+    // const listItems = $('#listItems');
     const listIdModal = $('#listIdModal');
-    const editListBtn = $('#editListBtn');
-    const editListItems = $('#editListItems');
-    const editListId = $('#editListId');
+    // const editListBtn = $('#editListBtn');
+    // const editListItems = $('#editListItems');
+    // const editListId = $('#editListId');
     const deleteItemBtn = $('#deleteItemBtn');
 
     
@@ -58,7 +58,7 @@ $(document).ready(function () {
 
     addContactBtn.on('click', async function(event) {
         event.preventDefault();
-        console.log("In the contact event");
+        // console.log("In the contact event");
         await $.post('/api/info/contact', {
             firstName: firstName.val(),
             lastName: lastName.val(),
@@ -106,14 +106,14 @@ $(document).ready(function () {
         window.location.reload();
     });
 
-    editListBtn.on('click', async function(event) {
-        event.preventDefault();
-        await $.post('/api/info/updatelist', {
-            item: editListItems.val(),
-            id: editListId.val(),
-        });
-        window.location.reload();
-    });
+    // editListBtn.on('click', async function(event) {
+    //     event.preventDefault();
+    //     await $.post('/api/info/updatelist', {
+    //         item: editListItems.val(),
+    //         id: editListId.val(),
+    //     });
+    //     window.location.reload();
+    // });
 
     deleteItemBtn.on('click', async function(event) {
         event.preventDefault();
