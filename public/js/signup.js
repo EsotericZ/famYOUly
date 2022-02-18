@@ -5,7 +5,7 @@ $(document).ready(function () {
   const emailField = $('#emailField');
   const passwordField = $('#passwordField');
   const roleField = $('#roleField');
-  const numberField = $('#numberField');
+  const phoneField = $('#phoneField');
   const signupBtn = $('#signupBtn');
 
   signupBtn.on('click', async function (event) {
@@ -17,7 +17,7 @@ $(document).ready(function () {
       email: emailField.val(),
       password: passwordField.val(),
       role: roleField.val(),
-      phoneNumber: numberField.val(),
+      phoneNumber: phoneField.val(),
     });
     window.location.href = '/waitingapproval';
   });
