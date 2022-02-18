@@ -21,7 +21,7 @@ module.exports = {
 				req.session.save(() => {
 					req.session.loggedIn = true;
 					req.session.user = userFound;
-					res.json({ success: true });
+
 				});
 			}
 		} catch (e) {
@@ -30,7 +30,7 @@ module.exports = {
 	},
 
 	signupHandler: async (req, res) => {
-		console.log(req.body)
+
 		const { familyName, firstName, lastName, email, password, role, phoneNumber } = req.body;
 		try {
 			const createdUser = await User.create({
@@ -78,7 +78,7 @@ module.exports = {
 	},
 
 	updateProfile: async (req, res) => {
-		console.log(req.body)
+
 		const { id, firstName, lastName, email, phoneNumber } = req.body;
 		try {
 			const updatedProfile = await User.update({
@@ -97,7 +97,7 @@ module.exports = {
 				user,
 			});
 		} catch (e) {
-			console.log(e)
+
 			res.json(e);
 		}
 	},

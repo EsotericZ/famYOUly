@@ -103,7 +103,7 @@ $(document).ready(function() {
     const newPronouns = $(`#newPronouns[kiddata="${attribute}"]`).val();
     const newBirthday = $(`#newBirthday[kiddata="${attribute}"]`).val();
     event.preventDefault();
-    console.log(newPronouns)
+
     await $.post('/api/children/updatechild', {
       id: newId,
       firstName: newFirst,
