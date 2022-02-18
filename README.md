@@ -39,9 +39,9 @@ Video Example
 
 ## Deployment
 https://evening-island-73261.herokuapp.com/login  
-![Alt text](/images/homepage.png?raw=true "Screenshot")  
-![Alt text](/images/webpage1.png?raw=true "Screenshot")  
-![Alt text](/images/webpage2.png?raw=true "Screenshot")  
+![Alt text](/public/images/homepage.png?raw=true "Screenshot")  
+![Alt text](/public/images/webpage1.png?raw=true "Screenshot")  
+![Alt text](/public/images/webpage2.png?raw=true "Screenshot")  
 
 ## Contributors
 Kirtley Adams  
