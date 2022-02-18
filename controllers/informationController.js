@@ -132,7 +132,6 @@ module.exports = {
 			return res.redirect('/waitingapproval');
 		}
         const childId = req.params.childId;
-        console.log(childId);
         try {
             const allMedical = await Medical.findAll({
                 where: {

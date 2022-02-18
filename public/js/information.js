@@ -25,8 +25,7 @@ $(document).ready(function () {
 
     addMedicalBtn.on('click', async function(event) {
         event.preventDefault();
-        console.log('In the medical event');
-        console.log(childInfo);
+
         await $.post('/api/info/medical', {
             medications: medications.val(),
             allergies: allergies.val(),
