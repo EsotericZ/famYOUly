@@ -67,6 +67,8 @@ h1 {
     text-align: center;
     margin-left: 15%;
     margin-right: 15%;
+    padding: 15px;
+    margin-bottom: 25%;
 }
 
 .h3 {
@@ -275,3 +277,11 @@ h9 {
 max-height: 200px;
 }
 
+#kidsCard {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#familyBtn,
+#signupBtn {
+    margin-top: 20px;
+}
