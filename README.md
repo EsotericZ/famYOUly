@@ -1,42 +1,73 @@
 # famYOUly
-Project 02 - Family app for raising a kid
+Family app for raising a children
 
-# Contributors 
-CJ Sanders, Kirtley Adams, Kai Walsh, and Erna Lukač
+## Description 
+In today’s day and age, families are so much more than a mom, dad, and 2.5 kids. Sometimes grandparents take on a larger role, or parents split up and children have bonus parents. We created FamYOUly as a way to tackle the arduous task that is parenting in this modern day and age. With FamYOUly you can collaborate with your child’s support network to post events, have a shared calendar, add todos. No more forgetting to buy a poster board for your kid’s science project and being reminded the night before. You now have a place to list medications, allergies, and other medication, so your babysitter is on the same page and doesn’t whip out the peanut butter and send little Johnny to the hospital on your girls’ night. Store important contacts so you remember teacher’s names, etc. Welcome to FamYOUly, it takes a village, and we are here to help.
 
-# Division of Labor
+## Table of Contents
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Deployment](#Deployment)
+- [Contributing](#Contributors)
+- [Tests](#Tests)
+- [Future](#Future)
+- [Questions](#Questions)
 
-CJ - back end
+## Installation
+The following dependencies are required:  
+dotenv, express, express-handlebars, express-session, handlebars, handlebars-helpers, http, multer, mysql2, nodemon, sequelize, sweetalert and uuid  
 
-Kirtley - front end
+Install all dependencies and seed the database  
+```
+npm i
+npm run seed
+```
+Enviroment Variables Required  
+Create a .env file with the following:  
+```
+DB_NAME=family_db
+DB_USER=root
+DB_PASS=password
+SESSION_SECRET={addyoursecret}
+```
+      
+## Usage
+Creating a full stack website that can add, delete and update users, events, todos, children and miscellaneous information for a family.  
+  
+Video Example  
+<!-- [![Watch](https://img.freepik.com/free-vector/video-player-interface-play-button-play-video_177006-355.jpg?size=626&ext=jpg)](https://watch.screencastify.com/v/NBfxKOk0lWjbZ3x2wHpV)   -->
 
-Kai - back end
+## Deployment
+https://evening-island-73261.herokuapp.com/login  
+<!-- ![Alt text](/public/assets/images/screenshot.png?raw=true "Screenshot")   -->
 
-Erna - front end
+## Contributors
+Kirtley Adams  
+Front End  
+GitHub Profile: [kirtleyadams](https://github.com/kirtleyadams)  
 
-# Elavator Pitch
+Erna Lukač  
+Front End  
+GitHub Profile: [ooernica](https://github.com/ooernica)  
 
-In today’s day and age, families are so much more than a mom, dad, and 2.5 kids. Sometimes grandparents take on a larger role, or parents split up and children have bonus parents. We created FamYOUly as a way to tackle the arduous task that is parenting in this modern day and age. With FamYOUly you can collaborate with your child’s support network to post events, have a shared calendar, add todos. No more forgetting to buy a poster board for your kid’s science project and being reminded the night before. You now have a place to list medications, allergies, and other medication, so your babysitter is on the same page and doesn’t whip out the peanut butter and send little Johnny to the hospital on your girls’ night. Store important contacts so you remember teacher’s names, etc. Welcome to FamYOUly, it takes a village, and we are here to help. 
+CJ Sanders  
+Back End  
+GitHub Profile: [EsotericZ](https://www.github.com/EsotericZ)  
 
-# User Story
+Kai Walsh  
+Back End  
+GitHub Profile: [kaiwalsh1](https://github.com/kaiwalsh1)  
 
-- AS A parent,
-- I WANT an app that helps me co-parent
-- SO THAT I can easily navigate, support, and communicate my child’s life with my family (/support network)
+## Tests
+n/a  
 
-# Deployed link
-https://evening-island-73261.herokuapp.com/login
+## Future
+Add/Edit profile pictures from the front end  
+Chat feature  
 
-# Build With
-HandleBars, Javascript, HTML, CSS, mySQL, and Node 
-
-# New Package Used
-handlebars-helpers
-
-# Directions for Future Development: 
-
-- Add function to add photos on from the server side into database
-- We also wanted to do a chat feature. The idea behind this was to have a chat if family members needed to have last minute conversations, liking picking up and dropping off. But we didn’t get to finish it up. 
-
-# Photo of Deployed Site
-
+## Questions
+Additional questions? Contact us:   
+[Kirtley Adams](mailto:Hello@kirtleymichelle.com)  
+[Erna Lukač](mailto:e.lukac4@gmail.com)  
+[CJ Sanders](mailto:cjsand03@gmail.com)  
+[Kai Walsh](mailto:kai@kaiconsulting.co)  
