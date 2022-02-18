@@ -4,6 +4,8 @@ const {
 
 module.exports = {
 	createFamily: async (req, res) => {
+		console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!' )
+		console.log(req.body)
 		const { familyName, firstName, lastName, email, password, role, phoneNumber } = req.body;
 		try {
 			const createdFamily = await Family.create({
