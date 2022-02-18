@@ -14,7 +14,7 @@ module.exports = {
                 birthday,
 				familyName,
 			});
-            // res.json(createdChild);
+            res.redirect('/homepage');
 		} catch (e) {
 			res.json(e);
 		}

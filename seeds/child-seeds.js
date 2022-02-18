@@ -39,7 +39,7 @@ const childData = [
         pronouns: 'She/Her',
         birthday: '1995-05-31',
         familyName: 'Lannister',
-        picture: '',
+        picture: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpbs.twimg.com%2Fprofile_images%2F909881817427308544%2FTS8-dtK0_400x400.jpg&f=1&nofb=1',
     },
     {
         modalId: 5,
@@ -49,7 +49,7 @@ const childData = [
         pronouns: 'He/Him',
         birthday: '1998-7-01',
         familyName: 'Lannister',
-        picture: '',
+        picture: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.abc.net.au%2Fnews%2Fimage%2F7310248-3x2-940x627.jpg&f=1&nofb=1',
     },
     {
         modalId: 6,
@@ -59,7 +59,7 @@ const childData = [
         pronouns: 'He/Him',
         birthday: '200-08-20',
         familyName: 'Lannister',
-        picture: '',
+        picture: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftopicimages.mrowl.com%2Flarge%2Fchaseosburn%2Fchaos_is_a_ladder%2Factors%2Fdeancharles_chapman__tommen_baratheon_1.jpg&f=1&nofb=1',
     },
 ];
 
