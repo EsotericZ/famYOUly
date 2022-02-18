@@ -57,10 +57,6 @@ User.init(
 			type: DataTypes.STRING,
 			allowNull: false,
 			unique: true,
-			validate: {
-				isNumeric: true,
-				len: 10,
-			}
 		},
 		picture: {
 			type: DataTypes.STRING,
