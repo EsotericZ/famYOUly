@@ -16,7 +16,6 @@ module.exports = {
                 childId,
             });
             res.redirect(request.get('referer'));
-            // res.json(newMedicalInfo);
         } catch (e) {
             res.json(e);
         }
