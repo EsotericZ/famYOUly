@@ -35,7 +35,7 @@ SESSION_SECRET={addyoursecret}
 Creating a full stack website that can add, delete and update users, events, todos, children and miscellaneous information for a family.  
   
 Video Example  
-<!-- [![Watch](https://img.freepik.com/free-vector/video-player-interface-play-button-play-video_177006-355.jpg?size=626&ext=jpg)](https://watch.screencastify.com/v/NBfxKOk0lWjbZ3x2wHpV)   -->
+[![Watch](https://img.freepik.com/free-vector/video-player-interface-play-button-play-video_177006-355.jpg?size=626&ext=jpg)](https://drive.google.com/file/d/11FZxl1cPXfxuh8klBxC9NzoLqxZu83Z8/view)  
 
 ## Deployment
 https://evening-island-73261.herokuapp.com/login  

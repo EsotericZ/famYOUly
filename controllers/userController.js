@@ -21,6 +21,7 @@ module.exports = {
 				req.session.save(() => {
 					req.session.loggedIn = true;
 					req.session.user = userFound;
+					res.json({ success: true });
 
 				});
 			}
