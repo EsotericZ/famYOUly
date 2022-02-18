@@ -90,16 +90,10 @@ module.exports = {
 				    id
 				}
 			});
-			console.log(updatedProfile)
-			
-			// const user = updatedProfile.get({ plain: true });
-			// req.session.destroy();
-			req.session.save(() => {
-				req.session.loggedIn = true;
-				req.session.user = user;
-				req.session.firstName = firstName;
-				// res.redirect('/profile');
-				res.json(true)
+			const userData = await User.findByPk(id);
+			const user = userData.get({ plain: true });
+			res.render('profile', {
+				user,
 			});
 		} catch (e) {
 			console.log(e)
