@@ -30,6 +30,7 @@ module.exports = {
 	},
 
 	signupHandler: async (req, res) => {
+		console.log(req.body)
 		const { familyName, firstName, lastName, email, password, role, phoneNumber } = req.body;
 		try {
 			const createdUser = await User.create({
